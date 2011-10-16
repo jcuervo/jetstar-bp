@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Conditional comment for mobile ie7 http://blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="cleartype" content="on">
+
+  <%= stylesheet_link_tag "style"%>
+  <%= javascript_include_tag "modernizr-custom"%>
+  <script>
+    Modernizr.mq('(min-width:0)') || document.write('<script src="respond.min.js">\x3C/script>')
+  </script>
+  
+  <%= csrf_meta_tags %>
+</head>
+  <body>
+    <div id="container">
+      <header>
+
+      </header>
+      <div id="main" role="main">
+        <%= yield %>
+      </div>
+
+      <footer>
+
+      </footer>
+    </div>
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <%= javascript_include_tag "helper"%>
+    <script>
+      MBP.scaleFix();
+    </script>
+  </body>
+</html>
