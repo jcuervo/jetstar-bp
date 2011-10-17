@@ -242,14 +242,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   display:block;
   float:left;
 }
-.departIcon {
-  height:34px;
-  width:34px;
-  background:transparent url("icons.jpg") no-repeat;
-  display:block;
-  float:left;
-  margin-left:15px;
-}
+
 .sDepartDate {
   margin-top:15px;
 }
@@ -374,9 +367,22 @@ a#calLink {
 .schedtaps h4{
   margin:0;
   padding:0;
-  text-align:left;
   min-height:30px;
 }
+
+#dr {
+  float: left;
+  width: 100%;
+}
+
+#dd h4 {
+  text-align: left;
+}
+
+#rd h4 {
+  text-align: right;
+}
+
 .left {float:left;}
 .ui-datepicker {
   margin:0 auto;
