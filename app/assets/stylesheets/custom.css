@@ -100,7 +100,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
     height:34px;
     position:absolute;
     z-index:20;
-    top:5px;
     left:5px;
     line-height: 0;
     text-indent: -9999px;
@@ -163,6 +162,7 @@ h2#findFlights {
 }
 .left {float:left;}
 .ui-datepicker {
+  width:88%;
   margin:0 auto;
 }
 .hidden {display:none;}
