@@ -1,25 +1,30 @@
 <%- content_for :header do -%>
   <div id="findFlights">
-    <div id="back"><a href="#" id="backBtn">Back</a></div>
+    <div id="back"><a href="/flight" id="backBtn">Back</a></div>
     <div id="midHeader"><h2>Schedules</h2></div>
     <div id="crumb"></div>
   </div>
 <%- end -%>
-<ul>
-  <li>
-    <p>Depart</p>
-    <div id="departDetails">
-      Depart Date Here
-    </div>
-  </li>
-  <li>
-    <p>Return</p>
-    <div id="returnDetails">
-      Return Date Here
-    </div>
-  </li>
-</ul>
-<div id="datepickerD">
+
+<div id="drWrap">
+  <ul id="dr" class="reset">
+    <li>
+      <div class="tapable">
+        <h4>Depart</h4>
+        <div id="departDetails">
+          Depart Date Here
+        </div>
+      </div>
+    </li>
+    <li>
+      <h4>Return</h4>
+      <div id="returnDetails">
+        Return Date Here
+      </div>
+    </li>
+  </ul>
 </div>
-<div id="datepickerR">
+<div id="datepickerD" class="left">
+</div>
+<div id="datepickerR" class="left">
 </div>
