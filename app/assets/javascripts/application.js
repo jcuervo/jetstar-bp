@@ -39,24 +39,41 @@ $(document).ready(function() {
   $('#search_from').autocomplete({
     source: origin_airports,
     minLength: 3,
-    select: function(event, ui) {
-          str = $("#search_from").val();
-          if(str.length > 1){
-            // $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
-            // $("#from_city").text(str.substring(0,str.length-6));
-            // $("#to_shortcode").html("&nbsp;");
-            // $("#to_city").text("Destination");
-          }
-        }
+    // select: function(event, ui) {
+    //       str = $("#search_from").val();
+    //       if(str.length > 1){
+    //         // $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
+    //         // $("#from_city").text(str.substring(0,str.length-6));
+    //         // $("#to_shortcode").html("&nbsp;");
+    //         // $("#to_city").text("Destination");
+    //       }
+    //     }
+  });
+  
+  $('#search_to').autocomplete({
+    source: destination_airports,
+    minLength: 3,
+    change:function(e,i){
+      console.log("dsgsdgdsgs");
+    }
+    // select: function(event, ui) {
+    //       str = $("#search_from").val();
+    //       if(str.length > 1){
+    //         // $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
+    //         // $("#from_city").text(str.substring(0,str.length-6));
+    //         // $("#to_shortcode").html("&nbsp;");
+    //         // $("#to_city").text("Destination");
+    //       }
+    //     }
   });
 
-  $("#from_back").click(function(){
-    str = $("#search_from").val();
-    if(str.length > 1){
-      $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
-      $("#from_city").text(str.substring(0,str.length-6));
-    }
-  });
+  // $("#from_back").click(function(){
+  //   str = $("#search_from").val();
+  //   if(str.length > 1){
+  //     $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
+  //     $("#from_city").text(str.substring(0,str.length-6));
+  //   }
+  // });
 });
 
 function findClosestAirport(lat, lng){
@@ -78,7 +95,7 @@ function findClosestAirport(lat, lng){
     }
   });
 }
-
+/*
 function changeDestination(){
   $.ajax({
     type: "GET",
@@ -92,18 +109,19 @@ function changeDestination(){
           destination_airports.push( data[i].city);
           //$("<li><a href=''>" + data[i].city +  "</a></li>").appendTo("#destinationLists")
         }
-        $('#search_to').autocomplete({
-          source: destination_airports,
-          minLength: 3,
-          select: function(event, ui) {
-                str = $("#search_to").val();
-                if(str.length > 1){
-                  $("#to_shortcode").text(str.substring(str.length-4,str.length-1));
-                  $("#to_city").text(str.substring(0,str.length-6));
-                }
-              }
-        });
+        // $('#search_to').autocomplete({
+        //   source: destination_airports,
+        //   minLength: 3,
+        //   select: function(event, ui) {
+        //         str = $("#search_to").val();
+        //         if(str.length > 1){
+        //           $("#to_shortcode").text(str.substring(str.length-4,str.length-1));
+        //           $("#to_city").text(str.substring(0,str.length-6));
+        //         }
+        //       }
+        // });
       }
     }
   });
 }
+*/

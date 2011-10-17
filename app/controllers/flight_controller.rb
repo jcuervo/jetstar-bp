@@ -10,6 +10,7 @@ class FlightController < ApplicationController
 
   def search
     @origins = findOriginAirports
+    @destination = findDestinationAirports
   end
   
   def findClosestAirports
@@ -50,16 +51,20 @@ class FlightController < ApplicationController
   
   def findDestinationAirports
     airports = []
-    url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/destination/#{params[:o]}")
-    req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port) {|http|
-      http.request(req)
-    }
-    parsed_json = ActiveSupport::JSON.decode(res.body)
-    parsed_json["wrapper"]["results"].each do |airport|
-      airports << {:city => "#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})", :code => "#{airport["iataCode"]}"}
-    end if parsed_json["wrapper"]["results"]
+    if session[:origin]
+      o = session[:origin][-4..-2]
+      url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/destination/#{o}")
+      req = Net::HTTP::Get.new(url.path)
+      res = Net::HTTP.start(url.host, url.port) {|http|
+        http.request(req)
+      }
+      parsed_json = ActiveSupport::JSON.decode(res.body)
+      parsed_json["wrapper"]["results"].each do |airport|
+        #airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})", :code => "#{airport["iataCode"]}"}
+        airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})", "#{airport["iataCode"]}"]
+      end if parsed_json["wrapper"]["results"]
+    end
     
-    render :json => airports
+    airports
   end
 end
