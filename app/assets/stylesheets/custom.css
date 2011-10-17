@@ -376,15 +376,15 @@ h2#findFlights {
 }
 
 /* Flight Search Area */
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 350px) {
   .searchField {
-    width: 150px;
+    width: 170px;
   }
 }
 
-@media only screen and (min-width: 331px) and (max-width: 480px) {
+@media only screen and (min-width: 351px) and (max-width: 480px) {
   .searchField {
-    width: 250px;
+    width: 280px;
   }
 }
 
@@ -411,14 +411,24 @@ h2#findFlights {
       box-shadow:inset 0 0 6px #0f0f0f;
     }
 
-      #search_from_list ul
+      /*#search_from_list * {
+        background: url("");
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border: none;
+      }
     
+      #search_from_list ul {
+        backround: url("") #ffffff;
+      }
+        
       #search_from_list ul li {
-        /*background-image: none;
+        background-image: none;
         background-color: #e8e8e8z;
         font-weight: bold;
-        border-bottom: solid 1px #dadada;*/
-      }
+        border-bottom: solid 1px #dadada;
+      }*/
     
     #clearSearch {
       background: url("searchClear.jpg") no-repeat;
