@@ -1,21 +1,14 @@
-
 <%- content_for :header do -%>
   <div id="findFlights">
-    <a href="#" class="doneBtn">Done</a>
-    <div id="midHeader">
       <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
         <span id="searchFieldGroup">
-          <%= "#{(params[:q] == "from")? "From" : "To" }" %>
+          <strong><%= "#{(params[:q] == "from")? "From" : "To" }" %></strong>
           <%= text_field_tag params[:q], "Type name or city", :id => "search_#{params[:q]}", :class => "searchField" %>
           <span id="clearSearch">X</span>
         </span>
-
       <%- end -%>
-    </div>
     <a href="#" class="doneBtn">Done</a>
   </div>
 <%- end -%>
 
-<div id="search_<%= params[:q] %>_list">
-</div>
-
+<div id="search_<%= params[:q] %>_list"></div>
