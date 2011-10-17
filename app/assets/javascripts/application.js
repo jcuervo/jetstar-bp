@@ -65,7 +65,19 @@ $(document).ready(function() {
       $("flightForm").submit();
     }
   });
-
+  
+  $("#clearSearch").click(function() {
+    $(".searchField").val('').focus();
+  });
+  $(".searchField").click(function() {
+    if($(this).val() == "Type name or city") {
+      $(this).val('');
+    }
+  }).blur(function() {
+    if($(this).val() == "") {
+      $(this).val("Type name or city");
+    }
+  });
 });
 
 function findClosestAirport(lat, lng){
