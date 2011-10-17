@@ -15,10 +15,6 @@ var centerLatitude = -38.47;
 var centerLongitude = 144.98;
 var destination_airports = [];
 
-// $( document ).bind( "mobileinit", function(){
-//   $.mobile.page.prototype.options.degradeInputs.date = true;
-// });
-
 $(document).ready(function() {
   if (Modernizr.geolocation)
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -35,11 +31,11 @@ $(document).ready(function() {
     alert('Unable to get nearby airports');
   }
   
-  // $("#origin").change(function(){
-  //     alert("borga");
-  //     changeDestination();
-  //   });
-  
+  if ($("#datepicker").length){
+    $( "#datepicker" ).datepicker();
+  }
+	
+    
   $('#search_from').autocomplete({
     source: origin_airports,
     minLength: 3,
