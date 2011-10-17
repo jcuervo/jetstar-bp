@@ -6,8 +6,9 @@ class FlightController < ApplicationController
       session[:dest] = nil
     end
     session[:dest] = params[:to] if params[:to]
-    
-    #{"utf8"=>"✓", "authenticity_token"=>"QNR1Z9h18EKGqXvb0zsVC9kS7yhqtZTD35e5OaG3gNw=", "depart"=>"", "return"=>"", "adults"=>"1", "child"=>"0", "infants"=>"0", "commit"=>"Find Exact Date Flights"}
+    session[:depart] = params[:depart] if params[:depart]
+    session[:return] = params[:return] if params[:return]
+
     redirect_to flight_index_path
   end
   
