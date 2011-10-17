@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-/*@media only screen and (max-width: 480px) {*/
+@media only screen and (max-width: 480px) {
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -343,6 +343,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .bold {font-weight:bold;}
 .right {float:right;}
 
+}
 /*   end of media query */
 
 
