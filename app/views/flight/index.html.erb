@@ -32,8 +32,14 @@
           <div class="schedtaps left" id="dd">
             <h4>Depart</h4>
             <div id="departDetails" class="left fullwidth">
-              <div id="dpDate" class="halfw left">October<br />2011</div>
-              <div id="dpDay" class="halfw left">16</div>
+              <%- if session[:depart] 
+                  d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
+                <div id="dpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                <div id="dpDay" class="halfw left"><%= d.strftime("%d")%></div>
+              <%- else %>
+                <div id="dpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                <div id="dpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+              <%- end %>
             </div>
           </div>
         </li>
@@ -41,8 +47,14 @@
           <div class="schedtaps left" id="rd">
             <h4>Return</h4>
             <div id="returnDetails" class="left fullwidth">
-              <div id="rpDate" class="halfw left">October<br />2011</div>
-              <div id="rpDay" class="halfw left">30</div>
+              <%- if session[:return] 
+                  d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
+                <div id="rpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                <div id="rpDay" class="halfw left"><%= d.strftime("%d")%></div>
+              <%- else %>
+                <div id="rpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                <div id="rpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+              <%- end %>
             </div>
           </div>
         </li>
