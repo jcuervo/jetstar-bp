@@ -17,11 +17,11 @@
   </ul>
   <div id="toFrom">
     <div class="floatLeft">
-      <div class="half lbl floatLeft">
+      <div class="lbl floatLeft">
         <h2>From</h2>
         <%= link_to session[:origin], (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
       </div>
-      <div class="half lbl floatRight">
+      <div class="lbl floatRight">
         <h2>To</h2>
         <%= link_to session[:dest], (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
       </div>
