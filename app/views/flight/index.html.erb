@@ -13,8 +13,28 @@
 <span id="<%= ((session[:dest].blank?)? "dest_airport" : "session_dest"  )%>"><%= session[:dest]%></span>
 <br />
 <br />
-<%= link_to "Depart", calendar_flight_index_path %>
-<%= link_to "Return", calendar_flight_index_path %>
+
+<div id="drWrap">
+  <a href="/flight/calendar">
+    <ul id="dr" class="reset">
+      <li>
+        <div class="tapable">
+          <h4>Depart</h4>
+          <div id="departDetails">
+            Depart Date Here
+          </div>
+        </div>
+      </li>
+      <li>
+        <h4>Return</h4>
+        <div id="returnDetails">
+          Return Date Here
+        </div>
+      </li>
+    </ul>
+  </a>
+</div>
+
 
 <%= form_tag(flight_index_path, :method => :post) do %>
   <%= hidden_field_tag "depart", "", :id => "dDate" %>

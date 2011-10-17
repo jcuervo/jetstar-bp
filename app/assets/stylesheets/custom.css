@@ -176,3 +176,16 @@ h2#findFlights {
     cursor: pointer;
   }
 
+#intro {
+  width:100px;
+  text-align:center;
+  margin:5em auto;
+}
+#intro a, #intro a:visited {
+  text-decoration:none;
+  font-weight:bold;
+  color:#fff;
+  background-color:#ff5216;
+  padding:0.5em 0.75em;
+  border-radius:5px;
+}
