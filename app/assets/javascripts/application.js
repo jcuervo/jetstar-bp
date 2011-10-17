@@ -66,6 +66,9 @@ $(document).ready(function() {
     },
     open: function(event, ui) {
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
+    },
+    close:function(event,ui){
+      $("#searchResultUl").show();
     }
   });
 
@@ -83,6 +86,9 @@ $(document).ready(function() {
     },
     open: function(event, ui) {
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
+    },
+    close:function(event,ui){
+      $("#searchResultUl").show();
     }
   });
   
