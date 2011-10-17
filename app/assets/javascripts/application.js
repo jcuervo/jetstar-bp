@@ -73,7 +73,7 @@ $(document).ready(function() {
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     },
     close:function(event,ui){
-      $("#searchResultUl").show();
+      $("ul.ui-autocomplete").show();
     }
   });
 
@@ -93,7 +93,7 @@ $(document).ready(function() {
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     },
     close:function(event,ui){
-      $("#searchResultUl").show();
+      $("ul.ui-autocomplete").show();
     }
   });
   
