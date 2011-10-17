@@ -20,7 +20,7 @@
       </div>
       <div class="half lbl floatRight">
         <h2>To</h2>
-        <%= link_to session[:dest], (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
+        <%= link_to (session[:dest])? session[:dest] : "Destination", (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
       </div>
     </div>
   </div>
