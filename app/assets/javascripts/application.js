@@ -38,7 +38,7 @@ $(document).ready(function() {
 //        $("#dDate").val(dateText);
         $("#dpDay").text(dateText.split("/")[1]);
         $("#dpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
-        $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
+        $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
     });
@@ -137,19 +137,43 @@ function submitDate(dateType, d){
 }
 
 function getMonthName(m){
-  console.log(m);
+  str = ""
   switch(m){
-    case 1: return "Jan";
-    case 2: return "Feb";
-    case 3: return "Mar";
-    case 4: return "Apr";
-    case 5: return "May";
-    case 6: return "Jun";
-    case 7: return "Jul";
-    case 8: return "Aug";
-    case 9: return "Sep";
-    case 10: return "Oct";
-    case 11: return "Nov";
-    case 12: return "Dec";
+    case "01": 
+      str = "Jan";
+      break;
+    case "02": 
+      str = "Feb";
+      break;
+    case "03": 
+      str = "Mar";
+      break;
+    case "04": 
+      str = "Apr";
+      break;
+    case "05": 
+      str = "May";
+      break;
+    case "06": 
+      str = "Jun";
+      break;
+    case "07": 
+      str = "Jul";
+      break;
+    case "08":
+      str =  "Aug";
+      break;
+    case "09": 
+      str =  "Sep";
+    case "10": 
+      str =  "Oct";
+      break;
+    case "11": 
+      str =  "Nov";
+      break;
+    case "12": 
+      str =  "Dec";
+      break;
   }
+  return str;
 }
