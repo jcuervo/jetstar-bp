@@ -454,7 +454,7 @@ table.ui-datepicker-calendar tbody tr td span
   height: inherit !important;
   line-height: 32px;
   font-weight: bold !important;
-  text-shadow: 1px 1px #efefef;`
+  text-shadow: 1px 1px #efefef;
 }
 
 .ui-state-disabled span {
