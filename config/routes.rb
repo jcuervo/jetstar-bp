@@ -1,6 +1,6 @@
 Jetbp::Application.routes.draw do
   
-  root :to => 'pages#index'
+  root :to => 'welcome#index'
   resources :welcome
   
   resources :flight do
