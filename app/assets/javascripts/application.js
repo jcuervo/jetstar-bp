@@ -11,14 +11,26 @@
 //= require script
 //= require helper
 
+<<<<<<< HEAD
+=======
+//= require_tree .
+
+
+>>>>>>> 6c01a39b2437831a4c32a84982552eff4358b11c
 var centerLatitude = -38.47;
 var centerLongitude = 144.98;
 var destination_airports = [];
 
 //reset type=date inputs to text
+<<<<<<< HEAD
 // $( document ).bind( "mobileinit", function(){
 //   $.mobile.page.prototype.options.degradeInputs.date = true;
 // });
+=======
+$( document ).bind( "mobileinit", function(){
+  $.mobile.page.prototype.options.degradeInputs.date = true;
+});
+>>>>>>> 6c01a39b2437831a4c32a84982552eff4358b11c
 
 $(document).ready(function() {
   if (Modernizr.geolocation)
@@ -110,4 +122,8 @@ function changeDestination(){
       }
     }
   });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6c01a39b2437831a4c32a84982552eff4358b11c
