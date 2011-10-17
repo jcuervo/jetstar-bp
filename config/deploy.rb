@@ -11,7 +11,7 @@ after "deploy:symlink" do
   run "cd #{current_path} && bundle update rake"
   #run "ln -s /home/rivereo/recruit/shared/conf/database.yml #{current_path}/config/database.yml"
   run "cd #{current_path} &&  rake assets:precompile"
-  run "mkdir -p #{current_path}/tmp && touch #{current_path}tmp/restart.txt"
+  run "mkdir -p #{current_path}/tmp && touch #{current_path}/tmp/restart.txt"
 end
 
 namespace :deploy do
