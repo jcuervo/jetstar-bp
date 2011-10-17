@@ -85,15 +85,15 @@
       <div id="passengerOpts">
         <div class="thirdsP left sselect tacenter wdiv">
           <span class="adult"></span>
-          <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10), session[:adults]) %>
+          <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9), session[:adults]) %>
         </div>
         <div class="thirds left sselect tacenter wdiv">
           <span class="child"></span>
-          <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:child]) %>
+          <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9), session[:child]) %>
         </div>
         <div class="thirds left sselect tacenter">
           <span class="infant"></span>
-          <%= select_tag "infants", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:infants]) %>
+          <%= select_tag "infants", options_for_select(%w(0 1 2), session[:infants]) %>
         </div>
       </div>
       <div id="passengerLbls">
@@ -121,33 +121,38 @@
           <div id="downIcon" class="floatRight"></div>
         </div>
         
-        <%- if session[:flight] %>
-        
-          <ul id="recentResults">
+        <ul id="recentResults">
+          <%- if session[:flight] || session[:return_flights]%>
             <%- session[:flight].each_with_index do |flight, i| %>
               <%- i += 1 -%>
               <%- ddate = parseDate(flight[:ddt]) -%>
               <%- adate = parseDate(flight[:adt]) -%>
           
               <li class="left <%= (i%2==0) ? 'borderBottomGray' : 'returnGray' %> <%= 'topradius' if (i==1) %>">
-                <span class="resultTitle floatLeft"><%= "#{flight[:da]}" %></span>
+                <span class="resultTitle floatLeft"><%= "#{flight[:aa]}" %></span>
                 <div class="searchDates floatRight">
                   <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                   <div class="floatRight date"><%= ddate.strftime('%d') %></div>
                 </div>
               </li>
-          
-              <li class="left <%= 'bottomradius' if (i==session[:flight].size) %> returnGray">
-                <span class="resultTitle return floatLeft"><%= "#{flight[:aa]}" %></span>
+            <% end %>
+            
+            <%- session[:return_flights].each_with_index do |rflight, i| -%>
+              <%- i += 1 -%>
+              <%- ddate = parseDate(rflight[:ddt]) -%>
+              <%- adate = parseDate(rflight[:adt]) -%>
+              <li class="left <%= 'bottomradius' if (i==session[:return_flights].size) %> returnGray">
+                <span class="return resultTitle floatLeft"><%= "#{rflight[:aa]}" %></span>
                 <div class="searchDates floatRight">
                   <div class="floatleft days"><%= adate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                   <div class="floatRight date"><%= ddate.strftime('%d') %></div>
                 </div>
               </li>
-
-            <% end %>
-          </ul>
-        <% end %>
+            <%- end -%>
+          <%- else -%>
+            <li class="left bottomradius borderBottomGray">No flight found.</li>
+          <% end %>
+        </ul>
       </div>
   </div>
 
