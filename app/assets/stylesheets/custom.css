@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-@media only screen /*and (max-device-width: 480px)*/ {
+@media only screen and (max-width: 480px) {
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -150,31 +150,48 @@ h2#findFlights {
 }
 
 /* Flight Search Area */
-.searchFieldGroup {
-  display: inline-block;
-  border: solid 1px #ccddee;
-}
+@media only screen and (max-width: 330px) {
   .searchField {
-    width: 300px;
-    padding: 4px 28px 4px 6px;
-    border: 1px solid;
-    border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    color: #808080;
-    font-style: italic;
+    width: 150px;
+  }
+}
+
+@media only screen and (min-width: 331px) and (max-width: 480px) {
+  .searchField {
+    width: 250px;
+  }
+}
+
+#flightForm {
+  float: left;
+  margin: 9px 0px 0px 9px;
+}
+
+  .searchFieldGroup {
+    display: inline-block;
+    border: solid 1px #ccddee;
   }
 
-  #clearSearch {
-    position: relative;
-    z-index: 9;
-    margin: 0px 20px 0px -30px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-color: #808080;
-    cursor: pointer;
-  }
+    .searchField {
+      padding: 4px 28px 4px 6px;
+      border: 1px solid;
+      border-radius: 25px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      color: #808080;
+      font-style: italic;
+    }
+
+    #clearSearch {
+      position: relative;
+      z-index: 9;
+      margin: 0px 20px 0px -30px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-color: #808080;
+      cursor: pointer;
+    }
 
 #intro {
   width:100px;
