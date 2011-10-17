@@ -137,17 +137,19 @@
               </li>
             <% end %>
             
-            <%- session[:return_flights].each_with_index do |rflight, i| -%>
-              <%- i += 1 -%>
-              <%- ddate = parseDate(rflight[:ddt]) -%>
-              <%- adate = parseDate(rflight[:adt]) -%>
-              <li class="left <%= 'bottomradius' if (i==session[:return_flights].size) %> returnGray">
-                <span class="return resultTitle floatLeft"><%= "#{rflight[:aa]}" %></span>
-                <div class="searchDates floatRight">
-                  <div class="floatleft days"><%= adate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
-                  <div class="floatRight date"><%= ddate.strftime('%d') %></div>
-                </div>
-              </li>
+            <%- if session[:return_flights] -%>
+              <%- session[:return_flights].each_with_index do |rflight, i| -%>
+                <%- i += 1 -%>
+                <%- ddate = parseDate(rflight[:ddt]) -%>
+                <%- adate = parseDate(rflight[:adt]) -%>
+                <li class="left <%= 'bottomradius' if (i==session[:return_flights].size) %> returnGray">
+                  <span class="return resultTitle floatLeft"><%= "#{rflight[:aa]}" %></span>
+                  <div class="searchDates floatRight">
+                    <div class="floatleft days"><%= adate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
+                    <div class="floatRight date"><%= ddate.strftime('%d') %></div>
+                  </div>
+                </li>
+              <%- end -%>
             <%- end -%>
           <%- else -%>
             <li class="left bottomradius borderBottomGray">No flight found.</li>
