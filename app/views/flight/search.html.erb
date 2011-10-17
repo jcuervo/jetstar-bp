@@ -1,10 +1,9 @@
 <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
   <span id="searchFieldGroup">
-    From 
+    <%= "#{(params[:q] == "from")? "From" : "To" }" %>
     <%= text_field_tag params[:q], "Type name or city", :id => "search_#{params[:q]}", :class => "searchField" %>
     <span id="clearSearch">X</span>
   </span>
-  <%= submit_tag "Set #{(params[:q] == "from")? "Origin" : "Destination" }" %>
 <%- end -%>
 <div id="search_<%= params[:q] %>_list"></div>
 

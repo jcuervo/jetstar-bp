@@ -54,6 +54,9 @@ $(document).ready(function() {
     appendTo: "#search_from_list",
     select:function(event, ui){
       $("flightForm").submit();
+    },
+    change:function(event, ui){
+      $("flightForm").submit();
     }
   });
   
@@ -62,6 +65,9 @@ $(document).ready(function() {
     minLength: 3,
     appendTo: "#search_to_list", 
     select:function(event, ui){
+      $("flightForm").submit();
+    },
+    change:function(event, ui){
       $("flightForm").submit();
     }
   });
