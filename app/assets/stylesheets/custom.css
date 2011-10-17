@@ -164,6 +164,7 @@ h2#findFlights {
   margin:0 auto;
 }
 .hidden {display:none;}
+.fullwidth {width:100%;}
 #datepickerD, #datepickerR {
   margin:0 auto;
 }

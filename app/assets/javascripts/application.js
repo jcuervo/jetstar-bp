@@ -122,7 +122,7 @@ function findClosestAirport(lat, lng){
 function submitDate(dateType, d){
   $.ajax({
     type: "POST",
-    url: "/flight/create",
+    url: "/flight",
     data: dateType + "=" + d,
     success: function(data){
     },
