@@ -53,10 +53,10 @@ $(document).ready(function() {
     minLength: 3,
     appendTo: "#search_from_list",
     select:function(event, ui){
-      $("flightForm").submit();
+      $("#flightForm").submit();
     },
     change:function(event, ui){
-      $("flightForm").submit();
+      $("#flightForm").submit();
     }
   });
   
@@ -65,12 +65,13 @@ $(document).ready(function() {
     minLength: 3,
     appendTo: "#search_to_list", 
     select:function(event, ui){
-      $("flightForm").submit();
+      $("#flightForm").submit();
     },
     change:function(event, ui){
-      $("flightForm").submit();
+      $("#flightForm").submit();
     }
   });
+  
   
   $("#clearSearch").click(function() {
     $(".searchField").val('').focus();

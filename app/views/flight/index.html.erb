@@ -15,6 +15,7 @@
 <br />
 <%= link_to "Depart", calendar_flight_index_path %>
 <%= link_to "Return", calendar_flight_index_path %>
+
 <%= form_tag(flight_index_path, :method => :post) do %>
   <%= hidden_field_tag "depart", "", :id => "dDate" %>
   <%= hidden_field_tag "return", "", :id => "rDate" %>
