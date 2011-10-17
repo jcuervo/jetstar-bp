@@ -311,6 +311,7 @@ h2#findFlights {
 }
 .schedtaps {
   padding:5px;
+  width:85%;
 }
 .tapable {
   border:2px solid #fff;
@@ -338,14 +339,20 @@ h2#findFlights {
 #datepickerD, #datepickerR {
   margin:0 auto;
 }
-.half {width:50%;}
+.halfw {width:50%;}
 #dpDate {
   
 }
 #dpDay, #rpDay {
   font-size:32px;
+  text-align:right;
   font-weight:bold;
 }
+#calendar .cancelBtn {
+  top:4 !important;
+  left:10px;
+}
+#searchWrap {min-height:220px;}
 
 /* Flight Search Area */
 /*@media only screen and (max-width: 330px) {

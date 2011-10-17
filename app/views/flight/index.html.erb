@@ -6,9 +6,6 @@
   </div>
 <%- end -%>
 
-<%= link_to "Depart", calendar_flight_index_path %>
-<%= link_to "Return", calendar_flight_index_path %>
-
 <div id="findFlightsSec">
   <ul id="flightNav">
     <li><a href="#">One Way</a></li>
@@ -46,6 +43,8 @@
           </li>
         </ul>
       </a>
+    </div>
+    <div class="float">
     <%= form_tag(flight_index_path, :method => :post) do %>
       Adults: <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10), session[:adults]) %>
       Children: <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:child]) %>
@@ -53,6 +52,7 @@
       <%= submit_tag "Find Exact Date Flights" %>
       <%= submit_tag "Find Flexible Date Flights" %>
     <%- end -%>
+    </div>
     <ul id="search_#{params[:q]}_list"></ul>
   </div>
   <div id="searchFLight" class="floatLeft">
