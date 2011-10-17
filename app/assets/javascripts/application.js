@@ -115,8 +115,14 @@ function findClosestAirport(lat, lng){
     url: "/flight/findClosestAirports?lat="+ lat + "&lng=" + lng, 
     success: function(data){
       if(data.length > 1){
-        $("#origin_airport").text(data.split(";")[0] + " (" + data.split(";")[1] + ")");
-        $("#search_from").attr("placeholder", data.split(";")[0] + " (" + data.split(";")[1] + ")");
+        str = "";
+        for(i=0;i<data.length;i++){
+          str += data[i].a + "<br />";
+        }
+        $("#search_from_list").html(str);
+        
+        // $("#origin_airport").text(data.split(";")[0] + " (" + data.split(";")[1] + ")");
+        // $("#search_from").attr("placeholder", data.split(";")[0] + " (" + data.split(";")[1] + ")");
       } else
         alert('Unable to get nearby airports');
     },

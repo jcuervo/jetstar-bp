@@ -24,8 +24,6 @@ class FlightController < ApplicationController
     if request.xml_http_request?
       render :nothing => true, :status => 200
     else
-      logger.info "DFGDFGDFGDFGDGDG"
-      logger.info @flights
       redirect_to flight_index_path
     end
   end
@@ -45,13 +43,13 @@ class FlightController < ApplicationController
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
       if airport.class == Hash
-        airports << "#{airport["city"]}, #{airport["country"]};#{airport["iataCode"]}"
+        airports << {:a => "#{airport["name"].gsub(" (", ", ").gsub(")", "")} #{airport["iataCode"]}"}
       else
-        airports <<  airport[1] if airport[0] == "iataCode"
+        airports <<  {:a => airport[1]} if airport[0] == "iataCode"
       end
     end if parsed_json["wrapper"]["results"]
     
-    render :text => airports.first
+    render :json => airports
   end
   
   def findOriginAirports
@@ -63,7 +61,7 @@ class FlightController < ApplicationController
     }
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
-      airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})"]
+      airports << ["#{airport["name"]} (#{airport["iataCode"]})"]
     end if parsed_json["wrapper"]["results"]
     
     airports
@@ -80,7 +78,7 @@ class FlightController < ApplicationController
       }
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |airport|
-        airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})"]
+        airports << ["#{airport["name"]} (#{airport["iataCode"]})"]
       end if parsed_json["wrapper"]["results"]
     end
     
