@@ -13,8 +13,13 @@
 
 
 $(document).ready(function() {
-  //add this in your javascript code to 'hide' the address bar  
-  window.scrollTo(0, 1);  
+  window.addEventListener("load",function() {
+    // Set a timeout...
+    setTimeout(function(){
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 0);
+  });
 
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
@@ -23,7 +28,7 @@ $(document).ready(function() {
 //        $("#departDetails").html(dateText);
 //        $("#dDate").val(dateText);
         $("#dpDay").text(dateText.split("/")[1]);
-        $("#dpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
+        $("#dpDate").html("<div class='dpWD'>" + getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
@@ -34,7 +39,7 @@ $(document).ready(function() {
 //        $("#returnDetails").html(dateText);
 //        $("#rData").val(dateText);
         $("#rpDay").text(dateText.split("/")[1]);
-        $("#rpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
+        $("#rpDate").html("<div class='dpWD'>" +  getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         submitDate("return", dateText);
       }
     });
@@ -56,7 +61,6 @@ $(document).ready(function() {
   $('#search_from').autocomplete({
     source: origin_airports,
     minLength: 3,
-    appendTo: "#search_from_list",
     select:function(event, ui){
       $("#search_from_hidden").val(ui.item.value);
       $("#flightForm").submit();
@@ -64,13 +68,19 @@ $(document).ready(function() {
     change:function(event, ui){
       $("#search_from_hidden").val(ui.item.value);
       $("#flightForm").submit();
+    },
+    open: function(event, ui) {
+      $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
+    },
+    close:function(event,ui){
+      $("#searchResultUl").show();
     }
   });
+
   
   $('#search_to').autocomplete({
     source: destination_airports,
     minLength: 3,
-    appendTo: "#search_to_list", 
     select:function(event, ui){
       $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
@@ -78,6 +88,12 @@ $(document).ready(function() {
     change:function(event, ui){
       $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
+    },
+    open: function(event, ui) {
+      $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
+    },
+    close:function(event,ui){
+      $("#searchResultUl").show();
     }
   });
   
@@ -113,7 +129,7 @@ function findClosestAirport(lat, lng){
           e.preventDefault();
           $("#search_from_hidden").val($(this).html());
           $("#search_to_hidden").val($(this).html());
-          $("#flightForm").submit();
+          //$("#flightForm").submit();
         });
       } else
         alert('Unable to get nearby airports');
@@ -161,7 +177,7 @@ function getWeekDay(day){
     case 1:  return "Monday";
     case 2:  return "Tuesday";
     case 3:  return "Wednesday";
-    case 4:  return "Thusday";
+    case 4:  return "Thursday";
     case 5:  return "Friday";
     case 6:  return "Saturday";
   }

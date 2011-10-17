@@ -296,7 +296,7 @@
 .ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
 .ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
 .ui-icon-grip-solid-vertical { background-position: -32px -224px; }
-.ui-icon-grip-solid-horizontal { background-posigit tion: -48px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
 .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
 .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
 
@@ -373,7 +373,8 @@
  *
  * http://docs.jquery.com/UI/Datepicker#theming
  */
-.ui-datepicker { width: 90%; padding: .2em .2em 0; display: none; }
+/*.ui-datepicker { width: 90%; padding: .2em .2em 0; display: none; }*/
+.ui-datepicker {  width:96%; margin:1em 2%; display: none;}
 .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { margin-top: 5px; position: absolute; top: 2px; width: 1.8em; height: 1em; }
 .ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
@@ -453,7 +454,7 @@ table.ui-datepicker-calendar tbody tr td span
   height: inherit !important;
   line-height: 32px;
   font-weight: bold !important;
-  text-shadow: 1px 1px #efefef;`
+  text-shadow: 1px 1px #efefef;
 }
 
 .ui-state-disabled span {

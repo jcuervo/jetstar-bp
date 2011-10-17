@@ -43,7 +43,7 @@ class FlightController < ApplicationController
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
       if airport.class == Hash
-        airports << {:a => "#{airport["name"]};#{airport["iataCode"]}"}
+        airports << {:a => "#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]};#{airport["iataCode"]}"}
       else
         airports <<  {:a => airport[1]} if airport[0] == "iataCode"
       end
@@ -61,7 +61,7 @@ class FlightController < ApplicationController
     }
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
-      airports << ["#{airport["name"]} (#{airport["iataCode"]})"]
+      airports << ["#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]} (#{airport["iataCode"]})"]
     end if parsed_json["wrapper"]["results"]
     
     airports
@@ -78,7 +78,7 @@ class FlightController < ApplicationController
       }
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |airport|
-        airports << ["#{airport["name"]} (#{airport["iataCode"]})"]
+        airports << ["#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]} (#{airport["iataCode"]})"]
       end if parsed_json["wrapper"]["results"]
     end
     
