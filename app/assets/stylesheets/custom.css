@@ -547,7 +547,7 @@ span.ret {
 #drWrap {
   border:1px solid #d5d5d5;
   width:96%;
-  margin:1em 2%;
+  margin:0.5em 2% 0.25em 2%;
   border-radius: 5px;
   float:left;
 }
@@ -614,12 +614,13 @@ a#calLink {
 .left {float:left;}
 .right {float:right;}
 .ui-datepicker {
+  
   margin:0 auto;
 }
 .hidden {display:none;}
 .fullwidth {width:100%;}
-.halfw {width:34%;}
-
+.halfw {width:50%;}
+.halfi {width:34%;}
 #dpDate, #rpDate {
   margin-top: 4px;
   width: 73px;
