@@ -427,17 +427,22 @@ h2#findFlights {
       box-shadow:inset 0 0 6px #0f0f0f;
     }
 
+      #search_from_list ul
+    
       #search_from_list ul li {
-        background-image: none !important;
+        /*background-image: none;
+        background-color: #e8e8e8z;
+        font-weight: bold;
+        border-bottom: solid 1px #dadada;*/
       }
     
     #clearSearch {
+      background: url("searchClear.jpg") no-repeat;
       position: relative;
       z-index: 9;
-      margin: 0px 20px 0px -30px;
+      margin: 0px 20px -5px -30px;
       display: inline-block;
-      width: 16px;
-      height: 16px;
-      background-color: #808080;
+      width: 18px;
+      height: 20px;
       cursor: pointer;
     }

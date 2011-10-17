@@ -4,7 +4,7 @@
         <span id="searchFieldGroup">
           <strong><%= "#{(params[:q] == "from")? "From" : "To" }" %></strong>
           <%= text_field_tag params[:q], "Type name or city", :id => "search_#{params[:q]}", :class => "searchField" %>
-          <span id="clearSearch">X</span>
+          <span id="clearSearch"><span class="hidden">Clear Search</span></span>
         </span>
       <%- end -%>
     <a href="#" class="doneBtn">Done</a>
