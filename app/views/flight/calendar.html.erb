@@ -1,18 +1,20 @@
 <%- content_for :header do -%>
   <div id="findFlights">
-    <div id="back"><a href="/flight" id="backBtn">Back</a></div>
+    <div id="back"><a href="/flight" class="cancelBtn">Back</a></div>
     <div id="midHeader"><h2>Schedules</h2></div>
-    <div id="crumb"></div>
+    <div id="crumb"><a href="/flight" class="doneBtn">Back</a></div>
   </div>
 <%- end -%>
+
 
 <div id="drWrap">
   <ul id="dr" class="reset">
     <li>
       <div class="tapable schedtaps" id="dd">
         <h4>Depart</h4>
-        <div id="departDetails">
-          Depart Date Here
+        <div id="departDetails" class="left">
+          <div id="dpDate" class="half left">October<br />2011</div>
+          <div id="dpDay" class="half left">16</div>
         </div>
       </div>
     </li>
@@ -20,17 +22,19 @@
       <div class="schedtaps" id="rd">
         <h4>Return</h4>
         <div id="returnDetails">
-          Return Date Here
+          <div id="rpDate" class="half">Select Date</div>
+          <div id="rpDay" class="half"></div>
         </div>
       </div>
     </li>
   </ul>
 </div>
-<div class="left fullwidth">
+<div id="dps" class="left fullwidth">
   <div id="datepickerD">
   </div>
   <div id="datepickerR" class="hidden">
   </div>
 </div>
+
 
 
