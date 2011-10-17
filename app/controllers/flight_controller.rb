@@ -18,13 +18,15 @@ class FlightController < ApplicationController
       session[:infants] = params[:infants]
       
       findFlights
+    else
+      session[:flight] = nil
     end
     if request.xml_http_request?
       render :nothing => true, :status => 200
     else
       logger.info "DFGDFGDFGDFGDGDG"
       logger.info @flights
-      render flight_index_path
+      redirect_to flight_index_path
     end
   end
   
@@ -123,7 +125,7 @@ class FlightController < ApplicationController
       else
         url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/flexibletDates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
       end      
-      
+            
       req = Net::HTTP::Get.new(url.path)
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
@@ -136,12 +138,12 @@ class FlightController < ApplicationController
           adt = flight["departureDateTime"].split('T')
           @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} #{ddt[0]} (#{ddt[1]}), #{flight["arrivalAirport"]} #{adt[0]} (#{adt[1]})"]
         else
-          @flights <<  flight[1] if flight[0] == "arrivalAirport"
+          @flights <<  flight
         end
         
       end if parsed_json["wrapper"]["results"]
     end
-    @flights
+    session[:flight] = @flights
   end
 
 end

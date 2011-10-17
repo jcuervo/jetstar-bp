@@ -16,7 +16,7 @@
       <div class="floatLeft width99">
         <div class="lbl floatLeft">
           <h4>From</h4>
-          <%= link_to session[:origin], (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
+          <%= link_to (session[:origin])? session[:origin] : "Origin", (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
         </div>
         <div class="lbl floatRight">
           <h4>To</h4>
@@ -88,12 +88,12 @@
         </div>
       <%- end -%>
     </div>
-    <div class="floatLeft">
-      <%- if @flights %>
-        <%- @flights.each do |flight| %>
-          <%= flight %>
-        <%- end %>
+  <div class="floatLeft">
+    <%- if session[:flight] %>
+      <%- session[:flight].each do |flight| %>
+        <%= flight %>
       <%- end %>
-    </div>
-    <ul id="search_#{params[:q]}_list"></ul>
+    <%- end -%>
+  </div>
+  <ul id="search_#{params[:q]}_list"></ul>
 
