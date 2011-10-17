@@ -152,61 +152,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   margin-top:14px;
   width:95%;
 }
-#toFrom {
-  margin-top:10px;
-  width:95%;
-}
-#toFrom ul {
-  width:100%;
-  float:left;
-  margin:0;
-  padding:0;
-}
 
-#toFrom ul li {
-  display:inline;
-  height:124px;
-  float:left;
-}
-
-#toFrom div div a {
-  width: 145px;
-  height: 36px;
-  display: block;
-  color:#000;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-  font-size: 15px;
-}
-#toFrom div div a.fromLink {
-  background:transparent url("fromTo.png") no-repeat bottom left;
-}
-#toFrom div div a.toLink {
-  background:transparent url("fromTo.png") -155px 0 no-repeat;
-}
-#toFrom div div h4 {
-  margin: 0;
-  font-size:13px;
-}
-#toFrom ul li span {
-  width:250px;
-  padding-left:30px;
-  margin-top:30px;
-}
-#toFrom ul li span.locAbbr {
-  font-size:45px;
-  font-weight:bold;
-  display:block;
-}
-#toFrom ul li span.locFull {
-  font-size:16px;
-  line-height:16px;
-}
-#toFrom ul li.toDest span.locAbbr, #toFrom ul li.toDest span.locFull {
-  width:260px;
-  padding-left:40px;
-}
 #findFlightsSec {
   width:95%;
   margin:1em auto;
@@ -290,7 +236,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
-.lbl {font-size:16px;font-weight:bold;width:50%;}
 .width99 {width:99%;}
 
 .submitList {
@@ -464,6 +409,93 @@ h2#findFlights {
 #searchResults {
   margin:1em auto;
 }
+
+/* Find Flights Origin and Destination Styles */
+#toFrom a {
+  text-decoration:none;
+  color:#000;
+}
+#toFrom h4.tfhead {
+  margin:1em 0 0.25em 0;
+}
+#ffOrig, #ffDest {
+  height:51px;
+  width:138px;
+  display:block;
+}
+#ffOrig {
+  background:transparent url("fromTo.png") no-repeat;
+  padding-left:10px;
+  padding-top:5px;
+}
+span#origin_short {
+  font-size:25px;
+  font-weight:bold;
+  display:block;
+}
+span#origin_city {
+  font-size:12px;
+}
+
+/* Passengers Styles */
+.tacenter {text-align:center;}
+h4.wtborder {
+  border-top:1px solid #ededed;
+  margin-top:4px;
+}
+#passengerWrap h4 {
+  margin:0.25em 0;
+  padding:0;
+}
+#passengerOpts {
+  height:58px;
+  background:transparent url("passengerBG.jpg") repeat-x;
+  border-left:1px solid #a0a3a4;
+  border-top:1px solid #8c8c8c;
+  border-right:1px solid #babdbc;
+  border-radius:5px;
+  -moz-box-shadow: inset 0 0 3px #aaa;
+  -webkit-box-shadow: inset 0 0 3px#aaa;
+  box-shadow: inner 0 0 3px #aaa;
+}
+#passengerLbls {
+  height:15px;
+  font-size:10px;
+  color:#7b7b7b;
+  border-bottom:1px solid #ededed;
+}
+.sselect {
+  height:58px;
+}
+.sselect select {
+  background:transparent;
+  margin-top:15px;
+  border:none;
+  height:28px;
+  font-size:16px;
+  overflow:hidden;
+}
+.sselect span {
+  height:28px;
+  width:20px;
+  display:block;
+  margin-top:15px;
+  margin-left:25px;
+  float:left;
+}
+.adult {
+  background: transparent url("passengers.jpg") no-repeat;
+}
+.child {
+  background: transparent url("passengers.jpg") -20px 0 no-repeat;
+}
+.infant {
+  background: transparent url("passengers.jpg") -40px 0 no-repeat;
+}
+.wdiv {
+  background: transparent url("passengerDiv.jpg") no-repeat top right;
+}
+
 /* Calendar Hacks */
 span.icon {
   height:17px;
@@ -485,8 +517,8 @@ span.ret {
   margin-bottom:2em;
 }
 .contentWrap {
-  width:90.5%;
-  margin:1em 5%;
+  width:96%;
+  margin:1em 2%;
   border-radius: 5px;
   float:left;  
 }
@@ -510,7 +542,8 @@ span.ret {
   padding:5px;
   width:90%;
 }
-.thirds {width:32%;}
+.thirds {width:33%;}
+.thirdsP {width:34%;}
 a#calLink {
   text-decoration:none;
   color:#000;
@@ -539,16 +572,22 @@ a#calLink {
   #dr li div h4 {
     height: 17px;
     background: url("icons.png") no-repeat;
+    display: inline-block;
+    margin: 0px 0px 7px 0px;
   }
 
 #dd h4 {
   text-align: left;
-  background-position: 50px 0px !important;
+  background-position: right top !important;
+  float: left;
+  width: 66px;
 }
 
 #rd h4 {
   text-align: right;
-  background-position: 126px -17px !important;
+  background-position: left bottom !important;
+  float: right;
+  width: 65px;
 }
 
 .left {float:left;}

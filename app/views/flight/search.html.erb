@@ -1,11 +1,13 @@
 <%- content_for :header do -%>
   <div id="findFlights">
-      <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
+      
         <span id="searchFieldGroup">
           <strong><%= "#{(params[:q] == "from")? "From" : "To" }" %></strong>
           <%= text_field_tag params[:q], "", :id => "search_#{params[:q]}", :class => "searchField", :placeholder => "Type a city or Airport Code" %>
           <span id="clearSearch"><span class="hidden">Clear Search</span></span>
         </span>
+      <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
+        <%= hidden_field_tag params[:q], "", :id => "search_#{params[:q]}_hidden" %>
       <%- end -%>
     <a href="/flight" class="doneBtn">Done</a>
   </div>
@@ -17,23 +19,8 @@
   </div>
 </div>
 
-
+<%- if session[:origin].blank? %>
 <div class="grayBg searchResults">Airports nearest to your current location</div>
-  <ul id="searchResultUl">
-    <li class="lightGrayBg bold borderBottom">
-      <a href="#">Melbourne All Airports</a>
-    </li>
-    <li class="lightGrayBg bold borderBottom">
-      <a href="#">
-        Melbourne, Tullamarine
-        <span class="right normal upper normal">mel</span>
-      </a>
-    </li>
-    <li class="lightGrayBg bold">
-      <a href="#">
-        Melbourne, Avalon
-        <span class="right normal upper normal">avv</span>
-      </a>
-    </li>
-  </ul>
+  <ul id="searchResultUl"></ul>
 </div>
+<%- end -%>

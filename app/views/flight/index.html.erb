@@ -12,34 +12,33 @@
       <li><a href="#">Multi-City</a></li>
     </ul>
     <div id="toFrom" class="left">
-      <div class="left fullwidth">
-          <div class="lbl left">
-            <h4>From</h4>
-            <a href="<%= search_flight_index_path(:q => 'from') %>" id="<%= (session[:origin].blank?)? "origin_airport" : "session_origin" %>">
-              <div>
-                <%- if session[:origin] -%>
-                  <span><%= session[:origin][-4..-2] %></span>
-                  <span><%= session[:origin][0..-6]%></span>
-                <%- else -%>
-                  <span>Choose your origin</span>
-                <%- end -%>
-              </div>
-            </a>
-          </div>
-      
-          <div class="lbl right">
-            <h4>To</h4>
-            <a href="<%= search_flight_index_path(:q => 'to') %>" id="<%= (session[:dest].blank?)? "dest_airport" : "session_dest" %>">
-              <div>
-                <%- if session[:dest] -%>
-                  <span><%= session[:dest][-4..-2] %></span>
-                  <span><%= session[:dest][0..-6] %></span>
-                <%- else -%>
-                  <span>Choose your destination</span>
-                <%- end -%>
-              </div>
-            </a>
-          </div>
+      <div class="halfw left">
+        <h4 class="reset tfhead">From</h4>
+        <a href="<%= search_flight_index_path(:q => 'from') %>" id="<%= (session[:origin].blank?)? "origin_airport" : "session_origin" %>">
+          <span class="fullwidth reset left" id="ffOrig">
+            <%- if session[:origin] -%>
+              <span id="origin_short"><%= session[:origin][-4..-2] %></span>
+              <span id="origin_city"><%= session[:origin][0..-6]%></span>
+            <%- else -%>
+              <span id="origin_short"></span>
+              <span id="origin_city">Choose your origin</span>
+            <%- end -%>
+          </span>
+        </a>
+      </div>
+  
+      <div class="halfw left">
+        <h4 class="reset tfhead">To</h4>
+        <a href="<%= search_flight_index_path(:q => 'to') %>" id="<%= (session[:dest].blank?)? "dest_airport" : "session_dest" %>">
+          <div>
+            <%- if session[:dest] -%>
+              <span id="dest_short"><%= session[:dest][-4..-2] %></span>
+              <span id="dest_city"><%= session[:dest][0..-6] %></span>
+            <%- else -%>
+              <span id="dest_short"></span>
+              <span id="dest_city">Choose your destination</span>
+            <%- end -%>
+          </span>
         </a>
       </div>
     </div>
@@ -80,33 +79,37 @@
         </ul>
       </a>
   </div>
-  <div class="left contentWrap">
-      <h4>Passengers</h4>
-      <%= form_tag(flight_index_path, :method => :post) do %>
-        <div class="thirds left">
+  <div id="passengerWrap" class="left contentWrap">
+    <h4 class="wtborder">Passengers</h4>
+    <%= form_tag(flight_index_path, :method => :post) do %>
+      <div id="passengerOpts">
+        <div class="thirdsP left sselect tacenter wdiv">
+          <span class="adult"></span>
           <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10), session[:adults]) %>
-          <br />
-          Adults
         </div>
-        <div class="thirds left">
+        <div class="thirds left sselect tacenter wdiv">
+          <span class="child"></span>
           <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:child]) %>
-          <br />
-          Children
         </div>
-        <div class="thirds left">
+        <div class="thirds left sselect tacenter">
+          <span class="infant"></span>
           <%= select_tag "infants", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:infants]) %>
-          <br />
-          Infants
         </div>
-        <div id="searchFLight" class="floatLeft width99">
-          <h4>Search by</h4>
-          <ul class="submitList">
-            <li class="halfw"><%= submit_tag "Find Exact Date Flights", :id => "lowestFares" %></li>
-            <li class="halfw"><%= submit_tag "Find Flexible Date Flights", :id => "exactDates" %></li>
-          </ul>
-        </div>
-      <%- end -%>
-    </div>
+      </div>
+      <div id="passengerLbls">
+        <div class="thirdsP left tacenter">Adult</div>
+        <div class="thirds left tacenter">2-11 years</div>
+        <div class="thirds left tacenter">< 2 years</div>
+      </div>
+      <div id="searchFLight" class="floatLeft width99">
+        <h4>Search by</h4>
+        <ul class="submitList">
+          <li class="halfw"><%= submit_tag "Find Exact Date Flights", :id => "lowestFares" %></li>
+          <li class="halfw"><%= submit_tag "Find Flexible Date Flights", :id => "exactDates" %></li>
+        </ul>
+      </div>
+    <%- end -%>
+  </div>
   <div class="floatLeft">
     <%- if session[:flight] %>
       <%- session[:flight].each do |flight| %>
