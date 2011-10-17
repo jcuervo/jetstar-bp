@@ -56,7 +56,6 @@ $(document).ready(function() {
   $('#search_from').autocomplete({
     source: origin_airports,
     minLength: 3,
-    appendTo: "#search_from_list",
     select:function(event, ui){
       $("#search_from_hidden").val(ui.item.value);
       $("#flightForm").submit();
@@ -64,8 +63,12 @@ $(document).ready(function() {
     change:function(event, ui){
       $("#search_from_hidden").val(ui.item.value);
       $("#flightForm").submit();
+    },
+    open: function(event, ui) {
+      $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     }
   });
+
   
   $('#search_to').autocomplete({
     source: destination_airports,
@@ -78,6 +81,9 @@ $(document).ready(function() {
     change:function(event, ui){
       $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
+    },
+    open: function(event, ui) {
+      $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     }
   });
   
