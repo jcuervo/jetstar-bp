@@ -324,8 +324,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 .searchResults, #searchResultUl li {
   margin-bottom:2px;
-  font-size:26px;
-  padding:20px 23px;
+  font-size:14px;
+  padding:15px 18px;
 }
 #searchResultUl {
   padding:0;
@@ -375,7 +375,7 @@ span.ret {
   margin-bottom:2em;
 }
 .contentWrap {
-  width:91.5%;
+  width:90.5%;
   margin:1em 5%;
   border-radius: 5px;
   float:left;  
