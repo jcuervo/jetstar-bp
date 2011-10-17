@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jqueryui
 //= require plugins
 //= require script
 //= require helper
