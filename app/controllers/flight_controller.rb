@@ -6,6 +6,9 @@ class FlightController < ApplicationController
       session[:dest] = nil
     end
     session[:dest] = params[:to] if params[:to]
+    session[:depart] = params[:depart] if params[:depart]
+    session[:return] = params[:return] if params[:return]
+
     redirect_to flight_index_path
   end
   
