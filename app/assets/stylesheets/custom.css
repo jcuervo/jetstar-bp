@@ -152,61 +152,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   margin-top:14px;
   width:95%;
 }
-#toFrom {
-  margin-top:10px;
-  width:95%;
-}
-#toFrom ul {
-  width:100%;
-  float:left;
-  margin:0;
-  padding:0;
-}
 
-#toFrom ul li {
-  display:inline;
-  height:124px;
-  float:left;
-}
-
-#toFrom div div a {
-  width: 145px;
-  height: 36px;
-  display: block;
-  color:#000;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-  font-size: 15px;
-}
-#toFrom div div a.fromLink {
-  background:transparent url("fromTo.png") no-repeat bottom left;
-}
-#toFrom div div a.toLink {
-  background:transparent url("fromTo.png") -155px 0 no-repeat;
-}
-#toFrom div div h4 {
-  margin: 0;
-  font-size:13px;
-}
-#toFrom ul li span {
-  width:250px;
-  padding-left:30px;
-  margin-top:30px;
-}
-#toFrom ul li span.locAbbr {
-  font-size:45px;
-  font-weight:bold;
-  display:block;
-}
-#toFrom ul li span.locFull {
-  font-size:16px;
-  line-height:16px;
-}
-#toFrom ul li.toDest span.locAbbr, #toFrom ul li.toDest span.locFull {
-  width:260px;
-  padding-left:40px;
-}
 #findFlightsSec {
   width:95%;
   margin:1em auto;
@@ -290,7 +236,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
-.lbl {font-size:16px;font-weight:bold;width:50%;}
 .width99 {width:99%;}
 
 .submitList {
@@ -342,9 +287,119 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .upper {text-transform:uppercase;}
 .bold {font-weight:bold;}
 .right {float:right;}
+.width70 {width:70%;}
 
-/*}*/
-/*   end of media query */
+.ui-autocomplete {
+  top: 50px !important;
+  border: none !important;
+  width: 100% !important;
+}
+.ui-autocomplete li {
+  background-color: #E9E9E9;
+  margin-bottom: 2px !important;
+  font-size: 14px;
+  padding: 10px 15px !important;
+  font-weight: bold;
+  border-bottom: solid 1px #C4C4C4;
+  width: 90% !important;
+}
+.ui-state-hover {
+  background:none !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  border:none !important;
+  width: 90% !important;
+  margin:0 !important;
+}
+
+#searchesHeader {
+  background-color: #E7E7E7;
+  float: left;
+  width: 90%;
+  padding: 5px 15px;
+  margin-bottom: 3px;
+}
+#searchesHeader h3 {
+  margin:0;
+  padding:0;
+}
+#clock {
+  background:url("clockIcon.jpg") no-repeat;
+  width:16px;
+  height:16px;
+  margin-right:5px;
+}
+#downIcon {
+  background:url("downIcon.jpg") no-repeat 0 4px;
+  width:17px;
+  height:15px;
+  float:right;
+}
+
+#recentSearches {
+  width: 100%;
+  margin: 0 auto;
+}
+#recentResults {
+  margin: 0;
+  padding: 10px 12px 10px 13px;
+  list-style: none;
+  width: 91%;
+  float: left;
+  background-color: #E7E7E7;
+}
+#recentResults li {
+  background-color: #696969;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7C7C7C), to(#696969), color-stop(.5,#727272));
+  background: -moz-linear-gradient(top, #7C7C7C 0%, #727272 50%, #696969 100%);
+  padding: 10px 15px 13px;
+  width: 90%;
+  height:20px;
+}
+.resultTitle {
+  font-size:15px;
+  color:white;
+  background:url("icons2.jpg") no-repeat;
+  padding-left:30px;
+}
+.return {
+  background:url("icons2.jpg") 0 -18px no-repeat !important;
+}
+.returnGray {
+  background-color: #4B4B4B;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#5B5B5B), to(#4B4B4B), color-stop(.5,#5B5B5B));
+  background: -moz-linear-gradient(top, #5B5B5B 0%, #5B5B5B 50%, #4B4B4B 100%);
+}
+.searchDates {
+  width:50px;
+}
+.days {
+  font-size: 10px;
+  color: white;
+  float: left;
+}
+.date {
+  font-size: 21px;
+  color: white;
+  font-weight:bold;
+}
+.topradius {
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+  -moz-border-top-left-radius:7px;
+  -moz-border-top-right-radius:7px;
+}
+.bottomradius {
+  border-bottom-left-radius:7px;
+  border-bottom-right-radius:7px;
+  -moz-border-bottom-left-radius:7px;
+  -moz-border-bottom-right-radius:7px;
+}
+.borderBottomGray {
+  border-bottom:solid 1px #5f5e5e;
+}
+
+    /*   end of media query */
 
 
 h2#findFlights {
@@ -354,8 +409,6 @@ h2#findFlights {
 #searchResults {
   margin:1em auto;
 }
-<<<<<<< HEAD
-=======
 
 /* Find Flights Origin and Destination Styles */
 #toFrom a {
@@ -364,9 +417,6 @@ h2#findFlights {
 }
 #toFrom h4.tfhead {
   margin:1em 0 0.25em 0;
-}
-#toFrom h4.tfto {
-  margin:1em 0 0.25em 1em;
 }
 #ffOrig, #ffDest {
   height:51px;
@@ -378,20 +428,12 @@ h2#findFlights {
   padding-left:10px;
   padding-top:5px;
 }
-#ffDest {
-  background:transparent url("fromTo.png") -148px 0 no-repeat;
-  width:128px;
-  height:51px;
-  padding-left:20px;
-  padding-top:5px;
-}
-span#origin_short, span#dest_short {
+span#origin_short {
   font-size:25px;
   font-weight:bold;
   display:block;
-  text-shadow: 1px 1px 1px #fff;
 }
-span#origin_city, span#dest_city {
+span#origin_city {
   font-size:12px;
 }
 
@@ -454,7 +496,6 @@ h4.wtborder {
   background: transparent url("passengerDiv.jpg") no-repeat top right;
 }
 
->>>>>>> f190e6a20cf2a6ed4e3359d1f3fb0a1063f20d69
 /* Calendar Hacks */
 span.icon {
   height:17px;
@@ -476,8 +517,8 @@ span.ret {
   margin-bottom:2em;
 }
 .contentWrap {
-  width:90.5%;
-  margin:1em 5%;
+  width:96%;
+  margin:1em 2%;
   border-radius: 5px;
   float:left;  
 }
@@ -501,7 +542,8 @@ span.ret {
   padding:5px;
   width:90%;
 }
-.thirds {width:32%;}
+.thirds {width:33%;}
+.thirdsP {width:34%;}
 a#calLink {
   text-decoration:none;
   color:#000;
@@ -530,16 +572,22 @@ a#calLink {
   #dr li div h4 {
     height: 17px;
     background: url("icons.png") no-repeat;
+    display: inline-block;
+    margin: 0px 0px 7px 0px;
   }
 
 #dd h4 {
   text-align: left;
-  background-position: 50px 0px !important;
+  background-position: right top !important;
+  float: left;
+  width: 66px;
 }
 
 #rd h4 {
   text-align: right;
-  background-position: 126px -17px !important;
+  background-position: left bottom !important;
+  float: right;
+  width: 65px;
 }
 
 .left {float:left;}
