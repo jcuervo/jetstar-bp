@@ -150,7 +150,7 @@ class FlightController < ApplicationController
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
       }
-
+      logger.info res.body
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
         @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
@@ -170,7 +170,7 @@ class FlightController < ApplicationController
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
       }
-
+      logger.info res.body
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
         @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}

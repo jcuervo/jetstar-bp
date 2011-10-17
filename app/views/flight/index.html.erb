@@ -121,8 +121,8 @@
           <div id="downIcon" class="floatRight"></div>
         </div>
         
-        <ul id="recentResults">
-          <%- if session[:flight] || session[:return_flights]%>
+        <%- if session[:flight] || session[:return_flights] %>
+          <ul id="recentResults">
             <%- if session[:flight] -%>
               <%- session[:flight].each_with_index do |flight, i| %>
                 <%- i += 1 -%>
@@ -153,10 +153,13 @@
                 </li>
               <%- end -%>
             <%- end -%>
-          <%- else -%>
-            <li class="left bottomradius borderBottomGray">No flight found.</li>
-          <% end %>
-        </ul>
+          </ul>
+        <%- else -%>
+          No flight results yet.
+          <%= "flight results" if session[:flight].size > 0 %>
+          <br />
+          <%= "return flight results" if session[:return_flights].size > 0 %>
+        <% end %>
       </div>
   </div>
 
