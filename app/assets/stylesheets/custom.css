@@ -594,7 +594,7 @@ a#calLink {
     height: 17px;
     background: url("icons.png") no-repeat;
     display: inline-block;
-    margin: 0px 0px 7px 0px;
+    margin: 0px 0px 1px 0px;
   }
 
 #dd h4 {
@@ -618,10 +618,17 @@ a#calLink {
 }
 .hidden {display:none;}
 .fullwidth {width:100%;}
-.halfw {width:50%;}
+.halfw {width:34%;}
+
 #dpDate, #rpDate {
-  text-align:center;
+  margin-top: 4px;
+  width: 73px;
 }
+
+.dpWD {
+  color: #7f7f7f;
+}
+
 #dpDay, #rpDay {
   font-size:40px;
   text-align:left;
