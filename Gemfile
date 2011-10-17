@@ -13,8 +13,14 @@ group :production do
   gem 'therubyracer', '0.9.4'
 end
 gem "rake", "0.8.7"
-
 gem 'jquery-rails'
+
+
+group :assets do
+  gem 'coffee-rails', '~> 3.1.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
