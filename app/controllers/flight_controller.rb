@@ -120,12 +120,9 @@ class FlightController < ApplicationController
       date = session[:depart].split('/')
       rDate = "#{date[2]}#{date[0]}#{date[1]}"
 
-      if params[:commit].downcase.index("exact")
-        url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/exactDates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
-      else
-        url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/flexibletDates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
-      end      
-            
+      str = ((params[:commit].downcase.index("exact"))? "exact" : "flexible")
+
+      url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/#{str}Dates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
       req = Net::HTTP::Get.new(url.path)
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
@@ -133,13 +130,14 @@ class FlightController < ApplicationController
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
                 
-        if flight.class == Hash
-          ddt = flight["departureDateTime"].split('T')
-          adt = flight["departureDateTime"].split('T')
-          @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} #{ddt[0]} (#{ddt[1]}), #{flight["arrivalAirport"]} #{adt[0]} (#{adt[1]})"]
-        else
-          @flights <<  flight
-        end
+        #if flight.class == Hash
+        #  ddt = flight["departureDateTime"].split('T')
+        #  adt = flight["departureDateTime"].split('T')
+        #  @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} #{ddt[0]} (#{ddt[1]}), #{flight["arrivalAirport"]} #{adt[0]} (#{adt[1]})"]
+        #else
+        #  @flights <<  flight
+        #end
+        logger.info flight
         
       end if parsed_json["wrapper"]["results"]
     end
