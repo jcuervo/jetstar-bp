@@ -132,6 +132,7 @@ h2#findFlights {
   border: solid 1px #ccddee;
 }
   .searchField {
+    width: 300px;
     padding: 4px 28px 4px 6px;
     border: 1px solid;
     border-radius: 25px;
