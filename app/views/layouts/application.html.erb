@@ -24,7 +24,10 @@
   </script>
   <%- if @origins -%>
   <script>
-    origin_airports = ['<%= @origins.join("\', \'")%>'];
+    var origin_airports = ['<%= @origins.join("\', \'")%>'];
+  <%- end -%>
+  <%- if @destination -%>
+    var destination_airports = ['<%= @destination.join("\', \'")%>'];
   </script>
   <%- end -%>
 </head>
