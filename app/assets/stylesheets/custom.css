@@ -53,11 +53,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   footer {
     width: 100%;
-    height:52px;
+    height:40px;
     margin: 0 auto;
     background-color:#000000;
     border-bottom:1px solid #666;
-    height:40px;
+    float:left;
   }
   footer nav {
     text-align:center;
@@ -72,7 +72,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   footer nav ul li {
     text-align: center;
-    width:105px;
+    width:100px;
     float:left;
     display: block;
   }
@@ -100,6 +100,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     height:34px;
     position:absolute;
     z-index:20;
+    top:5px;
     left:5px;
     line-height: 0;
     text-indent: -9999px;
@@ -116,35 +117,45 @@ only screen and (min-device-pixel-ratio: 1.5) {
     text-indent: -9999px;
   }
 
-  #main {
-  /*  padding:10px;*/
-  /*  width:480px;*/
-    margin:0 auto;
-  }
-  #main ul li {
-    display:inline;
-    float:left;
-    text-align:center;
-    width:98px;
-  }
-  #main ul li a {
-    background: transparent url("tabs.png") no-repeat;
-    height:33px;
-    width:98px;
-    display:block;
-    color:#484848;
-    font-size:18px;
-    text-decoration:none;
-    line-height:33px;
-  }
-  #main ul li a.current {
-    background: transparent url("tabs.png") -99px 0 no-repeat;
-    color:#ffffff;
-  }
+#main {
+  margin:0 auto;
+}
+#main ul#flightNav li {
+  display:inline;
+  float:left;
+  text-align:center;
+  width:98px;
+}
+#main ul#flightNav li a {
+  background: transparent url("tabs.png") no-repeat;
+  height:33px;
+  width:98px;
+  display:block;
+  color:#484848;
+  font-size:18px;
+  text-decoration:none;
+  line-height:33px;
+}
+#main ul#flightNav li a.current {
+  background: transparent url("tabs.png") -99px 0 no-repeat;
+  color:#ffffff;
+}
 
+#toFrom, #schedule {
+  width:100%;
+  float:left;
+  margin-top:14px;
+}
+#toFrom ul {
+  width:100%;
+  float:left;
+  margin:0;
+  padding:0;
+}
 
   #toFrom, #schedule {
     width:100%;
+<<<<<<< HEAD
     float:left;
     margin-top:14px;
   }
@@ -164,118 +175,131 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #toFrom div {
       width:100%;
   }
-  #toFrom div div.lbl {
-      width:220px;
-  }
-  #toFrom div div a {
-    width: 150px;
-    height: 62px;
-    display: block;
-    text-indent: -9999px;
-  }
-  #toFrom div div a#fromLink {
-    background:transparent url("fromTo.png") no-repeat bottom left;
-  }
-  #toFrom div div a#toLink {
-    background:transparent url("fromTo.png") -150px 0 no-repeat;
-  }
-  #toFrom div div h2 {
-    margin: 0;
-    height:29px;
-  }
-  #toFrom div div span {
-  position: relative;
-  z-index: 10;
-  margin-top: -47px;
-  display: block;
-  width: 140px;
-  margin-left: 10px;
-  font-size: 15px;
-  }
-  #toFrom ul li span {
-    width:250px;
-    padding-left:30px;
-    margin-top:30px;
-  }
-  #toFrom ul li span.locAbbr {
-    font-size:45px;
-    font-weight:bold;
-    display:block;
-  }
-  #toFrom ul li span.locFull {
-    font-size:16px;
-    line-height:16px;
-  }
-  #toFrom ul li.toDest span.locAbbr, #toFrom ul li.toDest span.locFull {
-    width:260px;
-    padding-left:40px;
-  }
 
-  #scheduleDetails {
-    width:480px;
-    margin:0 auto;
-    float:left;
-    border:1px solid #e2e2e2;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    -webkit-box-shadow:0 0 7px #e2e2e2;
-    -moz-box-shadow: 0 0 7px #e2e2e2;
-    box-shadow:0 0 7px #e2e2e2;
-  }
-  #scheduleDetails ul {
-    list-style:none;
-    margin:0;
-    padding:0;
-    float:left;
-  }
-  #scheduleDetails ul li {
-    display:inline;
-    float:left;
-    width:263px;
-    padding:25px 0 0 30px;
-    height:156px;
-  }
-  .sDepart {
-    line-height:34px;
-    font-size:16px;
-    font-weight:bold;
-  }
-  .departTxt {
-    height:34px;
-    display:block;
-    float:left;
-  }
-  .departIcon {
-    height:34px;
-    width:34px;
-    background:transparent url("icons.jpg") no-repeat;
-    display:block;
-    float:left;
-    margin-left:15px;
-  }
-  .sDepartDate {
-    margin-top:15px;
-  }
-  #sdDay, #sdMonth {
-    font-size:18px;
-  }
-  #sdDay {
-    color:#7f7f7f;
-  }
-  #sdDate {
-    font-size:70px;
-    font-weight:bold;
-    text-align:left;
-  }
-
-  #findFlightsSec {display:inline-block;}
-  .fullWidth {width:100%}
-  .halfWidth {width:50%;}
-  .half {width:281px;}
-  .floatLeft {float:left;}
-  .floatRight {float:right;}
-  .lbl {font-size:16px;font-weight:bold;padding-left:20px;}
+#toFrom div div.lbl {
+    width:220px;
 }
+#toFrom div div a {
+  width: 133px;
+  height: 40px;
+  display: block;
+  color:#000;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-size: 15px;
+}
+#toFrom div div a.fromLink {
+  background:transparent url("fromTo.png") no-repeat bottom left;
+}
+#toFrom div div a.toLink {
+  background:transparent url("fromTo.png") -150px 0 no-repeat;
+}
+#toFrom div div h2 {
+  margin: 0;
+  height:29px;
+}
+#toFrom ul li span {
+  width:250px;
+  padding-left:30px;
+  margin-top:30px;
+}
+#toFrom ul li span.locAbbr {
+  font-size:45px;
+  font-weight:bold;
+  display:block;
+}
+#toFrom ul li span.locFull {
+  font-size:16px;
+  line-height:16px;
+}
+#toFrom ul li.toDest span.locAbbr, #toFrom ul li.toDest span.locFull {
+  width:260px;
+  padding-left:40px;
+}
+
+#scheduleDetails {
+  width:480px;
+  margin:0 auto;
+  float:left;
+  border:1px solid #e2e2e2;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow:0 0 7px #e2e2e2;
+  -moz-box-shadow: 0 0 7px #e2e2e2;
+  box-shadow:0 0 7px #e2e2e2;
+}
+#scheduleDetails ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  float:left;
+}
+#scheduleDetails ul li {
+  display:inline;
+  float:left;
+  width:263px;
+  padding:25px 0 0 30px;
+  height:156px;
+}
+.sDepart {
+  line-height:34px;
+  font-size:16px;
+  font-weight:bold;
+}
+.departTxt {
+  height:34px;
+  display:block;
+  float:left;
+}
+.departIcon {
+  height:34px;
+  width:34px;
+  background:transparent url("icons.jpg") no-repeat;
+  display:block;
+  float:left;
+  margin-left:15px;
+}
+.sDepartDate {
+  margin-top:15px;
+}
+#sdDay, #sdMonth {
+  font-size:18px;
+}
+#sdDay {
+  color:#7f7f7f;
+}
+#sdDate {
+  font-size:70px;
+  font-weight:bold;
+  text-align:left;
+}
+#findFlightsSec {
+  width:480px;
+  margin: 0 auto;
+  display:block;
+}
+#searchFLight a {
+  text-indent: -99999px;
+  width:141px;
+  height: 38px;
+  display:block
+}
+a#lowestFares{
+  background: url("searchBtn.jpg") no-repeat;
+  margin-right:20px;
+}
+a#exactDates{
+  background: url("searchBtn.jpg") 0 -38px no-repeat;
+}
+.fullWidth {width:100%}
+.halfWidth {width:50%;}
+.half {width:281px;}
+.floatLeft {float:left;}
+.floatRight {float:right;}
+.lbl {font-size:16px;font-weight:bold;padding-left:20px;}
+} /* end of media query */
+
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
@@ -327,7 +351,6 @@ h2#findFlights {
 }
 .left {float:left;}
 .ui-datepicker {
-  width:88%;
   margin:0 auto;
 }
 .hidden {display:none;}
@@ -342,6 +365,23 @@ h2#findFlights {
 #dpDay, #rpDay {
   font-size:32px;
   font-weight:bold;
+}
+
+#introWrap {
+  min-height:80px;
+}
+#intro {
+  width:100px;
+  text-align:center;
+  margin:5em auto;
+}
+#intro a, #intro a:visited {
+  text-decoration:none;
+  font-weight:bold;
+  color:#fff;
+  background-color:#ff5216;
+  padding:0.5em 0.75em;
+  border-radius:5px;
 }
 
 /* Flight Search Area */
@@ -394,20 +434,3 @@ h2#findFlights {
       background-color: #808080;
       cursor: pointer;
     }
-
-#introWrap {
-  min-height:80px;
-}
-#intro {
-  width:100px;
-  text-align:center;
-  margin:5em auto;
-}
-#intro a, #intro a:visited {
-  text-decoration:none;
-  font-weight:bold;
-  color:#fff;
-  background-color:#ff5216;
-  padding:0.5em 0.75em;
-  border-radius:5px;
-}
