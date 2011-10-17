@@ -40,7 +40,7 @@ $(document).ready(function() {
 //        $("#departDetails").html(dateText);
 //        $("#dDate").val(dateText);
         $("#dpDay").text(dateText.split("/")[1]);
-        $("#dpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
+        $("#dpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
@@ -51,7 +51,7 @@ $(document).ready(function() {
 //        $("#returnDetails").html(dateText);
 //        $("#rData").val(dateText);
         $("#rpDay").text(dateText.split("/")[1]);
-        $("#rpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
+        $("#rpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
         submitDate("return", dateText);
       }
     });
@@ -140,43 +140,33 @@ function submitDate(dateType, d){
 }
 
 function getMonthName(m){
-  str = ""
-  switch(m){
-    case "01": 
-      str = "Jan";
-      break;
-    case "02": 
-      str = "Feb";
-      break;
-    case "03": 
-      str = "Mar";
-      break;
-    case "04": 
-      str = "Apr";
-      break;
-    case "05": 
-      str = "May";
-      break;
-    case "06": 
-      str = "Jun";
-      break;
-    case "07": 
-      str = "Jul";
-      break;
-    case "08":
-      str =  "Aug";
-      break;
-    case "09": 
-      str =  "Sep";
-    case "10": 
-      str =  "Oct";
-      break;
-    case "11": 
-      str =  "Nov";
-      break;
-    case "12": 
-      str =  "Dec";
-      break;
+  switch(new Date(m).getMonth()){
+    case 0:  return "Jan";
+    case 1:  return "Feb";
+    case 2:  return "Mar";
+    case 3:  return "Apr";
+    case 4:  return "May";
+    case 5:  return "Jun";
+    case 6:  return "Jul";
+    case 7:  return "Aug";
+    case 8:  return "Sep";
+    case 9:  return "Oct";
+    case 10:  return "Nov";
+    case 11:  return "Dec";
   }
-  return str;
 }
+
+function getWeekDay(day){
+  
+  switch(new Date(day).getDay()){
+    case 0:  return "Sunday";
+    case 1:  return "Monday";
+    case 2:  return "Tuesday";
+    case 3:  return "Wednesday";
+    case 4:  return "Thusday";
+    case 5:  return "Friday";
+    case 6:  return "Saturday";
+  }
+}
+
+
