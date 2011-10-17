@@ -13,8 +13,13 @@
 
 
 $(document).ready(function() {
-  //add this in your javascript code to 'hide' the address bar  
-  window.scrollTo(0, 1);  
+  window.addEventListener("load",function() {
+    // Set a timeout...
+    setTimeout(function(){
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 0);
+  });
 
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
