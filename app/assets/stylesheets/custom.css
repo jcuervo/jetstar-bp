@@ -185,9 +185,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 #toFrom div div a.toLink {
   background:transparent url("fromTo.png") -155px 0 no-repeat;
 }
-#toFrom h4 {
+#toFrom div div h4 {
   margin: 0;
-  padding: 0;
   font-size:13px;
 }
 #toFrom ul li span {
@@ -291,6 +290,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
+.lbl {font-size:16px;font-weight:bold;width:50%;}
 .width99 {width:99%;}
 
 .submitList {
@@ -343,30 +343,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .bold {font-weight:bold;}
 .right {float:right;}
 
-.ui-autocomplete {
-  top: 50px !important;
-  border: none !important;
-  width: 100% !important;
 }
-.ui-autocomplete li {
-  background-color: #E9E9E9;
-  margin-bottom: 2px !important;
-  font-size: 14px;
-  padding: 10px 15px !important;
-  font-weight: bold;
-  border-bottom: solid 1px #C4C4C4;
-  width: 90% !important;
-}
-.ui-state-hover {
-  background:none !important;
-  font-size: 14px !important;
-  font-weight: bold !important;
-  border:none !important;
-  width: 90% !important;
-  margin:0 !important;
-}
-
-} /*   end of media query */
+/*   end of media query */
 
 
 h2#findFlights {
@@ -376,54 +354,6 @@ h2#findFlights {
 #searchResults {
   margin:1em auto;
 }
-
-/* Find Flights Origin and Destination Styles */
-#ffOrig, #ffDest {
-  height:56px;
-  width:148px;
-  display:block;
-}
-#ffOrig {
-  background:transparent url("fromTo.png") no-repeat;
-}
-
-/* Passengers Styles */
-.tacenter {text-align:center;}
-#passengerWrap h4 {
-  margin:0.25em 0;
-  padding:0;
-}
-#passengerOpts {
-  height:64px;
-  background:transparent url("passengerBG.jpg") repeat-x;
-  border-left:1px solid #a0a3a4;
-  border-top:1px solid #8c8c8c;
-  border-right:1px solid #babdbc;
-  border-radius:5px;
-  -moz-box-shadow: inset 0 0 5px #aaa;
-  -webkit-box-shadow: inset 0 0 5px#aaa;
-  box-shadow: inner 0 0 5px #aaa;
-}
-.sselect select {
-  background:transparent;
-  margin-top:18px;
-  border:none;
-  height:28px;
-  font-size:16px;
-  overflow:hidden;
-}
-.sselect span {
-  height:28px;
-  width:20px;
-  display:block;
-  margin-top:18px;
-  margin-left:35px;
-  float:left;
-}
-.adult {
-  background: transparent url("passengers.jpg") no-repeat;
-}
-
 /* Calendar Hacks */
 span.icon {
   height:17px;
@@ -499,22 +429,16 @@ a#calLink {
   #dr li div h4 {
     height: 17px;
     background: url("icons.png") no-repeat;
-    display: inline-block;
-    margin: 0px 0px 7px 0px;
   }
 
 #dd h4 {
   text-align: left;
-  background-position: right top !important;
-  float: left;
-  width: 66px;
+  background-position: 50px 0px !important;
 }
 
 #rd h4 {
   text-align: right;
-  background-position: left bottom !important;
-  float: right;
-  width: 65px;
+  background-position: 126px -17px !important;
 }
 
 .left {float:left;}

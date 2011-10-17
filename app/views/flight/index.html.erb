@@ -106,11 +106,17 @@
       </div>
     <%- end -%>
   </div>
+
   <div class="floatLeft">
     <%- if session[:flight] %>
+    <ul>
       <%- session[:flight].each do |flight| %>
-        <%= flight %>
+        <li>
+          <%=flight%> <br />
+          <%= "(#{flight[:aa]})" %>
+        </li>
       <%- end %>
+    </ul>
     <%- end -%>
   </div>
   <ul id="search_#{params[:q]}_list"></ul>
