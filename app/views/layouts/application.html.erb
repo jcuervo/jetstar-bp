@@ -24,6 +24,8 @@
     Modernizr.mq('(min-width:0)') || document.write('<script src="respond.min.js">\x3C/script>')
   </script>
   <script>
+    var centerLatitude = -38.47;
+    var centerLongitude = 144.98;
     var origin_airports = ['<%= @origins.join("\', \'") if @origins %>'];
     var destination_airports = ['<%= @destination.join("\', \'") if @destination %>'];
   </script>
@@ -55,6 +57,26 @@
   
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <%= javascript_include_tag "application"%>
+    <%- if session[:origin].blank? %>
+    <script>
+      $(document).ready(function() {
+        if (Modernizr.geolocation)
+          navigator.geolocation.getCurrentPosition(function(position) {
+            centerLatitude = position.coords.latitude;
+            centerLongitude = position.coords.longitude;
+            // remove me...
+            centerLatitude = -38.47;
+            centerLongitude = 144.98;
+
+            findClosestAirport(centerLatitude, centerLongitude);
+          });
+        else {
+          findClosestAirport(centerLatitude, centerLongitude);
+          alert('Unable to get nearby airports');
+        }
+      });
+    </script>
+    <%- end -%>
     <script>
       MBP.scaleFix();
     </script>
