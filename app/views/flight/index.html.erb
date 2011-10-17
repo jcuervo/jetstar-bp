@@ -15,14 +15,26 @@
     </ul>
     <div id="toFrom" class="left">
       <div class="left fullwidth">
-        <div class="lbl left">
-          <h4>From</h4>
-          <%= link_to raw((session[:origin])? "#{session[:origin][-4..-2]}<br />#{session[:origin].split(",")[0]}" : "Origin"), (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
-        </div>
-        <div class="lbl right">
-          <h4>To</h4>
-          <%= link_to raw((session[:dest])? "#{session[:dest][-4..-2]}<br />#{session[:dest].split(",")[0]}" : "Destination"), (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
-        </div>
+          <div class="lbl left">
+            <h4>From</h4>
+            <a href="<%= search_flight_index_path(:q => 'from') %>" id="<%= (session[:origin].blank?)? "origin_airport" : "session_origin" %>">
+              <div>
+                <%- if session[:origin] -%>
+                  <span><%= session[:origin][-4..-2] %></span>
+                  <span><%= session[:origin].split(",")[0] %></span>
+                <%- else -%>
+                  <span>Choose your origin</span>
+                <%- end -%>
+              </div>
+            </a>
+          </div>
+        
+        <a href="<%= search_flight_index_path(:q => 'to')%>">
+          <div class="lbl right">
+            <h4>To</h4>
+            <%= link_to raw((session[:dest])? "#{session[:dest][-4..-2]}<br />#{session[:dest].split(",")[0]}" : "Destination"), (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
+          </div>
+        </a>
       </div>
     </div>
   </div>
