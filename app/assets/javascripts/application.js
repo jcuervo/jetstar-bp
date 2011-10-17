@@ -34,8 +34,10 @@ $(document).ready(function() {
     $( "#datepickerD" ).datepicker({
       minDate: 0,
       onSelect: function(dateText, inst) {
-        $("#departDetails").html(dateText);
-        $("#dDate").val(dateText);
+//        $("#departDetails").html(dateText);
+//        $("#dDate").val(dateText);
+        $("#dpDay").text(dateText.split("/")[1]);
+        $("#dpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
@@ -43,8 +45,10 @@ $(document).ready(function() {
     $( "#datepickerR" ).datepicker({
       minDate: 0,
       onSelect: function(dateText, inst) {
-        $("#returnDetails").html(dateText);
-        $("#rData").val(dateText);
+//        $("#returnDetails").html(dateText);
+//        $("#rData").val(dateText);
+        $("#rpDay").text(dateText.split("/")[1]);
+        $("#rpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
         submitDate("return", dateText);
       }
     });
@@ -130,4 +134,22 @@ function submitDate(dateType, d){
       alert('Unable to set date.');
     }
   });
+}
+
+function getMonthName(m){
+  console.log(m);
+  switch(m){
+    case 1: return "Jan";
+    case 2: return "Feb";
+    case 3: return "Mar";
+    case 4: return "Apr";
+    case 5: return "May";
+    case 6: return "Jun";
+    case 7: return "Jul";
+    case 8: return "Aug";
+    case 9: return "Sep";
+    case 10: return "Oct";
+    case 11: return "Nov";
+    case 12: return "Dec";
+  }
 }
