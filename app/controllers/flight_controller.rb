@@ -1,4 +1,9 @@
+require 'net/http'
 class FlightController < ApplicationController
+  def new
+
+  end
+  
   def calendar
   end
 

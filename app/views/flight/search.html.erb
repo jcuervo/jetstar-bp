@@ -1,2 +1,6 @@
-<input type="text" name="from" id="search_from"/>
+<%= form_tag(new_flight_path) do %>
+  <%= search_field_tag "from", "", :id => "search_from" %>
+  <%= submit_tag "Set Origin" %>
+<%- end -%>
 <ul id="search_from_list"></ul>
+
