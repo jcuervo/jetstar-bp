@@ -1,8 +1,11 @@
 require 'net/http'
 class FlightController < ApplicationController
   def create
-    session[:origin] = params[:from] if params[:from]
-    session[:dest] ||= params[:to] if params[:to]
+    if params[:from]
+      session[:origin] = params[:from] 
+      session[:dest] = nil
+    end
+    session[:dest] = params[:to] if params[:to]
     redirect_to flight_index_path
   end
   
