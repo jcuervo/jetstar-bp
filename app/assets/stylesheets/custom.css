@@ -8,7 +8,7 @@ only screen and (-webkit-min-device-pixel-ratio: 1.5),
 only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
-  
+
 }
 
 /*@media only screen and (max-device-width: 480px) {*/
@@ -285,7 +285,88 @@ h2#findFlights {
 }
 
 /* Calendar Hacks */
+.reset{
+  margin:0;
+  padding:0;
+}
+#drWrap {
+  border:1px solid #d5d5d5;
+  width:90%;
+  margin:1em 5%;
+  border-radius: 5px;
+  float:left;
+}
+#drWrap ul#dr {
+  list-style:none;
+}
+#drWrap ul#dr li {
+  width:50%;
+  display:inline;
+  float:left;
+}
+.schedtaps {
+  padding:5px;
+}
+.tapable {
+  border:2px solid #fff;
+  background-color:#eceaeb;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eceaeb), to(#c2c2c2));
+  background: -webkit-linear-gradient(top, #eceaeb, #c2c2c2);
+  background: -moz-linear-gradient(top, #eceaeb, #c2c2c2);
+  -moz-box-shadow: 1px 0px 5px #888;
+  -webkit-box-shadow: 1px 0px 5px #888;
+  box-shadow: 1px 0px 5px #888;
+}
+.schedtaps h4{
+  margin:0;
+  padding:0;
+}
+.left {float:left;}
 .ui-datepicker {
   margin:0 auto;
 }
+.hidden {display:none;}
+#datepickerD, #datepickerR {
+  margin:0 auto;
+}
 
+/* Flight Search Area */
+.searchFieldGroup {
+  display: inline-block;
+  border: solid 1px #ccddee;
+}
+  .searchField {
+    padding: 4px 28px 4px 6px;
+    border: 1px solid;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    color: #808080;
+    font-style: italic;
+  }
+
+  #clearSearch {
+    position: relative;
+    z-index: 9;
+    margin: 0px 20px 0px -30px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #808080;
+    cursor: pointer;
+  }
+
+#intro {
+  width:100px;
+  text-align:center;
+  margin:5em auto;
+}
+#intro a, #intro a:visited {
+  text-decoration:none;
+  font-weight:bold;
+  color:#fff;
+  background-color:#ff5216;
+  padding:0.5em 0.75em;
+  border-radius:5px;
+}

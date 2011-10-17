@@ -35,28 +35,71 @@ $(document).ready(function() {
       minDate: 0,
       onSelect: function(dateText, inst) {
         $("#departDetails").html(dateText);
-        
-        $( "#datepickerR" ).datepicker( "option", "minDate", $.datepicker.parseDate( $.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
+        $("#dDate").val(dateText);
+        $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
+        submitDate("depart", dateText);
       }
     });
     $( "#datepickerR" ).datepicker({
       minDate: 0,
       onSelect: function(dateText, inst) {
         $("#returnDetails").html(dateText);
+        $("#rData").val(dateText);
+        submitDate("return", dateText);
       }
     });
   }
+  
+  $("#rd").click (function (){
+    $("#datepickerD").toggleClass("hidden");
+    $("#datepickerR").toggleClass("hidden");
+    $(this).toggleClass("tapable");
+    $("#dd").toggleClass("tapable");
+  });
+  $("#dd").click (function (){
+    $("#datepickerD").toggleClass("hidden");
+    $("#datepickerR").toggleClass("hidden");
+    $(this).toggleClass("tapable");
+    $("#rd").toggleClass("tapable");
+  });
     
   $('#search_from').autocomplete({
     source: origin_airports,
-    minLength: 3
+    minLength: 3,
+    appendTo: "#search_from_list",
+    select:function(event, ui){
+      $("#flightForm").submit();
+    },
+    change:function(event, ui){
+      $("#flightForm").submit();
+    }
   });
   
   $('#search_to').autocomplete({
     source: destination_airports,
-    minLength: 3
+    minLength: 3,
+    appendTo: "#search_to_list", 
+    select:function(event, ui){
+      $("#flightForm").submit();
+    },
+    change:function(event, ui){
+      $("#flightForm").submit();
+    }
   });
-
+  
+  
+  $("#clearSearch").click(function() {
+    $(".searchField").val('').focus();
+  });
+  $(".searchField").click(function() {
+    if($(this).val() == "Type name or city") {
+      $(this).val('');
+    }
+  }).blur(function() {
+    if($(this).val() == "") {
+      $(this).val("Type name or city");
+    }
+  });
 });
 
 function findClosestAirport(lat, lng){
@@ -72,6 +115,19 @@ function findClosestAirport(lat, lng){
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Unable to get nearby airports');
+    }
+  });
+}
+
+function submitDate(dateType, d){
+  $.ajax({
+    type: "POST",
+    url: "/flight/create",
+    data: dateType + "=" + d,
+    success: function(data){
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      alert('Unable to set date.');
     }
   });
 }

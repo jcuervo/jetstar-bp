@@ -6,8 +6,6 @@
   </div>
 <%- end -%>
 
-
-
 <%= link_to "Depart", calendar_flight_index_path %>
 <%= link_to "Return", calendar_flight_index_path %>
 
@@ -31,23 +29,37 @@
       </div>
     </div>
   </div>
-  <div id="schedule">
-    <div id="scheduleDetails">
-      <ul>
-        <li>
-          <div class="sDepart fullWidth"><span class="departTxt">Departs</span><span class="departIcon"></span></div>
-          <div class="sDepartDate fullWidth floatLeft">
-            <div class="halfWidth floatLeft">
-              <div id="sdDay" class="fullWidth">Wednesday</div>
-              <div id="sdMonth" class="fullWidth">Oct</div>
+  <div id="drWrap">
+      <a href="/flight/calendar">
+        <ul id="dr" class="reset">
+          <li>
+            <div class="tapable">
+              <h4>Depart</h4>
+              <div id="departDetails">
+                Depart Date Here
+              </div>
             </div>
-            <div id="sdDate" class="halfWidth floatLeft">25</div>
-          </div>
-        </li>
-        <li>
-          Returns
-        </li>
-      </ul>
+          </li>
+          <li>
+            <h4>Return</h4>
+            <div id="returnDetails">
+              Return Date Here
+            </div>
+          </li>
+        </ul>
+      </a>
     </div>
+
+
+    <%= form_tag(flight_index_path, :method => :post) do %>
+      <%= hidden_field_tag "depart", "", :id => "dDate" %>
+      <%= hidden_field_tag "return", "", :id => "rDate" %>
+      Adults: <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10)) %>
+      Children: <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10)) %>
+      Infants: <%= select_tag "infants", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10)) %>
+      <%= submit_tag "Find Exact Date Flights" %>
+      <%= submit_tag "Find Flexible Date Flights" %>
+    <%- end -%>
+    <ul id="search_#{params[:q]}_list"></ul>
   </div>
 </div>
