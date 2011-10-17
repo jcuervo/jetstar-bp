@@ -343,8 +343,30 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .bold {font-weight:bold;}
 .right {float:right;}
 
+.ui-autocomplete {
+  top: 50px !important;
+  border: none !important;
+  width: 100% !important;
 }
-/*   end of media query */
+.ui-autocomplete li {
+  background-color: #E9E9E9;
+  margin-bottom: 2px !important;
+  font-size: 14px;
+  padding: 10px 15px !important;
+  font-weight: bold;
+  border-bottom: solid 1px #C4C4C4;
+  width: 90% !important;
+}
+.ui-state-hover {
+  background:none !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  border:none !important;
+  width: 90% !important;
+  margin:0 !important;
+}
+
+} /*   end of media query */
 
 
 h2#findFlights {
