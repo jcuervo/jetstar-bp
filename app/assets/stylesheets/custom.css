@@ -11,7 +11,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-
 @media only screen and (max-width: 480px) {
   header {
     background: transparent url("headBG.jpg") repeat-x;
@@ -158,6 +157,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   height:124px;
   float:left;
 }
+
 #toFrom div div a {
   width: 133px;
   height: 40px;
@@ -301,6 +301,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }/*   end of media query */
 
+
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
   text-indent:-9999px;
@@ -397,50 +398,6 @@ a#calLink {
 }
 #searchWrap {min-height:220px;}
 
-/* Flight Search Area */
-/*@media only screen and (max-width: 330px) {
-  .searchField {
-    width: 150px;
-  }
-}
-
-@media only screen and (min-width: 331px) and (max-width: 480px) {
-  .searchField {
-    width: 250px;
-  }
-}*/
-
-#flightForm {
-  float: left;
-  margin: 9px 0px 0px 9px;
-}
-
-  .searchFieldGroup {
-    display: inline-block;
-    border: solid 1px #ccddee;
-  }
-
-    .searchField {
-      padding: 4px 28px 4px 6px;
-      border: 1px solid;
-      border-radius: 25px;
-      -webkit-border-radius: 25px;
-      -moz-border-radius: 25px;
-      color: #808080;
-      font-style: italic;
-    }
-
-    #clearSearch {
-      position: relative;
-      z-index: 9;
-      margin: 0px 20px 0px -30px;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background-color: #808080;
-      cursor: pointer;
-    }
-
 #introWrap {
   min-height:80px;
 }
@@ -457,3 +414,69 @@ a#calLink {
   padding:0.5em 0.75em;
   border-radius:5px;
 }
+
+/* Flight Search Area */
+@media only screen and (max-width: 350px) {
+  .searchField {
+    width: 170px;
+  }
+}
+
+@media only screen and (min-width: 351px) and (max-width: 480px) {
+  .searchField {
+    width: 280px;
+  }
+}
+
+#flightForm {
+  float: left;
+  margin: 6px 0px 0px 9px;
+}
+
+  .searchFieldGroup {
+    display: inline-block;
+    border: solid 1px #ccddee;
+  }
+
+    .searchField {
+      padding: 7px 28px 7px 6px;
+      border: 1px solid #f85720;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      color: #808080;
+      font-style: italic;
+      -moz-box-shadow:inset 0 0 6px #0f0f0f;
+      -webkit-box-shadow:inset 0 0 6px #0f0f0f;
+      box-shadow:inset 0 0 6px #0f0f0f;
+    }
+
+      /*#search_from_list * {
+        background: url("");
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border: none;
+      }
+    
+      #search_from_list ul {
+        backround: url("") #ffffff;
+      }
+        
+      #search_from_list ul li {
+        background-image: none;
+        background-color: #e8e8e8z;
+        font-weight: bold;
+        border-bottom: solid 1px #dadada;
+      }*/
+    
+    #clearSearch {
+      background: url("searchClear.jpg") no-repeat;
+      position: relative;
+      z-index: 9;
+      margin: 0px 20px -5px -30px;
+      display: inline-block;
+      width: 18px;
+      height: 20px;
+      cursor: pointer;
+    }
