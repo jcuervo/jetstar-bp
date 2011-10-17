@@ -118,5 +118,29 @@
     <%- end -%>
   </div>
   <ul id="search_#{params[:q]}_list"></ul>
-
+  <div class="left contentWrap">
+      <div id="recentSearches">
+        <div id="searchesHeader">
+          <div id="clock" class="floatLeft"></div>
+          <h3 class="left width70">Recent Searches</h3>
+          <div id="downIcon" class="floatRight"></div>
+        </div>
+        <ul id="recentResults">
+          <li class="left topradius borderBottomGray">
+            <span class="resultTitle floatLeft">Sydney (SYD)</span>
+            <div class="searchDates floatRight">
+              <div class="floatleft days">WED<br/>OCT</div>
+              <div class="floatRight date">17</div>
+            </div>
+          </li>
+          <li class="left bottomradius returnGray">
+            <span class="resultTitle return floatLeft">Melbourne (MEL)</span>
+            <div class="searchDates floatRight">
+              <div class="floatleft days">MON<br/>OCT</div>
+              <div class="floatRight date">23</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </div>
 
