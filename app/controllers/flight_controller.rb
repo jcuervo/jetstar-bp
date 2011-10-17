@@ -2,11 +2,11 @@ require 'net/http'
 class FlightController < ApplicationController
 
   def create
-    if params[:from]
+    if params[:from] && !params[:from].blank?
       session[:origin] = params[:from] 
       session[:dest] = nil
     end
-    session[:dest] = params[:to] if params[:to]
+    session[:dest] = params[:to] if params[:to]  && !params[:to].blank?
     session[:depart] = params[:depart] if params[:depart]
     session[:return] = params[:return] if params[:return]
 
