@@ -141,11 +141,30 @@ h2#findFlights {
   display:inline;
   float:left;
 }
+.schedtaps {
+  padding:5px;
+}
 .tapable {
-  
+  border:2px solid #fff;
+  background-color:#eceaeb;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eceaeb), to(#c2c2c2));
+  background: -webkit-linear-gradient(top, #eceaeb, #c2c2c2);
+  background: -moz-linear-gradient(top, #eceaeb, #c2c2c2);
+  -moz-box-shadow: 1px 0px 5px #888;
+  -webkit-box-shadow: 1px 0px 5px #888;
+  box-shadow: 1px 0px 5px #888;
+}
+.schedtaps h4{
+  margin:0;
+  padding:0;
 }
 .left {float:left;}
 .ui-datepicker {
+  margin:0 auto;
+}
+.hidden {display:none;}
+#datepickerD, #datepickerR {
   margin:0 auto;
 }
 

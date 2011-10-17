@@ -47,6 +47,19 @@ $(document).ready(function() {
       }
     });
   }
+  
+  $("#rd").click (function (){
+    $("#datepickerD").toggleClass("hidden");
+    $("#datepickerR").toggleClass("hidden");
+    $(this).toggleClass("tapable");
+    $("#dd").toggleClass("tapable");
+  });
+  $("#dd").click (function (){
+    $("#datepickerD").toggleClass("hidden");
+    $("#datepickerR").toggleClass("hidden");
+    $(this).toggleClass("tapable");
+    $("#rd").toggleClass("tapable");
+  });
     
   $('#search_from').autocomplete({
     source: origin_airports,
