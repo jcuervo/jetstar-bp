@@ -83,7 +83,22 @@
   color: #212121; text-decoration: none; 
 }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-  background: #a9a9a9 font-weight: normal; color: #212121; 
+  background-image: linear-gradient(bottom, rgb(217,70,21) 21%, rgb(255,80,21) 77%) !important;
+  background-image: -o-linear-gradient(bottom, rgb(217,70,21) 21%, rgb(255,80,21) 77%) !important;
+  background-image: -moz-linear-gradient(bottom, rgb(217,70,21) 21%, rgb(255,80,21) 77%) !important;
+  background-image: -webkit-linear-gradient(bottom, rgb(217,70,21) 21%, rgb(255,80,21) 77%) !important;
+  background-image: -ms-linear-gradient(bottom, rgb(217,70,21) 21%, rgb(255,80,21) 77%) !important;
+
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.21, rgb(217,70,21)),
+  color-stop(0.77, rgb(255,80,21))
+  ) !important;
+  font-weight: normal;
+  text-shadow: 1px 1px #ff5115;  
+  color: #212121 !important; 
 }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
   color: #212121; text-decoration: none; 
@@ -442,11 +457,11 @@ table.ui-datepicker-calendar tbody tr td span
 }
 
 .ui-state-disabled span {
-  background-image: linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%);
-  background-image: -o-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%);
-  background-image: -moz-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%);
-  background-image: -webkit-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%);
-  background-image: -ms-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%);
+  background-image: linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%) !important;
+  background-image: -o-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%) !important;
+  background-image: -moz-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%) !important;
+  background-image: -webkit-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%) !important;
+  background-image: -ms-linear-gradient(bottom, rgb(194,194,194) 20%, rgb(228,228,228) 61%, rgb(236,236,236) 72%) !important;
 
   background-image: -webkit-gradient(
     linear,
@@ -459,11 +474,11 @@ table.ui-datepicker-calendar tbody tr td span
 }
 
 .ui-state-default {
-  background-image: linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%);
+  background-image: linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%) !important;
+  background-image: -o-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%) !important;
+  background-image: -moz-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%) !important;
+  background-image: -webkit-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%) !important;
+  background-image: -ms-linear-gradient(bottom, rgb(150,150,150) 0%, rgb(204,204,204) 100%) !important;
 
   background-image: -webkit-gradient(
     linear,
