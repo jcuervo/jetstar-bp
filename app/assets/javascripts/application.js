@@ -13,14 +13,11 @@
 
 
 $(document).ready(function() {
-  window.addEventListener("load",function() {
-    // Set a timeout...
-    setTimeout(function(){
-      // Hide the address bar!
-      window.scrollTo(0, 1);
-    }, 0);
-  });
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
+    function hideURLbar(){
+    window.scrollTo(0,1);
+    }
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
       minDate: 0,
