@@ -260,17 +260,20 @@ only screen and (min-device-pixel-ratio: 1.5) {
   font-weight:bold;
   text-align:left;
 }
-#searchFLight a {
+#searchFLight input {
   text-indent: -99999px;
   width:141px;
   height: 38px;
-  display:block
+  display:block;
+  border:none;
+  line-height:0;
+  float:left;
 }
-a#lowestFares{
+#lowestFares{
   background: url("searchBtn.jpg") no-repeat;
   margin-right:20px;
 }
-a#exactDates{
+#exactDates{
   background: url("searchBtn.jpg") 0 -38px no-repeat;
 }
 .fullWidth {width:100%}
