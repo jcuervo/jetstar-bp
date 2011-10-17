@@ -23,7 +23,7 @@ $(document).ready(function() {
 //        $("#departDetails").html(dateText);
 //        $("#dDate").val(dateText);
         $("#dpDay").text(dateText.split("/")[1]);
-        $("#dpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
+        $("#dpDate").html("<div class='dpWD'>" + getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
@@ -34,7 +34,7 @@ $(document).ready(function() {
 //        $("#returnDetails").html(dateText);
 //        $("#rData").val(dateText);
         $("#rpDay").text(dateText.split("/")[1]);
-        $("#rpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
+        $("#rpDate").html("<div class='dpWD'>" +  getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         submitDate("return", dateText);
       }
     });
