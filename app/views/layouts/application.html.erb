@@ -30,12 +30,8 @@
   <body>
     <div id="container">
       <header>
-        <div id="findFlights">
-          <div id="back"><a href="#" id="backBtn">Back</a></div>
-          <div id="midHeader"><h2>Find Flight</h2></div>
-          <div id="crumb"><h3>1 of 6</h3></div>
-        </div>
-       </header>
+        <%= yield :header %>
+      </header>
       <div id="main" role="main">
         <%= yield %>
       </div>
