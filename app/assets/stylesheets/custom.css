@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   
 }
 
-@media only screen and (max-device-width: 480px) {
+/*@media only screen and (max-device-width: 480px) {*/
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -114,7 +114,170 @@ only screen and (min-device-pixel-ratio: 1.5) {
     line-height: 0;
     text-indent: -9999px;
   }
+
+#main {
+  padding:10px;
+  width:480px;
+  margin:0 auto;
 }
+#main ul li {
+  display:inline;
+  float:left;
+  text-align:center;
+  width:98px;
+}
+#main ul li a {
+  background: transparent url("tabs.png") no-repeat;
+  height:33px;
+  width:98px;
+  display:block;
+  color:#484848;
+  font-size:18px;
+  text-decoration:none;
+  line-height:33px;
+}
+#main ul li a.current {
+  background: transparent url("tabs.png") -99px 0 no-repeat;
+  color:#ffffff;
+}
+
+
+#toFrom, #schedule {
+  width:100%;
+  float:left;
+  margin-top:14px;
+}
+#toFrom ul {
+  width:100%;
+  float:left;
+  margin:0;
+  padding:0;
+}
+
+#toFrom ul li {
+  width:300px;
+  display:inline;
+  height:124px;
+  float:left;
+}
+#toFrom div {
+    width:100%;
+}
+#toFrom div div.lbl {
+    width:220px;
+}
+#toFrom div div a {
+  width: 150px;
+  height: 62px;
+  display: block;
+  text-indent: -9999px;
+}
+#toFrom div div a#fromLink {
+  background:transparent url("fromTo.png") no-repeat bottom left;
+}
+#toFrom div div a#toLink {
+  background:transparent url("fromTo.png") -150px 0 no-repeat;
+}
+#toFrom div div h2 {
+  margin: 0;
+  height:29px;
+}
+#toFrom div div span {
+position: relative;
+z-index: 10;
+margin-top: -47px;
+display: block;
+width: 140px;
+margin-left: 10px;
+font-size: 15px;
+}
+#toFrom ul li span {
+  width:250px;
+  padding-left:30px;
+  margin-top:30px;
+}
+#toFrom ul li span.locAbbr {
+  font-size:45px;
+  font-weight:bold;
+  display:block;
+}
+#toFrom ul li span.locFull {
+  font-size:16px;
+  line-height:16px;
+}
+#toFrom ul li.toDest span.locAbbr, #toFrom ul li.toDest span.locFull {
+  width:260px;
+  padding-left:40px;
+}
+
+#scheduleDetails {
+  width:480px;
+  margin:0 auto;
+  float:left;
+  border:1px solid #e2e2e2;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow:0 0 7px #e2e2e2;
+  -moz-box-shadow: 0 0 7px #e2e2e2;
+  box-shadow:0 0 7px #e2e2e2;
+}
+#scheduleDetails ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  float:left;
+}
+#scheduleDetails ul li {
+  display:inline;
+  float:left;
+  width:263px;
+  padding:25px 0 0 30px;
+  height:156px;
+}
+.sDepart {
+  line-height:34px;
+  font-size:16px;
+  font-weight:bold;
+}
+.departTxt {
+  height:34px;
+  display:block;
+  float:left;
+}
+.departIcon {
+  height:34px;
+  width:34px;
+  background:transparent url("icons.jpg") no-repeat;
+  display:block;
+  float:left;
+  margin-left:15px;
+}
+.sDepartDate {
+  margin-top:15px;
+}
+#sdDay, #sdMonth {
+  font-size:18px;
+}
+#sdDay {
+  color:#7f7f7f;
+}
+#sdDate {
+  font-size:70px;
+  font-weight:bold;
+  text-align:left;
+}
+
+#findFlightsSec {display:inline-block;}
+.fullWidth {width:100%}
+.halfWidth {width:50%;}
+.half {width:281px;}
+.floatLeft {float:left;}
+.floatRight {float:right;}
+.lbl {font-size:16px;font-weight:bold;padding-left:20px;}
+
+
+
+
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;

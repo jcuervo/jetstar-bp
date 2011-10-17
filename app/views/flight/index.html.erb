@@ -6,12 +6,48 @@
   </div>
 <%- end -%>
 
-<%= link_to "From", (search_flight_index_path(:q => "from")) %>
-<span id="<%= ((session[:origin].blank?)? "origin_airport" : "session_origin"  )%>"><%= session[:origin]%></span>
-<br />
-<%= link_to "To", (search_flight_index_path(:q => "to")) %>
-<span id="<%= ((session[:dest].blank?)? "dest_airport" : "session_dest"  )%>"><%= session[:dest]%></span>
-<br />
-<br />
+
+
 <%= link_to "Depart", calendar_flight_index_path %>
 <%= link_to "Return", calendar_flight_index_path %>
+
+<div id="findFlightsSec">
+  <ul id="flightNav">
+    <li><a href="#">One Way</a></li>
+    <li><a href="#" class="current">Return</a></li>
+    <li><a href="#">Multi-City</a></li>
+  </ul>
+  <div id="toFrom">
+    <div class="floatLeft">
+      <div class="half lbl floatLeft">
+        <h2>From</h2>
+        <%= link_to "From", (search_flight_index_path(:q => "from")), :id => "fromLink" %>
+        <span id="<%= ((session[:origin].blank?)? "origin_airport" : "session_origin"  )%>"><%= session[:origin]%></span>
+      </div>
+      <div class="half lbl floatRight">
+        <h2>To</h2>
+        <%= link_to "To", (search_flight_index_path(:q => "to")), :id => "toLink" %>
+        <span id="<%= ((session[:dest].blank?)? "dest_airport" : "session_dest"  )%>"><%= session[:dest]%></span>
+      </div>
+    </div>
+  </div>
+  <div id="schedule">
+    <div id="scheduleDetails">
+      <ul>
+        <li>
+          <div class="sDepart fullWidth"><span class="departTxt">Departs</span><span class="departIcon"></span></div>
+          <div class="sDepartDate fullWidth floatLeft">
+            <div class="halfWidth floatLeft">
+              <div id="sdDay" class="fullWidth">Wednesday</div>
+              <div id="sdMonth" class="fullWidth">Oct</div>
+            </div>
+            <div id="sdDate" class="halfWidth floatLeft">25</div>
+          </div>
+        </li>
+        <li>
+          Returns
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
