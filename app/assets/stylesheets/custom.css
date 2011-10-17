@@ -197,13 +197,15 @@ h2#findFlights {
     .searchField {
       padding: 4px 28px 4px 6px;
       border: 1px solid;
-      border-radius: 25px;
-      -webkit-border-radius: 25px;
-      -moz-border-radius: 25px;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
       color: #808080;
       font-style: italic;
     }
 
+      
+    
     #clearSearch {
       position: relative;
       z-index: 9;
