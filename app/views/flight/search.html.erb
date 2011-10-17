@@ -1,6 +1,21 @@
-<%= form_tag(flight_index_path, :method => :post) do %>
-  <%= search_field_tag params[:q], "", :id => "search_#{params[:q]}" %>
-  <%= submit_tag "Set #{(params[:q] == "from")? "Origin" : "Destination" }" %>
+<%- content_for :header do -%>
+  <div id="findFlights">
+    <a href="#" class="doneBtn">Done</a>
+    <div id="midHeader">
+      <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
+        <span id="searchFieldGroup">
+          From 
+          <%= text_field_tag params[:q], "Type name or city", :id => "search_#{params[:q]}", :class => "searchField" %>
+          <span id="clearSearch">X</span>
+        </span>
+        <%= submit_tag "Set #{(params[:q] == "from")? "Origin" : "Destination" }" %>
+      <%- end -%>
+    </div>
+    <a href="#" class="doneBtn">Done</a>
+  </div>
 <%- end -%>
-<ul id="search_#{params[:q]}_list"></ul>
+
+
+<div id="search_<%= params[:q] %>_list">
+</div>
 
