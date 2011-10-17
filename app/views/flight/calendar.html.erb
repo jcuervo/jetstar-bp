@@ -11,19 +11,33 @@
   <ul id="dr" class="reset">
     <li>
       <div class="tapable schedtaps left" id="dd">
-        <h4>Depart</h4>
-        <div id="departDetails" class="left">
-          <div id="dpDate" class="halfw left">Oct<br />2011</div>
-          <div id="dpDay" class="halfw left">16</div>
+        <h4>Depart <span class="icon dep"></span></h4>
+        <div class="left fullwidth">
+          <div id="departDetails" class="hidden"></div>
+          <%- if session[:depart] 
+              d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
+            <div id="dpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+            <div id="dpDay" class="halfw left"><%= d.strftime("%d")%></div>
+          <%- else %>
+            <div id="dpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+            <div id="dpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+          <%- end %>
         </div>
       </div>
     </li>
     <li>
       <div class="schedtaps left" id="rd">
-        <h4>Return</h4>
-        <div id="returnDetails">
-          <div id="rpDate" class="halfw">Select Date</div>
-          <div id="rpDay" class="halfw"></div>
+        <h4>Return <span class="icon ret"></span></h4>
+        <div class="left fullwidth">
+          <div id="returnDetails" class="hidden"></div>
+          <%- if session[:return] 
+              d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
+            <div id="rpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+            <div id="rpDay" class="halfw left"><%= d.strftime("%d")%></div>
+          <%- else %>
+            <div id="rpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+            <div id="rpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+          <%- end %>
         </div>
       </div>
     </li>

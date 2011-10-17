@@ -65,7 +65,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   footer nav ul {
     display: inline-block;
-    /*height: 30px;*/
+    height: 35px;
     padding-top:5px;
   }
   footer nav ul li {
@@ -122,7 +122,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   display:inline;
   float:left;
   text-align:center;
-  width:98px;
+  width:33%;
 }
 #main ul#flightNav li a {
   background: transparent url("tabs.png") no-repeat;
@@ -130,7 +130,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width:98px;
   display:block;
   color:#484848;
-  font-size:18px;
+  font-size:15px;
   text-decoration:none;
   line-height:33px;
 }
@@ -142,6 +142,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 #toFrom, #schedule {
   float:left;
   margin-top:14px;
+  width:95%;
 }
 #toFrom ul {
   width:100%;
@@ -173,9 +174,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
 #toFrom div div a.toLink {
   background:transparent url("fromTo.png") -150px 0 no-repeat;
 }
-#toFrom div div h2 {
+#toFrom div div h4 {
   margin: 0;
-  height:29px;
+  height:20px;
 }
 #toFrom ul li span {
   width:250px;
@@ -196,14 +197,17 @@ only screen and (min-device-pixel-ratio: 1.5) {
   padding-left:40px;
 }
 #findFlightsSec {
-  margin:0 auto;
+  width:95%;
+  margin:1em auto;
   padding:0;
+  float:left;
 }
 #flightNav {
   margin:0 auto;
   padding:0;
   height:33px;
 }
+#flightNav a {font-size:14px;}
 #scheduleDetails {
   width:480px;
   margin:0 auto;
@@ -275,22 +279,49 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 #exactDates{
   background: url("searchBtn.jpg") 0 -38px no-repeat;
+  float:right;
 }
 .fullWidth {width:100%}
 .halfWidth {width:50%;}
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
-.lbl {font-size:16px;font-weight:bold;}
-} /*  end of media query */
+.lbl {font-size:16px;font-weight:bold;width:50%;}
+.width99 {width:99%;}
+
+.submitList {
+  margin:0 auto;
+  padding:0;
+  list-style:none;
+  width:100%;
+}
+.submitList li {
+  float:left;
+}
+
+}/*   end of media query */
 
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
   text-indent:-9999px;
 }
-
+#searchResults {
+  margin:1em auto;
+}
 /* Calendar Hacks */
+span.icon {
+  height:17px;
+  width:18px;
+  display:block;
+  float:right;
+}
+span.dep {
+  background:url("icons.png") no-repeat;
+}
+span.ret {
+  background:url("icons.png") 0 -17px no-repeat;
+}
 .reset{
   margin:0;
   padding:0;
@@ -298,6 +329,13 @@ h2#findFlights {
 #dps {
   margin-bottom:2em;
 }
+.contentWrap {
+  width:90%;
+  margin:1em 5%;
+  border-radius: 5px;
+  float:left;  
+}
+
 #drWrap {
   border:1px solid #d5d5d5;
   width:90%;
@@ -315,7 +353,12 @@ h2#findFlights {
 }
 .schedtaps {
   padding:5px;
-  width:85%;
+  width:90%;
+}
+.thirds {width:32%;}
+a#calLink {
+  text-decoration:none;
+  color:#000;
 }
 .tapable {
   border:2px solid #fff;
@@ -340,16 +383,13 @@ h2#findFlights {
 }
 .hidden {display:none;}
 .fullwidth {width:100%;}
-#datepickerD, #datepickerR {
-  margin:0 auto;
-}
 .halfw {width:50%;}
-#dpDate {
-  
+#dpDate, #rpDate {
+  text-align:center;
 }
 #dpDay, #rpDay {
-  font-size:32px;
-  text-align:right;
+  font-size:40px;
+  text-align:left;
   font-weight:bold;
 }
 #calendar .cancelBtn {

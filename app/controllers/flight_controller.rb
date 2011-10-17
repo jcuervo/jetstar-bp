@@ -18,10 +18,14 @@ class FlightController < ApplicationController
       session[:infants] = params[:infants]
       
       findFlights
+    else
+      session[:flight] = nil
     end
     if request.xml_http_request?
       render :nothing => true, :status => 200
     else
+      logger.info "DFGDFGDFGDFGDGDG"
+      logger.info @flights
       redirect_to flight_index_path
     end
   end
@@ -120,22 +124,26 @@ class FlightController < ApplicationController
         url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/exactDates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
       else
         url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/flexibletDates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
-      end
-      
+      end      
+            
       req = Net::HTTP::Get.new(url.path)
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
       }
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
-
-        ddt = flight["departureDateTime"].split('T')
-        adt = flight["departureDateTime"].split('T')
-
-        @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} #{ddt[0]} (#{ddt[1]}), #{flight["arrivalAirport"]} #{adt[0]} (#{adt[1]})"]
+                
+        if flight.class == Hash
+          ddt = flight["departureDateTime"].split('T')
+          adt = flight["departureDateTime"].split('T')
+          @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} #{ddt[0]} (#{ddt[1]}), #{flight["arrivalAirport"]} #{adt[0]} (#{adt[1]})"]
+        else
+          @flights <<  flight
+        end
         
       end if parsed_json["wrapper"]["results"]
     end
+    session[:flight] = @flights
   end
 
 end
