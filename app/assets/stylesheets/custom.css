@@ -196,7 +196,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   padding-left:40px;
 }
 #findFlightsSec {
-  margin:0 auto;
+  width:95%;
+  margin:1em auto;
   padding:0;
 }
 #flightNav {
