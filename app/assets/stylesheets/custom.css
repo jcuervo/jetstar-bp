@@ -118,8 +118,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
 
 #main {
-  padding:10px;
-  width:480px;
+/*  padding:10px;*/
+/*  width:480px;*/
   margin:0 auto;
 }
 #main ul li {
@@ -276,10 +276,6 @@ font-size: 15px;
 .floatLeft {float:left;}
 .floatRight {float:right;}
 .lbl {font-size:16px;font-weight:bold;padding-left:20px;}
-}
-
-
-
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
@@ -290,6 +286,9 @@ h2#findFlights {
 .reset{
   margin:0;
   padding:0;
+}
+#dps {
+  margin-bottom:2em;
 }
 #drWrap {
   border:1px solid #d5d5d5;
@@ -323,6 +322,8 @@ h2#findFlights {
 .schedtaps h4{
   margin:0;
   padding:0;
+  text-align:left;
+  min-height:30px;
 }
 .left {float:left;}
 .ui-datepicker {
@@ -334,9 +335,17 @@ h2#findFlights {
 #datepickerD, #datepickerR {
   margin:0 auto;
 }
+.half {width:50%;}
+#dpDate {
+  
+}
+#dpDay, #rpDay {
+  font-size:32px;
+  font-weight:bold;
+}
 
 /* Flight Search Area */
-@media only screen and (max-width: 330px) {
+/*@media only screen and (max-width: 330px) {
   .searchField {
     width: 150px;
   }
@@ -346,7 +355,7 @@ h2#findFlights {
   .searchField {
     width: 250px;
   }
-}
+}*/
 
 #flightForm {
   float: left;
@@ -379,6 +388,9 @@ h2#findFlights {
       cursor: pointer;
     }
 
+#introWrap {
+  min-height:80px;
+}
 #intro {
   width:100px;
   text-align:center;
