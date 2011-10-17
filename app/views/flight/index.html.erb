@@ -57,5 +57,11 @@
       <%= submit_tag "Find Flexible Date Flights" %>
     <%- end -%>
     <ul id="search_#{params[:q]}_list"></ul>
+  
+    <%- if @flights %>
+      <%- @flights.each do |flight| %>
+        <%= flight %>
+      <%- end %>
+    <%- end %>
   </div>
 </div>
