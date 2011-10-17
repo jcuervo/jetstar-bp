@@ -54,11 +54,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   footer {
     width: 100%;
-    height:52px;
+    height:40px;
     margin: 0 auto;
     background-color:#000000;
     border-bottom:1px solid #666;
-    height:40px;
+    float:left;
   }
   footer nav {
     text-align:center;
@@ -119,17 +119,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
 
 #main {
-/*  padding:10px;*/
-/*  width:480px;*/
   margin:0 auto;
 }
-#main ul li {
+#main ul#flightNav li {
   display:inline;
   float:left;
   text-align:center;
   width:98px;
 }
-#main ul li a {
+#main ul#flightNav li a {
   background: transparent url("tabs.png") no-repeat;
   height:33px;
   width:98px;
@@ -139,11 +137,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
   text-decoration:none;
   line-height:33px;
 }
-#main ul li a.current {
+#main ul#flightNav li a.current {
   background: transparent url("tabs.png") -99px 0 no-repeat;
   color:#ffffff;
 }
-
 
 #toFrom, #schedule {
   width:100%;
@@ -170,29 +167,24 @@ only screen and (min-device-pixel-ratio: 1.5) {
     width:220px;
 }
 #toFrom div div a {
-  width: 150px;
-  height: 62px;
+  width: 133px;
+  height: 40px;
   display: block;
-  text-indent: -9999px;
+  color:#000;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-size: 15px;
 }
-#toFrom div div a#fromLink {
+#toFrom div div a.fromLink {
   background:transparent url("fromTo.png") no-repeat bottom left;
 }
-#toFrom div div a#toLink {
+#toFrom div div a.toLink {
   background:transparent url("fromTo.png") -150px 0 no-repeat;
 }
 #toFrom div div h2 {
   margin: 0;
   height:29px;
-}
-#toFrom div div span {
-position: relative;
-z-index: 10;
-margin-top: -47px;
-display: block;
-width: 140px;
-margin-left: 10px;
-font-size: 15px;
 }
 #toFrom ul li span {
   width:250px;
@@ -269,14 +261,31 @@ font-size: 15px;
   font-weight:bold;
   text-align:left;
 }
-
-#findFlightsSec {display:inline-block;}
+#findFlightsSec {
+  width:480px;
+  margin: 0 auto;
+  display:block;
+}
+#searchFLight a {
+  text-indent: -99999px;
+  width:141px;
+  height: 38px;
+  display:block
+}
+a#lowestFares{
+  background: url("searchBtn.jpg") no-repeat;
+  margin-right:20px;
+}
+a#exactDates{
+  background: url("searchBtn.jpg") 0 -38px no-repeat;
+}
 .fullWidth {width:100%}
 .halfWidth {width:50%;}
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
 .lbl {font-size:16px;font-weight:bold;padding-left:20px;}
+} /* end of media query */
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
