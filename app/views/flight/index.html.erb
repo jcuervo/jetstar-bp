@@ -14,14 +14,14 @@
       <li><a href="#">Multi-City</a></li>
     </ul>
     <div id="toFrom">
-      <div class="floatLeft width99">
-        <div class="lbl floatLeft">
+      <div class="left fullwidth">
+        <div class="lbl left">
           <h4>From</h4>
-          <%= link_to (session[:origin])? session[:origin] : "Origin", (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
+          <%= link_to raw((session[:origin])? "#{session[:origin][-4..-2]}<br />#{session[:origin].split(",")[0]}" : "Origin"), (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
         </div>
-        <div class="lbl floatRight">
+        <div class="lbl right">
           <h4>To</h4>
-          <%= link_to (session[:dest])? session[:dest] : "Destination", (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
+          <%= link_to raw((session[:dest])? "#{session[:dest][-4..-2]}<br />#{session[:dest].split(",")[0]}" : "Destination"), (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
         </div>
       </div>
     </div>
@@ -35,10 +35,10 @@
               <div id="departDetails" class="left fullwidth">
                 <%- if session[:depart] 
                     d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
-                  <div id="dpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                  <div id="dpDate" class="halfw left"><%= d.strftime("%A")%><br /><%= d.strftime("%b")%></div>
                   <div id="dpDay" class="halfw left"><%= d.strftime("%d")%></div>
                 <%- else %>
-                  <div id="dpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                  <div id="dpDate" class="halfw left"><%= Date.today.strftime("%A")%><br/><%= Date.today.strftime("%b")%></div>
                   <div id="dpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
                 <%- end %>
               </div>
@@ -50,10 +50,10 @@
               <div id="returnDetails" class="left fullwidth">
                 <%- if session[:return] 
                     d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
-                  <div id="rpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                  <div id="rpDate" class="halfw left"><%= d.strftime("%A")%><br /><%= d.strftime("%b")%></div>
                   <div id="rpDay" class="halfw left"><%= d.strftime("%d")%></div>
                 <%- else %>
-                  <div id="rpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                  <div id="rpDate" class="halfw left"><%= Date.today.strftime("%A")%><br/><%= Date.today.strftime("%b")%></div>
                   <div id="rpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
                 <%- end %>
               </div>

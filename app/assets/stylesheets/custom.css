@@ -152,15 +152,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 #toFrom ul li {
-  width:300px;
   display:inline;
   height:124px;
   float:left;
 }
 
 #toFrom div div a {
-  width: 133px;
-  height: 40px;
+  width: 145px;
+  height: 36px;
   display: block;
   color:#000;
   text-decoration: none;
@@ -172,7 +171,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   background:transparent url("fromTo.png") no-repeat bottom left;
 }
 #toFrom div div a.toLink {
-  background:transparent url("fromTo.png") -150px 0 no-repeat;
+  background:transparent url("fromTo.png") -155px 0 no-repeat;
 }
 #toFrom div div h4 {
   margin: 0;
@@ -242,14 +241,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   display:block;
   float:left;
 }
-.departIcon {
-  height:34px;
-  width:34px;
-  background:transparent url("icons.jpg") no-repeat;
-  display:block;
-  float:left;
-  margin-left:15px;
-}
+
 .sDepartDate {
   margin-top:15px;
 }
@@ -374,10 +366,30 @@ a#calLink {
 .schedtaps h4{
   margin:0;
   padding:0;
-  text-align:left;
-  min-height:30px;
 }
+
+#dr {
+  float: left;
+  width: 100%;
+}
+
+  #dr li div h4 {
+    height: 17px;
+    background: url("icons.png") no-repeat;
+  }
+
+#dd h4 {
+  text-align: left;
+  background-position: 50px 0px !important;
+}
+
+#rd h4 {
+  text-align: right;
+  background-position: 126px -17px !important;
+}
+
 .left {float:left;}
+.right {float:right;}
 .ui-datepicker {
   margin:0 auto;
 }
