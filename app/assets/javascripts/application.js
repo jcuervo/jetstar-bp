@@ -74,8 +74,9 @@ function findClosestAirport(lat, lng){
     url: "/flight/findClosestAirports?lat="+ lat + "&lng=" + lng, 
     success: function(data){
       if(data.length > 1){
-        $("#from_city").text(data.split(";")[0]);
-        $("#from_shortcode").text(data.split(";")[1]);
+        // $("#from_city").text(data.split(";")[0]);
+        // $("#from_shortcode").text(data.split(";")[1]);
+        $("#origin_airport").text(data.split(";")[0] + " (" + data.split(";")[1] + ")");
         $("#search_from").attr("placeholder", data.split(";")[0] + " (" + data.split(";")[1] + ")");
         //changeDestination();
       } else
