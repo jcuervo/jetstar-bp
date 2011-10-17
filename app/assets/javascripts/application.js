@@ -104,13 +104,17 @@ function findClosestAirport(lat, lng){
       if(data.length > 1){
         str = "";
         for(i=0;i<data.length;i++){
-          str += data[i].a + "<br />";
+          str += "<li class='lightGrayBg bold borderBottom'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0] + " (" + data[i].a.split(";")[1] +")" + "</a></li>"
         }
-        //$("#search_from_list").html(str);
-         
+        $("#searchResultUl").append(str);
         $("#origin_short").text(data[0].a.split(";")[1]);
         $("#origin_city").text(data[0].a.split(";")[0]);
-        //$("#search_from").attr("placeholder", data[0].split(";")[0] + " (" + data[0].split(";")[1] + ")");
+        $(".selectClosestAirport").click(function(e){
+          e.preventDefault();
+          $("#search_from_hidden").val($(this).html());
+          $("#search_to_hidden").val($(this).html());
+          $("#flightForm").submit();
+        });
       } else
         alert('Unable to get nearby airports');
     },
