@@ -36,7 +36,8 @@ $(document).ready(function() {
       onSelect: function(dateText, inst) {
         $("#departDetails").html(dateText);
         $("#dDate").val(dateText);
-        $( "#datepickerR" ).datepicker( "option", "minDate", $.datepicker.parseDate( $.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
+        $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
+        submitDate("depart", dateText);
       }
     });
     $( "#datepickerR" ).datepicker({
@@ -44,6 +45,7 @@ $(document).ready(function() {
       onSelect: function(dateText, inst) {
         $("#returnDetails").html(dateText);
         $("#rData").val(dateText);
+        submitDate("return", dateText);
       }
     });
   }
@@ -113,6 +115,19 @@ function findClosestAirport(lat, lng){
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Unable to get nearby airports');
+    }
+  });
+}
+
+function submitDate(dateType, d){
+  $.ajax({
+    type: "POST",
+    url: "/flight/create",
+    data: dateType + "=" + d,
+    success: function(data){
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      alert('Unable to set date.');
     }
   });
 }
