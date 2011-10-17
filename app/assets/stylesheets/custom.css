@@ -367,7 +367,6 @@ a#calLink {
 .schedtaps h4{
   margin:0;
   padding:0;
-  min-height:30px;
 }
 
 #dr {
@@ -375,12 +374,19 @@ a#calLink {
   width: 100%;
 }
 
+  #dr li div h4 {
+    height: 17px;
+    background: url("icons.png") no-repeat;
+  }
+
 #dd h4 {
   text-align: left;
+  background-position: 50px 0px !important;
 }
 
 #rd h4 {
   text-align: right;
+  background-position: 126px -17px !important;
 }
 
 .left {float:left;}
