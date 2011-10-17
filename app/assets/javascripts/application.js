@@ -73,7 +73,6 @@ $(document).ready(function() {
   $('#search_to').autocomplete({
     source: destination_airports,
     minLength: 3,
-    appendTo: "#search_to_list", 
     select:function(event, ui){
       $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
