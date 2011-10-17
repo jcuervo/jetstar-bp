@@ -31,8 +31,17 @@ $(document).ready(function() {
     alert('Unable to get nearby airports');
   }
   
-  if ($("#datepicker").length){
-    $( "#datepicker" ).datepicker();
+  if ($("#datepickerD").length){
+    $( "#datepickerD" ).datepicker({
+      onSelect: function(dateText, inst) {
+        $("#departDetails").html(dateText);
+      }
+    });
+    $( "#datepickerR" ).datepicker({
+      onSelect: function(dateText, inst) {
+        $("#returnDetails").html(dateText);
+      }
+    });
   }
 	
     
