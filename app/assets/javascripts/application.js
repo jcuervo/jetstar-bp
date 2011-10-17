@@ -32,17 +32,20 @@ $(document).ready(function() {
   
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
+      minDate: 0,
       onSelect: function(dateText, inst) {
         $("#departDetails").html(dateText);
+        
+        $( "#datepickerR" ).datepicker( "option", "minDate", $.datepicker.parseDate( $.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
       }
     });
     $( "#datepickerR" ).datepicker({
+      minDate: 0,
       onSelect: function(dateText, inst) {
         $("#returnDetails").html(dateText);
       }
     });
   }
-	
     
   $('#search_from').autocomplete({
     source: origin_airports,
@@ -54,13 +57,6 @@ $(document).ready(function() {
     minLength: 3
   });
 
-  // $("#from_back").click(function(){
-  //   str = $("#search_from").val();
-  //   if(str.length > 1){
-  //     $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
-  //     $("#from_city").text(str.substring(0,str.length-6));
-  //   }
-  // });
 });
 
 function findClosestAirport(lat, lng){
@@ -69,11 +65,8 @@ function findClosestAirport(lat, lng){
     url: "/flight/findClosestAirports?lat="+ lat + "&lng=" + lng, 
     success: function(data){
       if(data.length > 1){
-        // $("#from_city").text(data.split(";")[0]);
-        // $("#from_shortcode").text(data.split(";")[1]);
         $("#origin_airport").text(data.split(";")[0] + " (" + data.split(";")[1] + ")");
         $("#search_from").attr("placeholder", data.split(";")[0] + " (" + data.split(";")[1] + ")");
-        //changeDestination();
       } else
         alert('Unable to get nearby airports');
     },
@@ -82,33 +75,3 @@ function findClosestAirport(lat, lng){
     }
   });
 }
-/*
-function changeDestination(){
-  $.ajax({
-    type: "GET",
-    url: "/flight/findDestinationAirports?o="+ $("#from_shortcode").text(),
-    success: function(data){
-      if(data.length < 1)
-        alert('Sorry, we do not cater flight from the point of origin selected');
-      else {
-        destination_airports = [];
-        for(i=0;i<data.length;i++) {
-          destination_airports.push( data[i].city);
-          //$("<li><a href=''>" + data[i].city +  "</a></li>").appendTo("#destinationLists")
-        }
-        // $('#search_to').autocomplete({
-        //   source: destination_airports,
-        //   minLength: 3,
-        //   select: function(event, ui) {
-        //         str = $("#search_to").val();
-        //         if(str.length > 1){
-        //           $("#to_shortcode").text(str.substring(str.length-4,str.length-1));
-        //           $("#to_city").text(str.substring(0,str.length-6));
-        //         }
-        //       }
-        // });
-      }
-    }
-  });
-}
-*/
