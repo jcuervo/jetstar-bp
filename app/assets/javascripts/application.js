@@ -58,11 +58,13 @@ $(document).ready(function() {
     minLength: 3,
     appendTo: "#search_from_list",
     select:function(event, ui){
-          $("#flightForm").submit();
-        },
-        change:function(event, ui){
-          $("#flightForm").submit();
-        }
+      $("#search_from_hidden").val(ui.item.value);
+      $("#flightForm").submit();
+    },
+    change:function(event, ui){
+      $("#search_from_hidden").val(ui.item.value);
+      $("#flightForm").submit();
+    }
   });
   
   $('#search_to').autocomplete({
@@ -70,9 +72,11 @@ $(document).ready(function() {
     minLength: 3,
     appendTo: "#search_to_list", 
     select:function(event, ui){
+      $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
     },
     change:function(event, ui){
+      $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
     }
   });
