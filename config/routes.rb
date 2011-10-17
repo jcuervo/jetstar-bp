@@ -1,4 +1,10 @@
 Jetbp::Application.routes.draw do
+  get "flight/index"
+
+  get "flight/calendar"
+
+  get "flight/search"
+
   get "welcome/index"
 
   # The priority is based upon order of creation:
