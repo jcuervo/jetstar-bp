@@ -123,19 +123,21 @@
         
         <ul id="recentResults">
           <%- if session[:flight] || session[:return_flights]%>
-            <%- session[:flight].each_with_index do |flight, i| %>
-              <%- i += 1 -%>
-              <%- ddate = parseDate(flight[:ddt]) -%>
-              <%- adate = parseDate(flight[:adt]) -%>
+            <%- if session[:flight] -%>
+              <%- session[:flight].each_with_index do |flight, i| %>
+                <%- i += 1 -%>
+                <%- ddate = parseDate(flight[:ddt]) -%>
+                <%- adate = parseDate(flight[:adt]) -%>
           
-              <li class="left borderBottomGray <%= 'topradius' if (i==1) %>">
-                <span class="resultTitle floatLeft"><%= "#{flight[:da]} #{flight[:aa]}" %></span>
-                <div class="searchDates floatRight">
-                  <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
-                  <div class="floatRight date"><%= ddate.strftime('%d') %></div>
-                </div>
-              </li>
-            <% end %>
+                <li class="left borderBottomGray <%= 'topradius' if (i==1) %>">
+                  <span class="resultTitle floatLeft"><%= "#{flight[:da]} #{flight[:aa]}" %></span>
+                  <div class="searchDates floatRight">
+                    <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
+                    <div class="floatRight date"><%= ddate.strftime('%d') %></div>
+                  </div>
+                </li>
+              <% end %>
+            <%- end -%>
             
             <%- if session[:return_flights] -%>
               <%- session[:return_flights].each_with_index do |rflight, i| -%>

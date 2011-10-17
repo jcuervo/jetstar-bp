@@ -20,6 +20,7 @@ class FlightController < ApplicationController
       findFlights
     else
       session[:flight] = nil
+      session[:return_flights] = nil
     end
     if request.xml_http_request?
       render :nothing => true, :status => 200
@@ -175,6 +176,7 @@ class FlightController < ApplicationController
         @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
       end if parsed_json["wrapper"]["results"]
     end
+    session[:flight] = @flights
     session[:return_flights] = @return_flights
   end
   
