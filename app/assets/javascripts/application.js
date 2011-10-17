@@ -15,10 +15,8 @@ var centerLatitude = -38.47;
 var centerLongitude = 144.98;
 
 $(document).ready(function() {
-  // Hides mobile browser's address bar when page is done loading.
-  window.addEventListener('load', function(e) {
-    setTimeout(function() { window.scrollTo(0, 1); }, 1);
-  }, false);
+  //add this in your javascript code to 'hide' the address bar  
+  window.scrollTo(0, 1);  
   
   if (Modernizr.geolocation)
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -42,7 +40,7 @@ $(document).ready(function() {
 //        $("#departDetails").html(dateText);
 //        $("#dDate").val(dateText);
         $("#dpDay").text(dateText.split("/")[1]);
-        $("#dpDate").html( dateText.split("/")[2] + "<br/>" + getMonthName(dateText.split("/")[0]) );
+        $("#dpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
@@ -53,7 +51,7 @@ $(document).ready(function() {
 //        $("#returnDetails").html(dateText);
 //        $("#rData").val(dateText);
         $("#rpDay").text(dateText.split("/")[1]);
-        $("#rpDate").html( dateText.split("/")[2] + "<br/>" + getMonthName(dateText.split("/")[0]) );
+        $("#rpDate").html( getWeekDay(dateText) + "<br/>" + getMonthName(dateText) );
         submitDate("return", dateText);
       }
     });
@@ -142,19 +140,33 @@ function submitDate(dateType, d){
 }
 
 function getMonthName(m){
-  str = ""
-  switch(m){
-    case "01":  return "Jan";
-    case "02":  return "Feb";
-    case "03":  return "Mar";
-    case "04":  return "Apr";
-    case "05":  return "May";
-    case "06":  return "Jun";
-    case "07":  return "Jul";
-    case "08":  return "Aug";
-    case "09":  return "Sep";
-    case "10":  return "Oct";
-    case "11":  return "Nov";
-    case "12":  return "Dec";
+  switch(new Date(m).getMonth()){
+    case 0:  return "Jan";
+    case 1:  return "Feb";
+    case 2:  return "Mar";
+    case 3:  return "Apr";
+    case 4:  return "May";
+    case 5:  return "Jun";
+    case 6:  return "Jul";
+    case 7:  return "Aug";
+    case 8:  return "Sep";
+    case 9:  return "Oct";
+    case 10:  return "Nov";
+    case 11:  return "Dec";
   }
 }
+
+function getWeekDay(day){
+  
+  switch(new Date(day).getDay()){
+    case 0:  return "Sunday";
+    case 1:  return "Monday";
+    case 2:  return "Tuesday";
+    case 3:  return "Wednesday";
+    case 4:  return "Thusday";
+    case 5:  return "Friday";
+    case 6:  return "Saturday";
+  }
+}
+
+
