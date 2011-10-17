@@ -20,24 +20,41 @@
         </div>
         <div class="lbl floatRight">
           <h4>To</h4>
-          <%= link_to session[:dest], (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
+          <%= link_to (session[:dest])? session[:dest] : "Destination", (search_flight_index_path(:q => "to")), :id => "#{((session[:dest].blank?)? "dest_airport" : "session_dest"  )}", :class => "toLink" %>
         </div>
       </div>
     </div>
-    <a href="/flight/calendar">
+    <a href="/flight/calendar" id="calLink">
+
       <ul id="dr" class="reset">
         <li>
-          <div class="tapable">
+          <div class="schedtaps left" id="dd">
             <h4>Depart</h4>
-          </div>
-          <div id="departDetails">
-            Depart Date Here
+            <div id="departDetails" class="left fullwidth">
+              <%- if session[:depart] 
+                  d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
+                <div id="dpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                <div id="dpDay" class="halfw left"><%= d.strftime("%d")%></div>
+              <%- else %>
+                <div id="dpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                <div id="dpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+              <%- end %>
+            </div>
           </div>
         </li>
         <li>
-          <h4>Return</h4>
-          <div id="returnDetails">
-            Return Date Here
+          <div class="schedtaps left" id="rd">
+            <h4>Return</h4>
+            <div id="returnDetails" class="left fullwidth">
+              <%- if session[:return] 
+                  d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
+                <div id="rpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                <div id="rpDay" class="halfw left"><%= d.strftime("%d")%></div>
+              <%- else %>
+                <div id="rpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                <div id="rpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+              <%- end %>
+            </div>
           </div>
         </li>
       </ul>
@@ -55,6 +72,13 @@
           </ul>
         </div>
       <%- end -%>
+    </div>
+    <div class="floatLeft">
+      <%- if @flights %>
+        <%- @flights.each do |flight| %>
+          <%= flight %>
+        <%- end %>
+      <%- end %>
     </div>
     <ul id="search_#{params[:q]}_list"></ul>
   </div>

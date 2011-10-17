@@ -34,17 +34,21 @@ $(document).ready(function() {
     $( "#datepickerD" ).datepicker({
       minDate: 0,
       onSelect: function(dateText, inst) {
-        $("#departDetails").html(dateText);
-        $("#dDate").val(dateText);
-        $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#departDetails").text(), $( "#datepickerD" ).data( "datepicker" )) );
+//        $("#departDetails").html(dateText);
+//        $("#dDate").val(dateText);
+        $("#dpDay").text(dateText.split("/")[1]);
+        $("#dpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
+        $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         submitDate("depart", dateText);
       }
     });
     $( "#datepickerR" ).datepicker({
       minDate: 0,
       onSelect: function(dateText, inst) {
-        $("#returnDetails").html(dateText);
-        $("#rData").val(dateText);
+//        $("#returnDetails").html(dateText);
+//        $("#rData").val(dateText);
+        $("#rpDay").text(dateText.split("/")[1]);
+        $("#rpDate").html( getMonthName(dateText.split("/")[0]) + "<br/>" + dateText.split("/")[2]);
         submitDate("return", dateText);
       }
     });
@@ -130,4 +134,46 @@ function submitDate(dateType, d){
       alert('Unable to set date.');
     }
   });
+}
+
+function getMonthName(m){
+  str = ""
+  switch(m){
+    case "01": 
+      str = "Jan";
+      break;
+    case "02": 
+      str = "Feb";
+      break;
+    case "03": 
+      str = "Mar";
+      break;
+    case "04": 
+      str = "Apr";
+      break;
+    case "05": 
+      str = "May";
+      break;
+    case "06": 
+      str = "Jun";
+      break;
+    case "07": 
+      str = "Jul";
+      break;
+    case "08":
+      str =  "Aug";
+      break;
+    case "09": 
+      str =  "Sep";
+    case "10": 
+      str =  "Oct";
+      break;
+    case "11": 
+      str =  "Nov";
+      break;
+    case "12": 
+      str =  "Dec";
+      break;
+  }
+  return str;
 }
