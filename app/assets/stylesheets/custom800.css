@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-/*@media only screen and (max-width: 480px) {*/
+@media only screen and (max-width: 961px) {
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -92,7 +92,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
     color:#bebebe;
   }
   .withGap {margin-right:8px;}
-  .gap3 {margin-right:3px;}
   .cancelBtn {
     background: url("cancelBtn.jpg") no-repeat;
     width:59px;
@@ -116,7 +115,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     text-indent: -9999px;
   }
 
-#main, #main ul#flightNav {
+#main {
   margin:0 auto;
 }
 #main ul#flightNav li {
@@ -126,34 +125,23 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width:33%;
 }
 #main ul#flightNav li a {
+  background: transparent url("tabs.png") no-repeat;
   height:33px;
+  width:98px;
   display:block;
   color:#484848;
   font-size:15px;
   text-decoration:none;
   line-height:33px;
-  background-color: #959595;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#959595), to(#959595), color-stop(.5,#ADADAD));
-  background: -moz-linear-gradient(top, #959595 0%, #ADADAD 50%, #959595 100%);
-  border-top-left-radius:10px;
-  border-top-right-radius:10px;
-  -moz-border-radius-topleft:10px;
-  -moz-border-radius-topright:10px;
 }
 #main ul#flightNav li a.current {
+  background: transparent url("tabs.png") -99px 0 no-repeat;
   color:#ffffff;
-  background-color: #FF4500;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF4500), to(#FF4500), color-stop(.5,#FC6706));
-  background: -moz-linear-gradient(top, #FF4500 0%, #FC6706 50%, #FF4500 100%);
 }
 
-#schedule {
+#toFrom, #schedule {
   float:left;
   margin-top:14px;
-  width:95%;
-}
-#toFrom {
-  margin-top:10px;
   width:95%;
 }
 #toFrom ul {
@@ -164,14 +152,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 #toFrom ul li {
+  width:300px;
   display:inline;
   height:124px;
   float:left;
 }
 
 #toFrom div div a {
-  width: 145px;
-  height: 36px;
+  width: 133px;
+  height: 40px;
   display: block;
   color:#000;
   text-decoration: none;
@@ -183,11 +172,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
   background:transparent url("fromTo.png") no-repeat bottom left;
 }
 #toFrom div div a.toLink {
-  background:transparent url("fromTo.png") -155px 0 no-repeat;
+  background:transparent url("fromTo.png") -150px 0 no-repeat;
 }
 #toFrom div div h4 {
   margin: 0;
-  font-size:13px;
+  height:20px;
 }
 #toFrom ul li span {
   width:250px;
@@ -253,7 +242,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
   display:block;
   float:left;
 }
-
+.departIcon {
+  height:34px;
+  width:34px;
+  background:transparent url("icons.jpg") no-repeat;
+  display:block;
+  float:left;
+  margin-left:15px;
+}
 .sDepartDate {
   margin-top:15px;
 }
@@ -303,47 +299,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   float:left;
 }
 
-#search {
-  margin:0 auto;
-  padding-top:5px;
-  height:76px;
-}
-#search * { vertical-align:middle; }
-#search_from_list, #search_to_list {
-  width:90%;
-  margin:0 auto 20px;
-}
-.search #main {
-  width:596px;
-  margin:0 auto;
-}
-.search header { height:85px; }
-#main #searchResultUl ul {
-  margin:0;
-  padding:0;
-}
-.searchResults, #searchResultUl li {
-  margin-bottom:2px;
-  font-size:26px;
-  padding:20px 23px;
-}
-#searchResultUl {
-  padding:0;
-  margin:0;
-  list-style:none;
-}
-#searchResultUl a {
-  color:black;
-  text-decoration:none;
-}
-.lightGrayBg { background-color:#e9e9e9; }
-.grayBg {background-color:#9E9E9E;}
-.borderBottom { border-bottom:solid 1px #c4c4c4; }
-.upper {text-transform:uppercase;}
-.bold {font-weight:bold;}
-.right {float:right;}
-
-/*   end of media query */
+}/*   end of media query */
 
 
 h2#findFlights {
@@ -374,7 +330,7 @@ span.ret {
   margin-bottom:2em;
 }
 .contentWrap {
-  width:91.5%;
+  width:90%;
   margin:1em 5%;
   border-radius: 5px;
   float:left;  
@@ -418,30 +374,10 @@ a#calLink {
 .schedtaps h4{
   margin:0;
   padding:0;
+  text-align:left;
+  min-height:30px;
 }
-
-#dr {
-  float: left;
-  width: 100%;
-}
-
-  #dr li div h4 {
-    height: 17px;
-    background: url("icons.png") no-repeat;
-  }
-
-#dd h4 {
-  text-align: left;
-  background-position: 50px 0px !important;
-}
-
-#rd h4 {
-  text-align: right;
-  background-position: 126px -17px !important;
-}
-
 .left {float:left;}
-.right {float:right;}
 .ui-datepicker {
   margin:0 auto;
 }
@@ -462,13 +398,18 @@ a#calLink {
 }
 #searchWrap {min-height:220px;}
 
-#introWrap {
+#introWrap,#flightWrap {
   min-height:80px;
 }
 #intro {
   width:100px;
   text-align:center;
   margin:5em auto;
+}
+#flight{
+  width:330px;
+  text-align:center;
+  margin:0em auto;
 }
 #intro a, #intro a:visited {
   text-decoration:none;
@@ -515,6 +456,25 @@ a#calLink {
       box-shadow:inset 0 0 6px #0f0f0f;
     }
 
+      /*#search_from_list * {
+        background: url("");
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border: none;
+      }
+    
+      #search_from_list ul {
+        backround: url("") #ffffff;
+      }
+        
+      #search_from_list ul li {
+        background-image: none;
+        background-color: #e8e8e8z;
+        font-weight: bold;
+        border-bottom: solid 1px #dadada;
+      }*/
+    
     #clearSearch {
       background: url("searchClear.jpg") no-repeat;
       position: relative;
