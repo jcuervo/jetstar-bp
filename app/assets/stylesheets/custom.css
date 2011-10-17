@@ -289,7 +289,9 @@ h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
   text-indent:-9999px;
 }
-
+#searchResults {
+  margin:1em auto;
+}
 /* Calendar Hacks */
 .reset{
   margin:0;
@@ -315,7 +317,11 @@ h2#findFlights {
 }
 .schedtaps {
   padding:5px;
-  width:85%;
+  width:90%;
+}
+a#calLink {
+  text-decoration:none;
+  color:#000;
 }
 .tapable {
   border:2px solid #fff;
@@ -340,16 +346,13 @@ h2#findFlights {
 }
 .hidden {display:none;}
 .fullwidth {width:100%;}
-#datepickerD, #datepickerR {
-  margin:0 auto;
-}
 .halfw {width:50%;}
-#dpDate {
-  
+#dpDate, #rpDate {
+  text-align:center;
 }
 #dpDay, #rpDay {
   font-size:32px;
-  text-align:right;
+  text-align:left;
   font-weight:bold;
 }
 #calendar .cancelBtn {

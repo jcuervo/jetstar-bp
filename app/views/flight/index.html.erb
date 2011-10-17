@@ -24,26 +24,32 @@
       </div>
     </div>
   </div>
+  
   <div id="drWrap">
-    <a href="/flight/calendar">
+    <a href="/flight/calendar" id="calLink">
       <ul id="dr" class="reset">
         <li>
-          <div class="tapable">
+          <div class="schedtaps left" id="dd">
             <h4>Depart</h4>
-          </div>
-          <div id="departDetails">
-            Depart Date Here
+            <div id="departDetails" class="left fullwidth">
+              <div id="dpDate" class="halfw left">October<br />2011</div>
+              <div id="dpDay" class="halfw left">16</div>
+            </div>
           </div>
         </li>
         <li>
-          <h4>Return</h4>
-          <div id="returnDetails">
-            Return Date Here
+          <div class="schedtaps left" id="rd">
+            <h4>Return</h4>
+            <div id="returnDetails" class="left fullwidth">
+              <div id="rpDate" class="halfw left">October<br />2011</div>
+              <div id="rpDay" class="halfw left">30</div>
+            </div>
           </div>
         </li>
       </ul>
     </a>
   </div>
+  
   <div class="float">
      <%= form_tag(flight_index_path, :method => :post) do %>
       Adults: <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10), session[:adults]) %>
@@ -56,5 +62,8 @@
       </div>
     <%- end -%>
   </div>
-  <ul id="search_#{params[:q]}_list"></ul>
+  <div id="searchResults">
+    <h4>Search Results</h4>
+    <ul id="search_#{params[:q]}_list"></ul>
+  </div>
 </div>
