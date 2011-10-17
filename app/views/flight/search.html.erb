@@ -12,5 +12,25 @@
 <%- end -%>
 
 <div id="searchWrap">
-  <div id="search_<%= params[:q] %>_list"></div>
+  <div id="search_<%= params[:q] %>_list">
+    <div class="grayBg searchResults">Airports nearest to your current location</div>
+      <ul id="searchResultUl">
+        <li class="lightGrayBg bold borderBottom">
+          <a href="#">Melbourne All Airports</a>
+        </li>
+        <li class="lightGrayBg bold borderBottom">
+          <a href="#">
+            Melbourne, Tullamarine
+            <span class="right normal upper normal">mel</span>
+          </a>
+        </li>
+        <li class="lightGrayBg bold">
+          <a href="#">
+            Melbourne, Avalon
+            <span class="right normal upper normal">avv</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

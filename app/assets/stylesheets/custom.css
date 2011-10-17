@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {*/
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -116,7 +116,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     text-indent: -9999px;
   }
 
-#main {
+#main, #main ul#flightNav {
   margin:0 auto;
 }
 #main ul#flightNav li {
@@ -299,7 +299,47 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .submitList li {
   float:left;
 }
+
+#search {
+  margin:0 auto;
+  padding-top:5px;
+  height:76px;
 }
+#search * { vertical-align:middle; }
+#search_from_list, #search_to_list {
+  width:90%;
+  margin:0 auto 20px;
+}
+.search #main {
+  width:596px;
+  margin:0 auto;
+}
+.search header { height:85px; }
+#main #searchResultUl ul {
+  margin:0;
+  padding:0;
+}
+.searchResults, #searchResultUl li {
+  margin-bottom:2px;
+  font-size:26px;
+  padding:20px 23px;
+}
+#searchResultUl {
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+#searchResultUl a {
+  color:black;
+  text-decoration:none;
+}
+.lightGrayBg { background-color:#e9e9e9; }
+.grayBg {background-color:#9E9E9E;}
+.borderBottom { border-bottom:solid 1px #c4c4c4; }
+.upper {text-transform:uppercase;}
+.bold {font-weight:bold;}
+.right {float:right;}
+
 /*   end of media query */
 
 
@@ -331,7 +371,7 @@ span.ret {
   margin-bottom:2em;
 }
 .contentWrap {
-  width:90%;
+  width:91.5%;
   margin:1em 5%;
   border-radius: 5px;
   float:left;  
@@ -471,25 +511,6 @@ a#calLink {
       box-shadow:inset 0 0 6px #0f0f0f;
     }
 
-      /*#search_from_list * {
-        background: url("");
-        border-radius: 0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        border: none;
-      }
-    
-      #search_from_list ul {
-        backround: url("") #ffffff;
-      }
-        
-      #search_from_list ul li {
-        background-image: none;
-        background-color: #e8e8e8z;
-        font-weight: bold;
-        border-bottom: solid 1px #dadada;
-      }*/
-    
     #clearSearch {
       background: url("searchClear.jpg") no-repeat;
       position: relative;
