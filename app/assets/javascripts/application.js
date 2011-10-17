@@ -11,28 +11,11 @@
 //= require script
 //= require helper
 
-var centerLatitude = -38.47;
-var centerLongitude = 144.98;
 
 $(document).ready(function() {
   //add this in your javascript code to 'hide' the address bar  
   window.scrollTo(0, 1);  
-  
-  if (Modernizr.geolocation)
-    navigator.geolocation.getCurrentPosition(function(position) {
-      centerLatitude = position.coords.latitude;
-      centerLongitude = position.coords.longitude;
-      // remove me...
-      centerLatitude = -38.47;
-      centerLongitude = 144.98;
-      
-      findClosestAirport(centerLatitude, centerLongitude);
-    });
-  else {
-    findClosestAirport(centerLatitude, centerLongitude);
-    alert('Unable to get nearby airports');
-  }
-  
+
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
       minDate: 0,
@@ -121,7 +104,8 @@ function findClosestAirport(lat, lng){
         }
         //$("#search_from_list").html(str);
          
-        $("#origin_airport").text(data[0].a.split(";")[0] + " (" + data[0].a.split(";")[1] + ")");
+        $("#origin_short").text(data[0].a.split(";")[1]);
+        $("#origin_city").text(data[0].a.split(";")[0]);
         //$("#search_from").attr("placeholder", data[0].split(";")[0] + " (" + data[0].split(";")[1] + ")");
       } else
         alert('Unable to get nearby airports');
