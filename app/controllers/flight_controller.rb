@@ -43,7 +43,7 @@ class FlightController < ApplicationController
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
       if airport.class == Hash
-        airports << {:a => "#{airport["name"].gsub(" (", ", ").gsub(")", "")} #{airport["iataCode"]}"}
+        airports << {:a => "#{airport["name"]};#{airport["iataCode"]}"}
       else
         airports <<  {:a => airport[1]} if airport[0] == "iataCode"
       end
@@ -111,7 +111,7 @@ class FlightController < ApplicationController
   
   def findFlights
     @flights = []
-    if session[:depart]
+    if session[:depart] && session[:origin] && session[:dest]
 
       o = session[:origin][-4..-2]
       d = session[:dest][-4..-2]
@@ -125,9 +125,12 @@ class FlightController < ApplicationController
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
       }
+      #{"arrivalAirport"=>"AVV", "arrivalDateTime"=>"2011-10-21T01:35:00+11:00", "businessClassAvailable"=>false, "carrierCode"=>"JQ", "currency"=>"AUD", 
+      #{"departureAirport"=>"SYD", "departureDateTime"=>"2011-10-21T00:00:00+11:00", "flightDesignator"=>"JQ 603", "flightNumber"=>" 603", "numStops"=>1, "opSuffix"=>" ", "price"=>39}
+      logger.info session[:dest]
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
-                
+        @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight[:departuerAirport], :ddt => flight["departuerDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
         #if flight.class == Hash
         #  ddt = flight["departureDateTime"].split('T')
         #  adt = flight["departureDateTime"].split('T')
@@ -135,7 +138,6 @@ class FlightController < ApplicationController
         #else
         #  @flights <<  flight
         #end
-        logger.info flight
         
       end if parsed_json["wrapper"]["results"]
     end
