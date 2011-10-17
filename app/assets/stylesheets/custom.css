@@ -263,11 +263,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
   margin:0 auto;
 }
 .search header { height:85px; }
-#main #searchResultUl ul {
+#main #searchResultUl ul, ul.ui-autocomplete {
   margin:0;
   padding:0;
 }
-.searchResults, #searchResultUl li {
+.searchResults, #searchResultUl li, ul.ui-autocomplete li {
   margin-bottom:2px;
   font-size:14px;
   padding:15px 18px;
@@ -281,13 +281,19 @@ only screen and (min-device-pixel-ratio: 1.5) {
   color:black;
   text-decoration:none;
 }
+ul.ui-autocomplete li {
+  font-weight:bold;
+  background-color:#e9e9e9;
+  border-bottom:solid 1px #c4c4c4;
+}
 .lightGrayBg { background-color:#e9e9e9; }
 .grayBg {background-color:#9E9E9E;}
 .borderBottom { border-bottom:solid 1px #c4c4c4; }
 .upper {text-transform:uppercase;}
 .bold {font-weight:bold;}
 .right {float:right;}
-
+.width70 {width:70%;}
+/*
 .ui-autocomplete {
   top: 50px !important;
   border: none !important;
@@ -310,8 +316,95 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width: 90% !important;
   margin:0 !important;
 }
+*/
+#searchesHeader {
+  background-color: #E7E7E7;
+  float: left;
+  width: 90%;
+  padding: 5px 15px;
+  margin-bottom: 3px;
+}
+#searchesHeader h3 {
+  margin:0;
+  padding:0;
+}
+#clock {
+  background:url("clockIcon.jpg") no-repeat;
+  width:16px;
+  height:16px;
+  margin-right:5px;
+}
+#downIcon {
+  background:url("downIcon.jpg") no-repeat 0 4px;
+  width:17px;
+  height:15px;
+  float:right;
+}
 
-} /*   end of media query */
+#recentSearches {
+  width: 100%;
+  margin: 0 auto;
+}
+#recentResults {
+  margin: 0;
+  padding: 10px 12px 10px 13px;
+  list-style: none;
+  width: 91%;
+  float: left;
+  background-color: #E7E7E7;
+}
+#recentResults li {
+  background-color: #696969;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7C7C7C), to(#696969), color-stop(.5,#727272));
+  background: -moz-linear-gradient(top, #7C7C7C 0%, #727272 50%, #696969 100%);
+  padding: 10px 15px 13px;
+  width: 90%;
+  height:20px;
+}
+.resultTitle {
+  font-size:15px;
+  color:white;
+  background:url("icons2.png") no-repeat;
+  padding-left:30px;
+}
+.return {
+  background:url("icons2.png") 0 -18px no-repeat !important;
+}
+.returnGray {
+  background-color: #4B4B4B;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#5B5B5B), to(#4B4B4B), color-stop(.5,#5B5B5B));
+  background: -moz-linear-gradient(top, #5B5B5B 0%, #5B5B5B 50%, #4B4B4B 100%);
+}
+.searchDates {
+  width:50px;
+}
+.days {
+  font-size: 10px;
+  color: white;
+  float: left;
+}
+.date {
+  font-size: 21px;
+  color: white;
+  font-weight:bold;
+}
+.topradius {
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+  -moz-border-top-left-radius:7px;
+  -moz-border-top-right-radius:7px;
+}
+.bottomradius {
+  border-bottom-left-radius:7px;
+  border-bottom-right-radius:7px;
+  -moz-border-bottom-left-radius:7px;
+  -moz-border-bottom-right-radius:7px;
+}
+.borderBottomGray {
+  border-bottom:solid 1px #5f5e5e;
+}
+
+    }/*   end of media query */
 
 
 h2#findFlights {
@@ -330,6 +423,9 @@ h2#findFlights {
 #toFrom h4.tfhead {
   margin:1em 0 0.25em 0;
 }
+#toFrom h4.tfto {
+  margin:1em 0 0.25em 1em;
+}
 #ffOrig, #ffDest {
   height:51px;
   width:138px;
@@ -340,12 +436,20 @@ h2#findFlights {
   padding-left:10px;
   padding-top:5px;
 }
-span#origin_short {
+#ffDest {
+  background:transparent url("fromTo.png") -148px 0 no-repeat;
+  width:128px;
+  height:51px;
+  padding-left:20px;
+  padding-top:5px;
+}
+span#origin_short, span#dest_short {
   font-size:25px;
   font-weight:bold;
   display:block;
+  text-shadow: 1px 1px 1px #fff;
 }
-span#origin_city {
+span#origin_city, span#dest_city {
   font-size:12px;
 }
 
@@ -565,7 +669,7 @@ a#calLink {
   }
 
     .searchField {
-      padding: 7px 28px 7px 6px;
+      padding: 10px 28px 7px 6px;
       border: 1px solid #f85720;
       border-radius: 6px;
       -webkit-border-radius: 6px;
