@@ -3,12 +3,9 @@ class FlightController < ApplicationController
   end
 
   def search
-  end
-  
-  def index
     @origins = findOriginAirports
   end
-
+  
   def findClosestAirports
     url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/near/#{params[:lat]}/#{params[:lng]}/100")
     req = Net::HTTP::Get.new(url.path)
