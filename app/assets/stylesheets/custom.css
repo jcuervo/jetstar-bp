@@ -123,7 +123,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   display:inline;
   float:left;
   text-align:center;
-  width:98px;
+  width:33%;
 }
 #main ul#flightNav li a {
   background: transparent url("tabs.png") no-repeat;
@@ -131,7 +131,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width:98px;
   display:block;
   color:#484848;
-  font-size:18px;
+  font-size:15px;
   text-decoration:none;
   line-height:33px;
 }
@@ -143,6 +143,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 #toFrom, #schedule {
   float:left;
   margin-top:14px;
+  width:95%;
 }
 #toFrom ul {
   width:100%;
@@ -173,9 +174,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
 #toFrom div div a.toLink {
   background:transparent url("fromTo.png") -150px 0 no-repeat;
 }
-#toFrom div div h2 {
+#toFrom div div h4 {
   margin: 0;
-  height:29px;
+  height:20px;
 }
 #toFrom ul li span {
   width:250px;
@@ -196,14 +197,17 @@ only screen and (min-device-pixel-ratio: 1.5) {
   padding-left:40px;
 }
 #findFlightsSec {
-  margin:0 auto;
+  margin:1em 5%;
   padding:0;
+  width:90%;
+  float:left;
 }
 #flightNav {
   margin:0 auto;
   padding:0;
   height:33px;
 }
+#flightNav a {font-size:14px;}
 #scheduleDetails {
   width:480px;
   margin:0 auto;
@@ -275,14 +279,27 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 #exactDates{
   background: url("searchBtn.jpg") 0 -38px no-repeat;
+  float:right;
 }
 .fullWidth {width:100%}
 .halfWidth {width:50%;}
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
-.lbl {font-size:16px;font-weight:bold;}
-} /*  end of media query */
+.lbl {font-size:16px;font-weight:bold;width:50%;}
+.width99 {width:99%;}
+
+.submitList {
+  margin:0 auto;
+  padding:0;
+  list-style:none;
+  width:100%;
+}
+.submitList li {
+  float:left;
+}
+
+}/*   end of media query */
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
@@ -298,7 +315,7 @@ h2#findFlights {
   margin-bottom:2em;
 }
 #drWrap {
-  border:1px solid #d5d5d5;
+  /*border:1px solid #d5d5d5;*/
   width:90%;
   margin:1em 5%;
   border-radius: 5px;
