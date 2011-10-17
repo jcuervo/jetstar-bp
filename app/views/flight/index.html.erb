@@ -1,4 +1,5 @@
 <%= link_to "From", search_flight_index_path %>
+<span id="<%= ((session[:origin].blank?)? "origin_airport" : "session_origin"  )%>"><%= session[:origin]%></span>
 <br />
 <%= link_to "To", search_flight_index_path %>
 <br />

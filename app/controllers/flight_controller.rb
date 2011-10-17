@@ -1,7 +1,8 @@
 require 'net/http'
 class FlightController < ApplicationController
-  def new
-
+  def create
+    session[:origin] ||= params[:from]
+    redirect_to flight_index_path
   end
   
   def calendar
