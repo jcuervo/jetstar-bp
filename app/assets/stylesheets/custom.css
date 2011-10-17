@@ -293,6 +293,18 @@ h2#findFlights {
   margin:1em auto;
 }
 /* Calendar Hacks */
+span.icon {
+  height:17px;
+  width:18px;
+  display:block;
+  float:right;
+}
+span.dep {
+  background:url("icons.png") no-repeat;
+}
+span.ret {
+  background:url("icons.png") 0 -17px no-repeat;
+}
 .reset{
   margin:0;
   padding:0;
@@ -351,7 +363,7 @@ a#calLink {
   text-align:center;
 }
 #dpDay, #rpDay {
-  font-size:32px;
+  font-size:40px;
   text-align:left;
   font-weight:bold;
 }
