@@ -30,12 +30,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
     text-indent:-9999px;
   }
   #midHeader {
-    background: transparent url("headMark.jpg") no-repeat;
+    background: transparent url("commonHead.jpg") no-repeat;
     width: 110px;
     height: 56px;
     margin: 0 auto;
     position: relative;
-    top: -15px;
     text-align: center;
   }
   #midHeader h2 {
