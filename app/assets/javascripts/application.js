@@ -73,7 +73,6 @@ $(document).ready(function() {
   $('#search_to').autocomplete({
     source: destination_airports,
     minLength: 3,
-    appendTo: "#search_to_list", 
     select:function(event, ui){
       $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
@@ -119,7 +118,7 @@ function findClosestAirport(lat, lng){
           e.preventDefault();
           $("#search_from_hidden").val($(this).html());
           $("#search_to_hidden").val($(this).html());
-          $("#flightForm").submit();
+          //$("#flightForm").submit();
         });
       } else
         alert('Unable to get nearby airports');
