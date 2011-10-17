@@ -22,14 +22,10 @@
   <script>
     Modernizr.mq('(min-width:0)') || document.write('<script src="respond.min.js">\x3C/script>')
   </script>
-  <%- if @origins -%>
   <script>
-    var origin_airports = ['<%= @origins.join("\', \'")%>'];
-  <%- end -%>
-  <%- if @destination -%>
-    var destination_airports = ['<%= @destination.join("\', \'")%>'];
+    var origin_airports = ['<%= @origins.join("\', \'") if @origins %>'];
+    var destination_airports = ['<%= @destination.join("\', \'") if @destination %>'];
   </script>
-  <%- end -%>
 </head>
   <body>
     <div id="container">

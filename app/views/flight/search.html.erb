@@ -1,4 +1,4 @@
-<%= form_tag(flight_index_path) do %>
+<%= form_tag(flight_index_path, :method => :post) do %>
   <%= search_field_tag params[:q], "", :id => "search_#{params[:q]}" %>
   <%= submit_tag "Set #{(params[:q] == "from")? "Origin" : "Destination" }" %>
 <%- end -%>

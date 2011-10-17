@@ -13,7 +13,6 @@
 
 var centerLatitude = -38.47;
 var centerLongitude = 144.98;
-var destination_airports = [];
 
 $(document).ready(function() {
   if (Modernizr.geolocation)
@@ -47,33 +46,12 @@ $(document).ready(function() {
     
   $('#search_from').autocomplete({
     source: origin_airports,
-    minLength: 3,
-    // select: function(event, ui) {
-    //       str = $("#search_from").val();
-    //       if(str.length > 1){
-    //         // $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
-    //         // $("#from_city").text(str.substring(0,str.length-6));
-    //         // $("#to_shortcode").html("&nbsp;");
-    //         // $("#to_city").text("Destination");
-    //       }
-    //     }
+    minLength: 3
   });
   
   $('#search_to').autocomplete({
     source: destination_airports,
-    minLength: 3,
-    change:function(e,i){
-      console.log("dsgsdgdsgs");
-    }
-    // select: function(event, ui) {
-    //       str = $("#search_from").val();
-    //       if(str.length > 1){
-    //         // $("#from_shortcode").text(str.substring(str.length-4,str.length-1));
-    //         // $("#from_city").text(str.substring(0,str.length-6));
-    //         // $("#to_shortcode").html("&nbsp;");
-    //         // $("#to_city").text("Destination");
-    //       }
-    //     }
+    minLength: 3
   });
 
   // $("#from_back").click(function(){

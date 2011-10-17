@@ -1,7 +1,8 @@
 require 'net/http'
 class FlightController < ApplicationController
   def create
-    session[:origin] ||= params[:from]
+    session[:origin] = params[:from] if params[:from]
+    session[:dest] ||= params[:to] if params[:to]
     redirect_to flight_index_path
   end
   
@@ -43,7 +44,7 @@ class FlightController < ApplicationController
     }
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
-      airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})", "#{airport["iataCode"]}"]
+      airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})"]
     end if parsed_json["wrapper"]["results"]
     
     airports
@@ -61,7 +62,7 @@ class FlightController < ApplicationController
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |airport|
         #airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})", :code => "#{airport["iataCode"]}"}
-        airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})", "#{airport["iataCode"]}"]
+        airports << ["#{airport["city"]}, #{airport["country"]} (#{airport["iataCode"]})"]
       end if parsed_json["wrapper"]["results"]
     end
     
