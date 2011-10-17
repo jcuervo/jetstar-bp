@@ -139,9 +139,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
   color:#ffffff;
 }
 
-#toFrom, #schedule {
+#schedule {
   float:left;
   margin-top:14px;
+  width:95%;
+}
+#toFrom {
+  margin-top:10px;
   width:95%;
 }
 #toFrom ul {
@@ -175,7 +179,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 #toFrom div div h4 {
   margin: 0;
-  height:20px;
+  font-size:13px;
 }
 #toFrom ul li span {
   width:250px;
