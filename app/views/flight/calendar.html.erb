@@ -1,36 +1,32 @@
 <%- content_for :header do -%>
   <div id="findFlights">
-    <div id="back"><a href="#" id="backBtn">Back</a></div>
+    <div id="back"><a href="/flight" id="backBtn">Back</a></div>
     <div id="midHeader"><h2>Schedules</h2></div>
     <div id="crumb"></div>
   </div>
 <%- end -%>
-<ul>
-  <li>
-    <p>Depart</p>
-    <div id="departDetails">
-      Depart Date Here
-    </div>
-  </li>
-  <li>
-    <p>Return</p>
-    <div id="returnDetails">
-      Return Date Here
-    </div>
-  </li>
-</ul>
-<div id="datepickerD">
+
+<div id="drWrap">
+  <ul id="dr" class="reset">
+    <li>
+      <div class="tapable">
+        <h4>Depart</h4>
+        <div id="departDetails">
+          Depart Date Here
+        </div>
+      </div>
+    </li>
+    <li>
+      <h4>Return</h4>
+      <div id="returnDetails">
+        Return Date Here
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- <div id="datepickerD">
 </div>
 <div id="datepickerR">
-</div>
-<%= form_tag(flight_index_path, :method => :post) do %>
-  <%= hidden_field_tag "depart", "", :id => "dDate" %>
-  <%= hidden_field_tag "return", "", :id => "rDate" %>
-  Adults: <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10)) %>
-  Children: <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10)) %>
-  Infants: <%= select_tag "infants", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10)) %>
-  <%= submit_tag "Find Exact Date Flights" %>
-  <%= submit_tag "Find Flexible Date Flights" %>
-<%- end -%>
-<ul id="search_#{params[:q]}_list"></ul>
+</div> -->
 
