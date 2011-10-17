@@ -404,7 +404,7 @@ ul.ui-autocomplete li {
 }
 
 #searchPage {
-  min-height:251px;
+  min-height:276px;
 }
 
 .ui-autocomplete .ui-menu-item {
@@ -452,12 +452,23 @@ h2#findFlights {
   padding-left:10px;
   padding-top:5px;
 }
-span#origin_short {
+#ffDest {
+  background:transparent url("fromTo.png") -148px 0 no-repeat;
+  width:128px;
+  height:51px;
+  padding-left:20px;
+  padding-top:5px;
+}
+#toFrom h4.tfto {
+  margin:1em 0 0.25em 1em;
+}
+span#origin_short, span#dest_short {
   font-size:25px;
   font-weight:bold;
   display:block;
+  text-shadow: 1px 1px 1px #fff;
 }
-span#origin_city {
+span#origin_city, span#dest_city {
   font-size:12px;
 }
 
@@ -645,7 +656,7 @@ a#calLink {
 #searchWrap {min-height:220px;}
 
 #introWrap {
-  min-height:121px;
+  min-height:171px;
 }
 #intro {
   width:100px;
