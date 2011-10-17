@@ -75,11 +75,11 @@ $(document).ready(function() {
     minLength: 3,
     appendTo: "#search_from_list",
     select:function(event, ui){
-      $("#flightForm").submit();
-    },
-    change:function(event, ui){
-      $("#flightForm").submit();
-    }
+          $("#flightForm").submit();
+        },
+        change:function(event, ui){
+          $("#flightForm").submit();
+        }
   });
   
   $('#search_to').autocomplete({
@@ -95,18 +95,18 @@ $(document).ready(function() {
   });
   
   
-  $("#clearSearch").click(function() {
-    $(".searchField").val('').focus();
-  });
-  $(".searchField").click(function() {
-    if($(this).val() == "Type name or city") {
-      $(this).val('');
-    }
-  }).blur(function() {
-    if($(this).val() == "") {
-      $(this).val("Type name or city");
-    }
-  });
+  // $("#clearSearch").click(function() {
+  //    $(".searchField").val('').focus();
+  //  });
+  // $(".searchField").click(function() {
+  //     if($(this).val() == "Type name or city") {
+  //       $(this).val('');
+  //     }
+  //   }).blur(function() {
+  //     if($(this).val() == "") {
+  //       $(this).val("Type name or city");
+  //     }
+  //   });
 });
 
 function findClosestAirport(lat, lng){
@@ -115,8 +115,14 @@ function findClosestAirport(lat, lng){
     url: "/flight/findClosestAirports?lat="+ lat + "&lng=" + lng, 
     success: function(data){
       if(data.length > 1){
-        $("#origin_airport").text(data.split(";")[0] + " (" + data.split(";")[1] + ")");
-        $("#search_from").attr("placeholder", data.split(";")[0] + " (" + data.split(";")[1] + ")");
+        str = "";
+        for(i=0;i<data.length;i++){
+          str += data[i].a + "<br />";
+        }
+        //$("#search_from_list").html(str);
+         
+        $("#origin_airport").text(data[0].a.split(";")[0] + " (" + data[0].a.split(";")[1] + ")");
+        //$("#search_from").attr("placeholder", data[0].split(";")[0] + " (" + data[0].split(";")[1] + ")");
       } else
         alert('Unable to get nearby airports');
     },

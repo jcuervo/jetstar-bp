@@ -3,7 +3,7 @@
       <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
         <span id="searchFieldGroup">
           <strong><%= "#{(params[:q] == "from")? "From" : "To" }" %></strong>
-          <%= text_field_tag params[:q], "Type name or city", :id => "search_#{params[:q]}", :class => "searchField" %>
+          <%= text_field_tag params[:q], "", :id => "search_#{params[:q]}", :class => "searchField", :placeholder => "Type a city or Airport Code" %>
           <span id="clearSearch"><span class="hidden">Clear Search</span></span>
         </span>
       <%- end -%>
@@ -13,24 +13,27 @@
 
 <div id="searchWrap">
   <div id="search_<%= params[:q] %>_list">
-    <div class="grayBg searchResults">Airports nearest to your current location</div>
-      <ul id="searchResultUl">
-        <li class="lightGrayBg bold borderBottom">
-          <a href="#">Melbourne All Airports</a>
-        </li>
-        <li class="lightGrayBg bold borderBottom">
-          <a href="#">
-            Melbourne, Tullamarine
-            <span class="right normal upper normal">mel</span>
-          </a>
-        </li>
-        <li class="lightGrayBg bold">
-          <a href="#">
-            Melbourne, Avalon
-            <span class="right normal upper normal">avv</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+    
   </div>
+</div>
+
+
+<div class="grayBg searchResults">Airports nearest to your current location</div>
+  <ul id="searchResultUl">
+    <li class="lightGrayBg bold borderBottom">
+      <a href="#">Melbourne All Airports</a>
+    </li>
+    <li class="lightGrayBg bold borderBottom">
+      <a href="#">
+        Melbourne, Tullamarine
+        <span class="right normal upper normal">mel</span>
+      </a>
+    </li>
+    <li class="lightGrayBg bold">
+      <a href="#">
+        Melbourne, Avalon
+        <span class="right normal upper normal">avv</span>
+      </a>
+    </li>
+  </ul>
 </div>
