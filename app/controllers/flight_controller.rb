@@ -18,13 +18,15 @@ class FlightController < ApplicationController
       session[:infants] = params[:infants]
       
       findFlights
+    else
+      session[:flight] = nil
     end
     if request.xml_http_request?
       render :nothing => true, :status => 200
     else
       logger.info "DFGDFGDFGDFGDGDG"
       logger.info @flights
-      render flight_index_path
+      redirect_to flight_index_path
     end
   end
   
@@ -141,7 +143,7 @@ class FlightController < ApplicationController
         
       end if parsed_json["wrapper"]["results"]
     end
-    @flights
+    session[:flight] = @flights
   end
 
 end
