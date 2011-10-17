@@ -65,8 +65,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
     padding-top: 3px;
   }
   footer nav ul {
-    /*width: 480px;*/
-    width: 335px;
     display: inline-block;
     /*height: 30px;*/
     padding-top:5px;
@@ -143,7 +141,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 #toFrom, #schedule {
-  width:100%;
   float:left;
   margin-top:14px;
 }
@@ -159,12 +156,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
   display:inline;
   height:124px;
   float:left;
-}
-#toFrom div {
-    width:100%;
-}
-#toFrom div div.lbl {
-    width:220px;
 }
 #toFrom div div a {
   width: 133px;
@@ -204,7 +195,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width:260px;
   padding-left:40px;
 }
-
+#findFlightsSec {
+  margin:0 auto;
+  padding:0;
+}
+#flightNav {
+  margin:0 auto;
+  padding:0;
+  height:33px;
+}
 #scheduleDetails {
   width:480px;
   margin:0 auto;
@@ -261,22 +260,20 @@ only screen and (min-device-pixel-ratio: 1.5) {
   font-weight:bold;
   text-align:left;
 }
-#findFlightsSec {
-  width:480px;
-  margin: 0 auto;
-  display:block;
-}
-#searchFLight a {
+#searchFLight input {
   text-indent: -99999px;
   width:141px;
   height: 38px;
-  display:block
+  display:block;
+  border:none;
+  line-height:0;
+  float:left;
 }
-a#lowestFares{
+#lowestFares{
   background: url("searchBtn.jpg") no-repeat;
   margin-right:20px;
 }
-a#exactDates{
+#exactDates{
   background: url("searchBtn.jpg") 0 -38px no-repeat;
 }
 .fullWidth {width:100%}
@@ -284,8 +281,8 @@ a#exactDates{
 .half {width:281px;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
-.lbl {font-size:16px;font-weight:bold;padding-left:20px;}
-} /* end of media query */
+.lbl {font-size:16px;font-weight:bold;}
+} /*  end of media query */
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
@@ -354,6 +351,11 @@ h2#findFlights {
   text-align:right;
   font-weight:bold;
 }
+#calendar .cancelBtn {
+  top:4 !important;
+  left:10px;
+}
+#searchWrap {min-height:220px;}
 
 /* Flight Search Area */
 /*@media only screen and (max-width: 330px) {
