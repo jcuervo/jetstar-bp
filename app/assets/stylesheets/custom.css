@@ -71,7 +71,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   footer nav ul li {
     text-align: center;
-    width:100px;
+    width:96px;
     float:left;
     display: block;
   }
