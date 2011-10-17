@@ -153,14 +153,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 #toFrom ul li {
-  width:300px;
   display:inline;
   height:124px;
   float:left;
 }
 #toFrom div div a {
-  width: 133px;
-  height: 40px;
+  width: 145px;
+  height: 36px;
   display: block;
   color:#000;
   text-decoration: none;
@@ -172,7 +171,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   background:transparent url("fromTo.png") no-repeat bottom left;
 }
 #toFrom div div a.toLink {
-  background:transparent url("fromTo.png") -150px 0 no-repeat;
+  background:transparent url("fromTo.png") -155px 0 no-repeat;
 }
 #toFrom div div h4 {
   margin: 0;
@@ -377,6 +376,7 @@ a#calLink {
   min-height:30px;
 }
 .left {float:left;}
+.right {float:right;}
 .ui-datepicker {
   margin:0 auto;
 }
