@@ -1,8 +1,10 @@
 
-<%= link_to "From", flight_search_path %>
+<%= link_to "From", search_flight_index_path %>
+<span id="<%= ((session[:origin].blank?)? "origin_airport" : "session_origin"  )%>"><%= session[:origin]%></span>
+
 <br />
-<%= link_to "To", flight_search_path %>
+<%= link_to "To", search_flight_index_path %>
 <br />
 <br />
-<%= link_to "Depart", flight_calendar_path %>
-<%= link_to "Return", flight_calendar_path %>
+<%= link_to "Depart", calendar_flight_index_path %>
+<%= link_to "Return", calendar_flight_index_path %>
