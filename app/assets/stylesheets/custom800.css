@@ -1,0 +1,487 @@
+@media only screen and (min-width: 800px) {
+
+}/*/mediaquery*/
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+}
+
+@media only screen and (max-width: 961px) {
+  header {
+    background: transparent url("headBG.jpg") repeat-x;
+    height:56px;
+  }
+  #back {
+    position:absolute;
+    z-index:10;
+    top:5px;
+    left:5px;
+  }
+  a#backBtn {
+    background: transparent url("homeBtn.jpg") no-repeat;
+    height:32px;
+    width:28px;
+    display:block;
+    text-indent:-9999px;
+  }
+  #midHeader {
+    background: transparent url("commonHead.jpg") no-repeat;
+    width: 110px;
+    height: 56px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+  }
+  #midHeader h2 {
+    color: white;
+    padding-top: 10px;
+    font-family: Arial;
+    margin: 0 auto;
+  }
+  #crumb {
+    position:absolute;
+    right:10px;
+    top:0px;
+  }
+  #crumb h3 {
+    color:white;
+  }
+  footer {
+    width: 100%;
+    height:40px;
+    margin: 0 auto;
+    background-color:#000000;
+    border-bottom:1px solid #666;
+    float:left;
+  }
+  footer nav {
+    text-align:center;
+    padding-top: 3px;
+  }
+  footer nav ul {
+    display: inline-block;
+    height: 35px;
+    padding-top:5px;
+  }
+  footer nav ul li {
+    text-align: center;
+    width:96px;
+    float:left;
+    display: block;
+  }
+  footer nav ul li a, footer nav ul li a:visited {
+    padding: 7px 3px;
+    height: 12px;
+    background-color: #383838;
+    color: #B0B0B0;
+    text-decoration: none;
+    display: block;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    font-size: 10px;
+  }
+  footer #copyright {
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    color:#bebebe;
+  }
+  .withGap {margin-right:8px;}
+  .cancelBtn {
+    background: url("cancelBtn.jpg") no-repeat;
+    width:59px;
+    height:34px;
+    position:absolute;
+    z-index:20;
+    top:5px;
+    left:5px;
+    line-height: 0;
+    text-indent: -9999px;
+  }
+  .doneBtn {
+    background: url("doneBtn.jpg") no-repeat;
+    width:59px;
+    height:34px;
+    position:absolute;
+    z-index:20;
+    top:5px;
+    right:5px;
+    line-height: 0;
+    text-indent: -9999px;
+  }
+
+#main {
+  margin:0 auto;
+}
+#main ul#flightNav li {
+  display:inline;
+  float:left;
+  text-align:center;
+  width:33%;
+}
+#main ul#flightNav li a {
+  background: transparent url("tabs.png") no-repeat;
+  height:33px;
+  width:98px;
+  display:block;
+  color:#484848;
+  font-size:15px;
+  text-decoration:none;
+  line-height:33px;
+}
+#main ul#flightNav li a.current {
+  background: transparent url("tabs.png") -99px 0 no-repeat;
+  color:#ffffff;
+}
+
+#toFrom, #schedule {
+  float:left;
+  margin-top:14px;
+  width:95%;
+}
+#toFrom ul {
+  width:100%;
+  float:left;
+  margin:0;
+  padding:0;
+}
+
+#toFrom ul li {
+  width:300px;
+  display:inline;
+  height:124px;
+  float:left;
+}
+
+#toFrom div div a {
+  width: 133px;
+  height: 40px;
+  display: block;
+  color:#000;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-size: 15px;
+}
+#toFrom div div a.fromLink {
+  background:transparent url("fromTo.png") no-repeat bottom left;
+}
+#toFrom div div a.toLink {
+  background:transparent url("fromTo.png") -150px 0 no-repeat;
+}
+#toFrom div div h4 {
+  margin: 0;
+  height:20px;
+}
+#toFrom ul li span {
+  width:250px;
+  padding-left:30px;
+  margin-top:30px;
+}
+#toFrom ul li span.locAbbr {
+  font-size:45px;
+  font-weight:bold;
+  display:block;
+}
+#toFrom ul li span.locFull {
+  font-size:16px;
+  line-height:16px;
+}
+#toFrom ul li.toDest span.locAbbr, #toFrom ul li.toDest span.locFull {
+  width:260px;
+  padding-left:40px;
+}
+#findFlightsSec {
+  width:95%;
+  margin:1em auto;
+  padding:0;
+  float:left;
+}
+#flightNav {
+  margin:0 auto;
+  padding:0;
+  height:33px;
+}
+#flightNav a {font-size:14px;}
+#scheduleDetails {
+  width:480px;
+  margin:0 auto;
+  float:left;
+  border:1px solid #e2e2e2;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow:0 0 7px #e2e2e2;
+  -moz-box-shadow: 0 0 7px #e2e2e2;
+  box-shadow:0 0 7px #e2e2e2;
+}
+#scheduleDetails ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  float:left;
+}
+#scheduleDetails ul li {
+  display:inline;
+  float:left;
+  width:263px;
+  padding:25px 0 0 30px;
+  height:156px;
+}
+.sDepart {
+  line-height:34px;
+  font-size:16px;
+  font-weight:bold;
+}
+.departTxt {
+  height:34px;
+  display:block;
+  float:left;
+}
+.departIcon {
+  height:34px;
+  width:34px;
+  background:transparent url("icons.jpg") no-repeat;
+  display:block;
+  float:left;
+  margin-left:15px;
+}
+.sDepartDate {
+  margin-top:15px;
+}
+#sdDay, #sdMonth {
+  font-size:18px;
+}
+#sdDay {
+  color:#7f7f7f;
+}
+#sdDate {
+  font-size:70px;
+  font-weight:bold;
+  text-align:left;
+}
+#searchFLight input {
+  text-indent: -99999px;
+  width:141px;
+  height: 38px;
+  display:block;
+  border:none;
+  line-height:0;
+  float:left;
+}
+#lowestFares{
+  background: url("searchBtn.jpg") no-repeat;
+  margin-right:20px;
+}
+#exactDates{
+  background: url("searchBtn.jpg") 0 -38px no-repeat;
+  float:right;
+}
+.fullWidth {width:100%}
+.halfWidth {width:50%;}
+.half {width:281px;}
+.floatLeft {float:left;}
+.floatRight {float:right;}
+.lbl {font-size:16px;font-weight:bold;width:50%;}
+.width99 {width:99%;}
+
+.submitList {
+  margin:0 auto;
+  padding:0;
+  list-style:none;
+  width:100%;
+}
+.submitList li {
+  float:left;
+}
+
+}/*   end of media query */
+
+
+h2#findFlights {
+  background: transparent url("headFindFlights.jpg") no-repeat;
+  text-indent:-9999px;
+}
+#searchResults {
+  margin:1em auto;
+}
+/* Calendar Hacks */
+span.icon {
+  height:17px;
+  width:18px;
+  display:block;
+  float:right;
+}
+span.dep {
+  background:url("icons.png") no-repeat;
+}
+span.ret {
+  background:url("icons.png") 0 -17px no-repeat;
+}
+.reset{
+  margin:0;
+  padding:0;
+}
+#dps {
+  margin-bottom:2em;
+}
+.contentWrap {
+  width:90%;
+  margin:1em 5%;
+  border-radius: 5px;
+  float:left;  
+}
+
+#drWrap {
+  border:1px solid #d5d5d5;
+  width:90%;
+  margin:1em 5%;
+  border-radius: 5px;
+  float:left;
+}
+#drWrap ul#dr {
+  list-style:none;
+}
+#drWrap ul#dr li {
+  width:50%;
+  display:inline;
+  float:left;
+}
+.schedtaps {
+  padding:5px;
+  width:90%;
+}
+.thirds {width:32%;}
+a#calLink {
+  text-decoration:none;
+  color:#000;
+}
+.tapable {
+  border:2px solid #fff;
+  background-color:#eceaeb;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eceaeb), to(#c2c2c2));
+  background: -webkit-linear-gradient(top, #eceaeb, #c2c2c2);
+  background: -moz-linear-gradient(top, #eceaeb, #c2c2c2);
+  -moz-box-shadow: 1px 0px 5px #888;
+  -webkit-box-shadow: 1px 0px 5px #888;
+  box-shadow: 1px 0px 5px #888;
+}
+.schedtaps h4{
+  margin:0;
+  padding:0;
+  text-align:left;
+  min-height:30px;
+}
+.left {float:left;}
+.ui-datepicker {
+  margin:0 auto;
+}
+.hidden {display:none;}
+.fullwidth {width:100%;}
+.halfw {width:50%;}
+#dpDate, #rpDate {
+  text-align:center;
+}
+#dpDay, #rpDay {
+  font-size:40px;
+  text-align:left;
+  font-weight:bold;
+}
+#calendar .cancelBtn {
+  top:4 !important;
+  left:10px;
+}
+#searchWrap {min-height:220px;}
+
+#introWrap,#flightWrap {
+  min-height:80px;
+}
+#intro {
+  width:100px;
+  text-align:center;
+  margin:5em auto;
+}
+#flight{
+  width:330px;
+  text-align:center;
+  margin:0em auto;
+}
+#intro a, #intro a:visited {
+  text-decoration:none;
+  font-weight:bold;
+  color:#fff;
+  background-color:#ff5216;
+  padding:0.5em 0.75em;
+  border-radius:5px;
+}
+
+/* Flight Search Area */
+@media only screen and (max-width: 350px) {
+  .searchField {
+    width: 170px;
+  }
+}
+
+@media only screen and (min-width: 351px) and (max-width: 480px) {
+  .searchField {
+    width: 280px;
+  }
+}
+
+#flightForm {
+  float: left;
+  margin: 6px 0px 0px 9px;
+}
+
+  .searchFieldGroup {
+    display: inline-block;
+    border: solid 1px #ccddee;
+  }
+
+    .searchField {
+      padding: 7px 28px 7px 6px;
+      border: 1px solid #f85720;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      color: #808080;
+      font-style: italic;
+      -moz-box-shadow:inset 0 0 6px #0f0f0f;
+      -webkit-box-shadow:inset 0 0 6px #0f0f0f;
+      box-shadow:inset 0 0 6px #0f0f0f;
+    }
+
+      /*#search_from_list * {
+        background: url("");
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border: none;
+      }
+    
+      #search_from_list ul {
+        backround: url("") #ffffff;
+      }
+        
+      #search_from_list ul li {
+        background-image: none;
+        background-color: #e8e8e8z;
+        font-weight: bold;
+        border-bottom: solid 1px #dadada;
+      }*/
+    
+    #clearSearch {
+      background: url("searchClear.jpg") no-repeat;
+      position: relative;
+      z-index: 9;
+      margin: 0px 20px -5px -30px;
+      display: inline-block;
+      width: 18px;
+      height: 20px;
+      cursor: pointer;
+    }
