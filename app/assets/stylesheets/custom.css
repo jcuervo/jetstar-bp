@@ -93,6 +93,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     color:#bebebe;
   }
   .withGap {margin-right:8px;}
+  .gap3 {margin-right:3px;}
   .cancelBtn {
     background: url("cancelBtn.jpg") no-repeat;
     width:59px;
@@ -126,18 +127,25 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width:33%;
 }
 #main ul#flightNav li a {
-  background: transparent url("tabs.png") no-repeat;
   height:33px;
-  width:98px;
   display:block;
   color:#484848;
   font-size:15px;
   text-decoration:none;
   line-height:33px;
+  background-color: #959595;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#959595), to(#959595), color-stop(.5,#ADADAD));
+  background: -moz-linear-gradient(top, #959595 0%, #ADADAD 50%, #959595 100%);
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
 }
 #main ul#flightNav li a.current {
-  background: transparent url("tabs.png") -99px 0 no-repeat;
   color:#ffffff;
+  background-color: #FF4500;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF4500), to(#FF4500), color-stop(.5,#FC6706));
+  background: -moz-linear-gradient(top, #FF4500 0%, #FC6706 50%, #FF4500 100%);
 }
 
 #toFrom, #schedule {
@@ -298,8 +306,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .submitList li {
   float:left;
 }
-
-}/*   end of media query */
+}
+/*   end of media query */
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
