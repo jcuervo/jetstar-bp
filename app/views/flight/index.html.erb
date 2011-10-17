@@ -128,8 +128,8 @@
               <%- ddate = parseDate(flight[:ddt]) -%>
               <%- adate = parseDate(flight[:adt]) -%>
           
-              <li class="left <%= (i%2==0) ? 'borderBottomGray' : 'returnGray' %> <%= 'topradius' if (i==1) %>">
-                <span class="resultTitle floatLeft"><%= "#{flight[:aa]}" %></span>
+              <li class="left borderBottomGray <%= 'topradius' if (i==1) %>">
+                <span class="resultTitle floatLeft"><%= "#{flight[:da]} #{flight[:aa]}" %></span>
                 <div class="searchDates floatRight">
                   <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                   <div class="floatRight date"><%= ddate.strftime('%d') %></div>
@@ -143,7 +143,7 @@
                 <%- ddate = parseDate(rflight[:ddt]) -%>
                 <%- adate = parseDate(rflight[:adt]) -%>
                 <li class="left <%= 'bottomradius' if (i==session[:return_flights].size) %> returnGray">
-                  <span class="return resultTitle floatLeft"><%= "#{rflight[:aa]}" %></span>
+                  <span class="return resultTitle floatLeft"><%= "#{rflight[:da]} #{rflight[:aa]}" %></span>
                   <div class="searchDates floatRight">
                     <div class="floatleft days"><%= adate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                     <div class="floatRight date"><%= ddate.strftime('%d') %></div>
