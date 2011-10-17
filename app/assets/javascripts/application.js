@@ -15,6 +15,9 @@ var centerLatitude = -38.47;
 var centerLongitude = 144.98;
 
 $(document).ready(function() {
+  //add this in your javascript code to 'hide' the address bar  
+  window.scrollTo(0, 1);  
+  
   if (Modernizr.geolocation)
     navigator.geolocation.getCurrentPosition(function(position) {
       centerLatitude = position.coords.latitude;
