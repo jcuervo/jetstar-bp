@@ -9,6 +9,8 @@ class FlightController < ApplicationController
     session[:dest] = params[:to] if params[:to]
     session[:depart] = params[:depart] if params[:depart]
     session[:return] = params[:return] if params[:return]
+
+    
     
     if params[:commit]
       session[:adults] = params[:adults]
@@ -17,8 +19,11 @@ class FlightController < ApplicationController
       
       findFlights
     end
-        
-    redirect_to flight_index_path
+    if request.xml_http_request?
+      render :nothing => true, :status => 200
+    else
+      redirect_to flight_index_path
+    end
   end
   
   def search
@@ -37,6 +42,8 @@ class FlightController < ApplicationController
     parsed_json["wrapper"]["results"].each do |airport|
       if airport.class == Hash
         airports << "#{airport["city"]}, #{airport["country"]};#{airport["iataCode"]}"
+      else
+        airports <<  airport[1] if airport[0] == "iataCode"
       end
     end if parsed_json["wrapper"]["results"]
     
@@ -93,8 +100,7 @@ class FlightController < ApplicationController
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
 #{"arrivalAirport":"AVV","arrivalDateTime":"2011-10-21T09:15:00+11:00","businessClassAvailable":false,"carrierCode":"JQ","currency":"AUD","departureAirport":"SYD","departureDateTime":"2011-10-21T07:40:00+11:00","flightDesignator":"JQ 625","flightNumber":" 625","numStops":1,"opSuffix":" ","price":39}
-
-        @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} #{flight["departureDateTime"]}, #{flight["arrivalAirport"]} #{flight["arrivalDateTime"]}"]
+        @flights << ["#{flight["currency"]} #{flight["price"]}, #{flight["departureAirport"]} (#{flight["departureDateTime"]}), #{flight["arrivalAirport"]} #{flight["arrivalDateTime"]}"]
       end if parsed_json["wrapper"]["results"]
     end
 
