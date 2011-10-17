@@ -354,6 +354,11 @@ h2#findFlights {
   text-align:right;
   font-weight:bold;
 }
+#calendar .cancelBtn {
+  top:4 !important;
+  left:10px;
+}
+#searchWrap {min-height:220px;}
 
 /* Flight Search Area */
 /*@media only screen and (max-width: 330px) {
