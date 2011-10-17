@@ -58,7 +58,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin: 0 auto;
     background-color:#000000;
     border-bottom:1px solid #666;
-    height:51px;
+    height:40px;
   }
   footer nav {
     text-align:center;
@@ -68,7 +68,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     /*width: 480px;*/
     width: 335px;
     display: inline-block;
-    height: 36px;
+    /*height: 30px;*/
     padding-top:5px;
   }
   footer nav ul li {
@@ -78,15 +78,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
     display: block;
   }
   footer nav ul li a, footer nav ul li a:visited {
-    padding: 12px 3px;
+    padding: 7px 3px;
     height: 12px;
     background-color: #383838;
-    color: white;
+    color: #B0B0B0;
     text-decoration: none;
     display: block;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    font-size: 11px;
+    font-size: 10px;
   }
   footer #copyright {
     width:100%;
@@ -94,7 +94,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     font-size:12px;
     color:#bebebe;
   }
-  .withGap {margin-right:10px;}
+  .withGap {margin-right:8px;}
   .cancelBtn {
     background: url("cancelBtn.jpg") no-repeat;
     width:59px;
