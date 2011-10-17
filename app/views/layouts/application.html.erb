@@ -5,26 +5,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-
   <title></title>
   <meta name="description" content="">
   <meta name="author" content="">
-
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta http-equiv="cleartype" content="on">
-
-  <%= stylesheet_link_tag "style" %>
-  <%= stylesheet_link_tag "custom" %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "style","custom" %>
 
   <%= javascript_include_tag "modernizr-custom"%>
   <script>
     Modernizr.mq('(min-width:0)') || document.write('<script src="respond.min.js">\x3C/script>')
   </script>
-  
-  <%= csrf_meta_tags %>
+  <%- if @origins -%>
+  <script>
+    origin_airports = ['<%= @origins.join("\', \'")%>'];
+  </script>
+  <%- end -%>
 </head>
   <body>
     <div id="container">
