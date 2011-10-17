@@ -16,7 +16,7 @@
       <div class="floatLeft width99">
         <div class="lbl floatLeft">
           <h4>From</h4>
-          <%= link_to session[:origin], (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
+          <%= link_to (session[:origin])? session[:origin] : "Origin", (search_flight_index_path(:q => "from")), :id => "#{((session[:origin].blank?)? "origin_airport" : "session_origin"  )}", :class => "fromLink" %>
         </div>
         <div class="lbl floatRight">
           <h4>To</h4>
