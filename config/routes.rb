@@ -6,6 +6,7 @@ Jetbp::Application.routes.draw do
   resources :flight do
     collection do
       get :findClosestAirports, :findOriginAirports, :findDestinationAirports, :calendar, :search
+      post :index
     end
   end
   
