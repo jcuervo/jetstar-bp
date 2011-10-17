@@ -29,14 +29,27 @@
   <body>
     <div id="container">
       <header>
-        Header area
-      </header>
+        <div id="findFlights">
+          <div id="back"><a href="#" id="backBtn">Back</a></div>
+          <div id="midHeader"><h2>Find Flight</h2></div>
+          <div id="crumb"><h3>1 of 6</h3></div>
+        </div>
+       </header>
       <div id="main" role="main">
         <%= yield %>
       </div>
 
       <footer>
-        Footer area
+        <nav>
+          <ul>
+            <li class="withGap"><a href="#">Regular Site</a></li>
+            <li class="withGap"><a href="#">Privacy &amp; Security</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </nav>
+        <div id="copyright">
+            &copy; 2011 Jetstar Airways Pty Ltd. ABN 33 069 720 243
+        </div>
       </footer>
     </div>
   
