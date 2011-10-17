@@ -6,7 +6,7 @@
   </div>
 <%- end -%>
 
-  <div id="drWrap">
+  <div class="left contentWrap">
     <ul id="flightNav">
       <li><a href="#">One Way</a></li>
       <li><a href="#" class="current">Return</a></li>
@@ -24,46 +24,61 @@
         </div>
       </div>
     </div>
-    <a href="/flight/calendar" id="calLink">
-
-      <ul id="dr" class="reset">
-        <li>
-          <div class="schedtaps left" id="dd">
-            <h4>Depart</h4>
-            <div id="departDetails" class="left fullwidth">
-              <%- if session[:depart] 
-                  d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
-                <div id="dpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
-                <div id="dpDay" class="halfw left"><%= d.strftime("%d")%></div>
-              <%- else %>
-                <div id="dpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
-                <div id="dpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
-              <%- end %>
+  </div>
+  <div id="drWrap" class="left">
+      <a href="/flight/calendar" id="calLink">
+        <ul id="dr" class="reset">
+          <li>
+            <div class="schedtaps left" id="dd">
+              <h4>Depart</h4>
+              <div id="departDetails" class="left fullwidth">
+                <%- if session[:depart] 
+                    d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
+                  <div id="dpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                  <div id="dpDay" class="halfw left"><%= d.strftime("%d")%></div>
+                <%- else %>
+                  <div id="dpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                  <div id="dpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+                <%- end %>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="schedtaps left" id="rd">
-            <h4>Return</h4>
-            <div id="returnDetails" class="left fullwidth">
-              <%- if session[:return] 
-                  d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
-                <div id="rpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
-                <div id="rpDay" class="halfw left"><%= d.strftime("%d")%></div>
-              <%- else %>
-                <div id="rpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
-                <div id="rpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
-              <%- end %>
+          </li>
+          <li>
+            <div class="schedtaps left" id="rd">
+              <h4>Return</h4>
+              <div id="returnDetails" class="left fullwidth">
+                <%- if session[:return] 
+                    d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
+                  <div id="rpDate" class="halfw left"><%= d.strftime("%b")%><br /><%= d.strftime("%Y")%></div>
+                  <div id="rpDay" class="halfw left"><%= d.strftime("%d")%></div>
+                <%- else %>
+                  <div id="rpDate" class="halfw left"><%= Date.today.strftime("%b")%><br /><%= Date.today.strftime("%Y")%></div>
+                  <div id="rpDay" class="halfw left"><%= Date.today.strftime("%d")%></div>
+                <%- end %>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </a>
-    <div class="floatLeft">
+          </li>
+        </ul>
+      </a>
+  </div>
+  <div class="left contentWrap">
+      <h4>Passengers</h4>
       <%= form_tag(flight_index_path, :method => :post) do %>
-        Adults: <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10), session[:adults]) %>
-        Children: <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:child]) %>
-        Infants: <%= select_tag "infants", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:infants]) %>
+        <div class="thirds left">
+          <%= select_tag "adults", options_for_select(%w(1 2 3 4 5 6 7 8 9 10), session[:adults]) %>
+          <br />
+          Adults
+        </div>
+        <div class="thirds left">
+          <%= select_tag "child", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:child]) %>
+          <br />
+          Children
+        </div>
+        <div class="thirds left">
+          <%= select_tag "infants", options_for_select(%w(0 1 2 3 4 5 6 7 8 9 10), session[:infants]) %>
+          <br />
+          Infants
+        </div>
         <div id="searchFLight" class="floatLeft width99">
           <h4>Search by</h4>
           <ul class="submitList">
@@ -81,4 +96,4 @@
       <%- end %>
     </div>
     <ul id="search_#{params[:q]}_list"></ul>
-  </div>
+

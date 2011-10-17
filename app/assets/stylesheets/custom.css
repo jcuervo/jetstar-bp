@@ -328,8 +328,15 @@ span.ret {
 #dps {
   margin-bottom:2em;
 }
+.contentWrap {
+  width:90%;
+  margin:1em 5%;
+  border-radius: 5px;
+  float:left;  
+}
+
 #drWrap {
-  /*border:1px solid #d5d5d5;*/
+  border:1px solid #d5d5d5;
   width:90%;
   margin:1em 5%;
   border-radius: 5px;
@@ -347,6 +354,7 @@ span.ret {
   padding:5px;
   width:90%;
 }
+.thirds {width:32%;}
 a#calLink {
   text-decoration:none;
   color:#000;
