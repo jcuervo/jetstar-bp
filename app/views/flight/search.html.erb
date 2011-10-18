@@ -13,14 +13,17 @@
   </div>
 <%- end -%>
 
-<div id="searchWrap">
-  <div id="search_<%= params[:q] %>_list">
+<!-- <div id="searchWrap">
+  <div id="search_<%#= params[:q] %>_list">
     
   </div>
-</div>
+</div> -->
 
-<%- if session[:origin].blank? %>
-<div class="grayBg searchResults">Airports nearest to your current location</div>
-  <ul id="searchResultUl"></ul>
+<div class="contentWrap left">
+  <%- if session[:origin].blank? %>
+    <div id="airportLst" class="grayBg searchResults">Airports nearest to your current location</div>
+    <ul id="searchResultUl"></ul>
+  <%- else -%>
+    <div id="airportLst" class="grayBg searchResults">Search airports via City or Airport Code</div>
+  <%- end -%>
 </div>
-<%- end -%>
