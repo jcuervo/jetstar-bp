@@ -28,9 +28,12 @@ class FlightController < ApplicationController
       redirect_to flight_index_path
     end
   end
-  
+
   def search
     @origins = findOriginAirports
+    if session[:origin].blank?
+      session[:origin] = @origins.first[0]
+    end
     @destination = findDestinationAirports
   end
   
@@ -70,6 +73,8 @@ class FlightController < ApplicationController
   
   def findDestinationAirports
     airports = []
+    logger.info ("dfklhgjkldhfjkahfksjfhsfkjhslfkj")
+    logger.info session[:origin]
     if session[:origin]
       o = session[:origin][-4..-2]
       url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/destination/#{o}")
@@ -85,7 +90,7 @@ class FlightController < ApplicationController
     
     airports
   end
-  
+=begin
   def findFlightsOld
     @flights = []
     @return_flights = []
@@ -130,7 +135,7 @@ class FlightController < ApplicationController
     end
 
   end
-
+=end
   
   def findFlights
     @flights = []
@@ -147,15 +152,16 @@ class FlightController < ApplicationController
       url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/#{str}Dates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
       logger.info url
       req = Net::HTTP::Get.new(url.path)
-      res = Net::HTTP.start(url.host, url.port) {|http|
+      res = Net::HTTP.start(url.host, url.port) do |http|
         http.request(req)
-      }
+      end
       logger.info res.body
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
         @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
       end if parsed_json["wrapper"]["results"]
-      
+
+
       # return flights
       o = session[:dest][-4..-2]
       d = session[:origin][-4..-2]
@@ -175,6 +181,7 @@ class FlightController < ApplicationController
       parsed_json["wrapper"]["results"].each do |flight|
         @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
       end if parsed_json["wrapper"]["results"]
+
     end
     session[:flight] = @flights
     session[:return_flights] = @return_flights
