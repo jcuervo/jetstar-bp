@@ -191,7 +191,10 @@ class FlightController < ApplicationController
               when "price"
                 then :price
               end
-            @flights.store(str, flight[1])
+            tmp.store(str, flight[1])
+          end
+          if tmp.empty?
+            @flights << tmp 
           end
         end 
       end
@@ -214,7 +217,8 @@ class FlightController < ApplicationController
       logger.info res.body
       parsed_json = ActiveSupport::JSON.decode(res.body)
 
-      if parsed_json["wrapper"]["results"]      
+      if parsed_json["wrapper"]["results"]     
+        tmp = {} 
         parsed_json["wrapper"]["results"].each do |flight|
           if flight.class == Hash
             @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
@@ -239,7 +243,13 @@ class FlightController < ApplicationController
               when "price"
                 then :price
               end
-            @return_flights.store(str, flight[1])
+              
+              #@return_flights.store(str, flight[1])
+              tmp.store(str, flight[1])
+            end
+            if tmp.empty?
+              @return_flights << tmp 
+            end
           end
           #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
         end 
