@@ -52,10 +52,10 @@
               <div id="departDetails" class="left fullwidth">
                 <%- if session[:depart] 
                     d = Date.new(session[:depart].split("/")[2].to_i, session[:depart].split("/")[0].to_i, session[:depart].split("/")[1].to_i) -%>
-                  <div id="dpDate" class="halfi left"><%= d.strftime("%A")%><br /><%= d.strftime("%b")%></div>
+                  <div id="dpDate" class="halfi left"><span class="graytxt"><%= d.strftime("%A")%></span><br /><%= d.strftime("%b")%></div>
                   <div id="dpDay" class="halfi left"><%= d.strftime("%d")%></div>
                 <%- else %>
-                  <div id="dpDate" class="halfi left"><%= Date.today.strftime("%A")%><br/><%= Date.today.strftime("%b")%></div>
+                  <div id="dpDate" class="halfi left"><span class="graytxt"><%= Date.today.strftime("%A")%></span><br/><%= Date.today.strftime("%b")%></div>
                   <div id="dpDay" class="halfi left"><%= Date.today.strftime("%d")%></div>
                 <%- end %>
               </div>
@@ -67,10 +67,10 @@
               <div id="returnDetails" class="left fullwidth">
                 <%- if session[:return] 
                     d = Date.new(session[:return].split("/")[2].to_i, session[:return].split("/")[0].to_i, session[:return].split("/")[1].to_i) -%>
-                  <div id="rpDate" class="halfi left"><%= d.strftime("%A")%><br /><%= d.strftime("%b")%></div>
+                  <div id="rpDate" class="halfi left"><span class="graytxt"><%= d.strftime("%A")%></span><br /><%= d.strftime("%b")%></div>
                   <div id="rpDay" class="halfi left"><%= d.strftime("%d")%></div>
                 <%- else %>
-                  <div id="rpDate" class="halfi left"><%= Date.today.strftime("%A")%><br/><%= Date.today.strftime("%b")%></div>
+                  <div id="rpDate" class="halfi left"><span class="graytxt"><%= Date.today.strftime("%A")%></span><br/><%= Date.today.strftime("%b")%></div>
                   <div id="rpDay" class="halfi left"><%= Date.today.strftime("%d")%></div>
                 <%- end %>
               </div>
