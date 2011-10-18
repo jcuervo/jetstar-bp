@@ -13,14 +13,17 @@
 
 
 $(document).ready(function() {
-    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-
-    function hideURLbar(){
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  function hideURLbar(){
     window.scrollTo(0,1);
-    }
+  }
+  
+  var dp_source = $("#dpSource").html()
+  var rp_source = $("#rpSource").html()
+
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
-      minDate: 0,
+      defaultDate: dp_source,
       onSelect: function(dateText, inst) {
 //        $("#departDetails").html(dateText);
 //        $("#dDate").val(dateText);
@@ -31,7 +34,7 @@ $(document).ready(function() {
       }
     });
     $( "#datepickerR" ).datepicker({
-      minDate: 0,
+      defaultDate: rp_source,
       onSelect: function(dateText, inst) {
 //        $("#returnDetails").html(dateText);
 //        $("#rData").val(dateText);
