@@ -619,14 +619,14 @@ a#calLink {
     margin: 0px 0px 1px 0px;
   }
 
-#dd h4 {
+#dd h4, #ffdd h4 {
   text-align: left;
   background-position: right top !important;
   float: left;
   width: 66px;
 }
 
-#rd h4 {
+#rd h4, #ffrd h4 {
   text-align: right;
   background-position: left bottom !important;
   float: right;
