@@ -13,6 +13,7 @@
 
 
 $(document).ready(function() {
+  $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
     addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
     function hideURLbar(){
