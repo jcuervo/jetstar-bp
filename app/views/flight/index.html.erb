@@ -11,7 +11,7 @@
       <li><a href="#" class="gap3 current">Return</a></li>
       <li><a href="#">Multi-City</a></li>
     </ul>
-    <div id="toFrom" class="left">
+    <div id="toFrom" class="left fullwidth">
       <div class="halfw left">
         <h4 class="reset tfhead">From</h4>
         <a href="<%= search_flight_index_path(:q => 'from') %>" id="<%= (session[:origin].blank?)? "origin_airport" : "session_origin" %>">
@@ -28,18 +28,20 @@
       </div>
   
       <div class="halfw right">
-        <h4 class="reset tfhead tfto">To</h4>
-        <a href="<%= search_flight_index_path(:q => 'to') %>" id="<%= (session[:dest].blank?)? "dest_airport" : "session_dest" %>">
-          <span class="fullwidth reset left" id="ffDest">
-            <%- if session[:dest] -%>
-              <span id="dest_short"><%= session[:dest][-4..-2] %></span>
-              <span id="dest_city"><%= session[:dest][0..-6] %></span>
-            <%- else -%>
-              <span id="dest_short"></span>
-              <span id="dest_city">Choose your destination</span>
-            <%- end -%>
-          </span>
-        </a>
+        <div class="right">
+          <h4 class="reset tfhead tfto">To</h4>
+          <a href="<%= search_flight_index_path(:q => 'to') %>" id="<%= (session[:dest].blank?)? "dest_airport" : "session_dest" %>">
+            <span class="fullwidth reset left" id="ffDest">
+              <%- if session[:dest] -%>
+                <span id="dest_short"><%= session[:dest][-4..-2] %></span>
+                <span id="dest_city"><%= session[:dest][0..-6] %></span>
+              <%- else -%>
+                <span id="dest_short"></span>
+                <span id="dest_city">Choose your destination</span>
+              <%- end -%>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
