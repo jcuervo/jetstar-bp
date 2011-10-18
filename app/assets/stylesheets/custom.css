@@ -440,9 +440,10 @@ ul.ui-autocomplete li {
 }/*   end of media query */
 
 a, input[type='button'], input[type='submit'] {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
   outline:0;
- }
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  
+}
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
@@ -594,8 +595,7 @@ span.ret {
   float:left;
 }
 .schedtaps {
-  padding:5px;
-  width:90%;
+ padding:5px;
 }
 .thirds {width:33%;}
 .thirdsP {width:34%;}
@@ -638,6 +638,12 @@ a#calLink {
   width: 66px;
 }
 
+#ffdd {
+  margin-left:5px;
+}
+#ffrd {
+  margin-right:5px;
+}
 #rd h4, #ffrd h4 {
   text-align: right;
   background-position: left bottom !important;
@@ -659,7 +665,9 @@ a#calLink {
   margin-top: 4px;
   width: 73px;
 }
-
+span.graytxt {
+  color:#6e6e6e;
+}
 .dpWD {
   color: #7f7f7f;
 }
@@ -670,7 +678,7 @@ a#calLink {
   font-weight:bold;
 }
 #calendar .cancelBtn {
-  top:4 !important;
+  top:4px !important;
   left:10px;
 }
 #searchWrap {min-height:220px;}
