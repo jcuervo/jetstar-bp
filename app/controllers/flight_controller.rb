@@ -32,6 +32,7 @@ class FlightController < ApplicationController
   def search
     @origins = findOriginAirports
     if session[:origin].blank?
+      
       session[:origin] = @origins.first[0]
     end
     @destination = findDestinationAirports
@@ -52,7 +53,14 @@ class FlightController < ApplicationController
         airports <<  {:a => airport[1]} if airport[0] == "iataCode"
       end
     end if parsed_json["wrapper"]["results"]
-    
+
+    begin
+      if session[:origin].blank?
+        session[:origin] = "#{airports.first[:a].split(";")[0] }(#{airports.first[:a].split(";")[1]})"
+      end
+    rescue
+    end
+
     render :json => airports
   end
   

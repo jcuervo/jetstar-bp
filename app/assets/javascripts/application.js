@@ -126,7 +126,7 @@ function findClosestAirport(lat, lng){
           e.preventDefault();
           $("#search_from_hidden").val($(this).html());
           $("#search_to_hidden").val($(this).html());
-          //$("#flightForm").submit();
+          $("#flightForm").submit();
         });
       } else
         alert('Unable to get nearby airports');
