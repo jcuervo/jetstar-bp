@@ -168,7 +168,7 @@ class FlightController < ApplicationController
       if parsed_json["wrapper"]["results"]
         tmp = {}
         parsed_json["wrapper"]["results"].each do |flight|
-          if airport.class == Hash
+          if flight.class == Hash
             @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
           else
             str = case(flight[0])
@@ -216,7 +216,7 @@ class FlightController < ApplicationController
 
       if parsed_json["wrapper"]["results"]      
         parsed_json["wrapper"]["results"].each do |flight|
-          if airport.class == Hash
+          if flight.class == Hash
             @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
           else
             str = case(flight[0])
