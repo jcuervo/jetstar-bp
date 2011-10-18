@@ -193,11 +193,12 @@ class FlightController < ApplicationController
               end
             tmp.store(str, flight[1])
           end
-          if tmp.empty?
-            @flights << tmp 
-          end
-        end 
-      end
+        end
+        if tmp.empty?
+          @flights << tmp 
+        end
+      end 
+      #end
 
 
       # return flights
@@ -246,11 +247,11 @@ class FlightController < ApplicationController
               
               #@return_flights.store(str, flight[1])
               tmp.store(str, flight[1])
-            end
-            if tmp.empty?
-              @return_flights << tmp 
-            end
           end
+          if tmp.empty?
+            @return_flights << tmp 
+          end
+        #end
           #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
         end 
       end
