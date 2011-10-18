@@ -130,7 +130,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     position:absolute;
     z-index:20;
     top:5px;
-    right:5px;
+    /*right:5px;*/
     line-height: 0;
     text-indent: -9999px;
   }
@@ -713,7 +713,7 @@ span.graytxt {
   }
 
   #dpDate, #rpDate {
-    width: 101px;
+    width: 105px;
   }
 }
 
