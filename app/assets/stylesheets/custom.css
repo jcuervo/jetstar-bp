@@ -711,6 +711,10 @@ span.graytxt {
   .searchField {
     width: 280px;
   }
+
+  #dpDate, #rpDate {
+    width: 101px;
+  }
 }
 
 #flightForm {
