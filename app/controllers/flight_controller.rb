@@ -190,6 +190,7 @@ class FlightController < ApplicationController
                 then :stop
               when "price"
                 then :price
+              end
             @flights.store(str, flight[1])
           end
         end 
@@ -237,6 +238,7 @@ class FlightController < ApplicationController
                 then :stop
               when "price"
                 then :price
+              end
             @return_flights.store(str, flight[1])
           end
           #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
