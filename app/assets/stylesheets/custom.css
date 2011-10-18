@@ -447,6 +447,7 @@ a, input[type='button'], input[type='submit'] {
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
   text-indent:-9999px;
+  font-size:18px;
 }
 #searchResults {
   margin:1em auto;
