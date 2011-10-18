@@ -440,7 +440,7 @@ ul.ui-autocomplete li {
 
 } /*   end of media query */
 
-a, input[type='button'], input[type='submit'] {
+a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
   outline:0;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   
@@ -751,3 +751,8 @@ span.graytxt {
       height: 20px;
       cursor: pointer;
     }
+    
+/*    #uipv_ul_adults li, #uipv_ul_child li, #uipv_ul_infants li{
+      outline:0;
+      -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    }*/
