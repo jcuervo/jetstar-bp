@@ -110,13 +110,8 @@
       </div>
     <%- end -%>
   </div>
-  <div class="floatLeft">
-    <%- if session[:flight] %>
-      <%- session[:flight].each do |flight| %>
-        <%= flight %>
-      <%- end %>
-    <%- end -%>
-  </div>
+
+
   <ul id="search_#{params[:q]}_list"></ul>
   <div class="left contentWrap">
       <div id="recentSearches">
@@ -125,22 +120,34 @@
           <h3 class="left width70">Recent Searches</h3>
           <div id="downIcon" class="floatRight"></div>
         </div>
-        <ul id="recentResults">
-          <li class="left topradius borderBottomGray">
-            <span class="resultTitle floatLeft">Sydney (SYD)</span>
-            <div class="searchDates floatRight">
-              <div class="floatleft days">WED<br/>OCT</div>
-              <div class="floatRight date">17</div>
-            </div>
-          </li>
-          <li class="left bottomradius returnGray">
-            <span class="resultTitle return floatLeft">Melbourne (MEL)</span>
-            <div class="searchDates floatRight">
-              <div class="floatleft days">MON<br/>OCT</div>
-              <div class="floatRight date">23</div>
-            </div>
-          </li>
-        </ul>
+        
+        <%- if session[:flight] %>
+        
+          <ul id="recentResults">
+            <%- session[:flight].each_with_index do |flight, i| %>
+              <%- i += 1 -%>
+              <%- ddate = parseDate(flight[:ddt]) -%>
+              <%- adate = parseDate(flight[:adt]) -%>
+          
+              <li class="left <%= (i%2==0) ? 'borderBottomGray' : 'returnGray' %> <%= 'topradius' if (i==1) %>">
+                <span class="resultTitle floatLeft"><%= "#{flight[:da]}" %></span>
+                <div class="searchDates floatRight">
+                  <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
+                  <div class="floatRight date"><%= ddate.strftime('%d') %></div>
+                </div>
+              </li>
+          
+              <li class="left <%= 'bottomradius' if (i==session[:flight].size) %> returnGray">
+                <span class="resultTitle return floatLeft"><%= "#{flight[:aa]}" %></span>
+                <div class="searchDates floatRight">
+                  <div class="floatleft days"><%= adate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
+                  <div class="floatRight date"><%= ddate.strftime('%d') %></div>
+                </div>
+              </li>
+
+            <% end %>
+          </ul>
+        <% end %>
       </div>
   </div>
 

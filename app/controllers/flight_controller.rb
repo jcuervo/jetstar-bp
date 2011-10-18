@@ -121,16 +121,15 @@ class FlightController < ApplicationController
       str = ((params[:commit].downcase.index("exact"))? "exact" : "flexible")
 
       url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/#{str}Dates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
+      logger.info url
       req = Net::HTTP::Get.new(url.path)
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
       }
-      #{"arrivalAirport"=>"AVV", "arrivalDateTime"=>"2011-10-21T01:35:00+11:00", "businessClassAvailable"=>false, "carrierCode"=>"JQ", "currency"=>"AUD", 
-      #{"departureAirport"=>"SYD", "departureDateTime"=>"2011-10-21T00:00:00+11:00", "flightDesignator"=>"JQ 603", "flightNumber"=>" 603", "numStops"=>1, "opSuffix"=>" ", "price"=>39}
-      logger.info session[:dest]
+
       parsed_json = ActiveSupport::JSON.decode(res.body)
       parsed_json["wrapper"]["results"].each do |flight|
-        @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight[:departuerAirport], :ddt => flight["departuerDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
+        @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
         #if flight.class == Hash
         #  ddt = flight["departureDateTime"].split('T')
         #  adt = flight["departureDateTime"].split('T')
