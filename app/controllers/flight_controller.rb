@@ -166,8 +166,32 @@ class FlightController < ApplicationController
       parsed_json = ActiveSupport::JSON.decode(res.body)
       
       if parsed_json["wrapper"]["results"]
+        tmp = {}
         parsed_json["wrapper"]["results"].each do |flight|
-          @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
+          if airport.class == Hash
+            @flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
+          else
+            str = case(flight[0])
+              when "arrivalAirport"
+                then :aa
+              when "arrivalDateTime"
+                then :adt
+              when "businessClassAvailable"
+                then :bc
+              when "currency"
+                then :c
+              when "departureAirport"
+                then :da
+              when "departureDateTime"
+                then :ddt
+              when "flightDesignator"
+                then :flight
+              when "numStops"
+                then :stop
+              when "price"
+                then :price
+            @flights.store(str, flight[1])
+          end
         end 
       end
 
@@ -191,7 +215,31 @@ class FlightController < ApplicationController
 
       if parsed_json["wrapper"]["results"]      
         parsed_json["wrapper"]["results"].each do |flight|
-          @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
+          if airport.class == Hash
+            @return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
+          else
+            str = case(flight[0])
+              when "arrivalAirport"
+                then :aa
+              when "arrivalDateTime"
+                then :adt
+              when "businessClassAvailable"
+                then :bc
+              when "currency"
+                then :c
+              when "departureAirport"
+                then :da
+              when "departureDateTime"
+                then :ddt
+              when "flightDesignator"
+                then :flight
+              when "numStops"
+                then :stop
+              when "price"
+                then :price
+            @return_flights.store(str, flight[1])
+          end
+          #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
         end 
       end
 
