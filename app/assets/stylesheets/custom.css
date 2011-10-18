@@ -417,6 +417,11 @@ ul.ui-autocomplete li {
   line-height: 0;
   width: 100%;
 }
+
+.ui-autocomplete .ui-menu-item a {
+  font-family: arial;
+}
+
 .ui-state-hover {
   background:none !important;
   font-size: 14px !important;
