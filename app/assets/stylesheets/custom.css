@@ -44,12 +44,16 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin: 0 auto;
   }
   #crumb {
+    background: url("crumb.jpg") no-repeat;
+    width: 66px;
+    height: 45px;
     position:absolute;
-    right:10px;
+    right:0px;
     top:0px;
   }
   #crumb h3 {
     color:white;
+    margin-left:20px;
   }
   footer {
     width: 100%;
