@@ -248,7 +248,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 #exactDates{
   background: url("searchBtn.jpg") 0 -38px no-repeat;
-  float:right;
+  float:right !important;
 }
 .fullWidth {width:100%}
 .halfWidth {width:50%;}
@@ -256,6 +256,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .floatLeft {float:left;}
 .floatRight {float:right;}
 .width99 {width:99%;}
+
 
 .submitList {
   margin:0 auto;
@@ -437,7 +438,7 @@ ul.ui-autocomplete li {
   margin:0 !important;
 }
 
-}/*   end of media query */
+} /*   end of media query */
 
 a, input[type='button'], input[type='submit'] {
   outline:0;
