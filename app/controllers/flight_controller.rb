@@ -194,7 +194,7 @@ class FlightController < ApplicationController
             tmp.store(str, flight[1])
           end
         end
-        if tmp.empty?
+        if !tmp.empty?
           @flights << tmp 
         end
       end 
@@ -248,7 +248,7 @@ class FlightController < ApplicationController
               #@return_flights.store(str, flight[1])
               tmp.store(str, flight[1])
           end
-          if tmp.empty?
+          if !tmp.empty?
             @return_flights << tmp 
           end
         #end
