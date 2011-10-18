@@ -207,7 +207,7 @@ class FlightController < ApplicationController
       date = session[:return].split('/')
       rDate = "#{date[2]}#{date[0]}#{date[1]}"
 
-      # str = ((params[:commit].downcase.index("exact"))? "exact" : "flexible")
+      str = ((params[:commit].downcase.index("exact"))? "exact" : "flexible")
 
       url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/flights/#{str}Dates/#{o}/#{d}/#{rDate}/#{session[:adults]}/#{session[:child]}/#{session[:infants]}")
       logger.info url      
