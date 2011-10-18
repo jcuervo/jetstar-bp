@@ -64,9 +64,9 @@
           navigator.geolocation.getCurrentPosition(function(position) {
             centerLatitude = position.coords.latitude;
             centerLongitude = position.coords.longitude;
-            // remove me...
-            centerLatitude = -38.47;
-            centerLongitude = 144.98;
+            // // remove me...
+            // centerLatitude = -38.47;
+            // centerLongitude = 144.98;
 
             findClosestAirport(centerLatitude, centerLongitude);
           });
