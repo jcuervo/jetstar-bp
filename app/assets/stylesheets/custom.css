@@ -39,7 +39,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   #midHeader h2 {
     color: white;
-    padding-top: 10px;
+    padding-top: 12px;
+    font-size:17px;
+    font-weight:normal;
     font-family: Arial;
     margin: 0 auto;
   }
@@ -52,8 +54,12 @@ only screen and (min-device-pixel-ratio: 1.5) {
     top:0;
   }
   #bcrumb h3{
-    color:white;
+    color:#d74412;
     margin-left:20px;
+    letter-spacing:-1px
+  }
+  #bcrumb h3 span {
+    font-size:11px;
   }
   #crumb {
     position:absolute;
@@ -433,6 +439,10 @@ ul.ui-autocomplete li {
 
 }/*   end of media query */
 
+a, input[type='button'], input[type='submit'] {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  outline:0;
+ }
 
 h2#findFlights {
   background: transparent url("headFindFlights.jpg") no-repeat;
@@ -565,6 +575,7 @@ span.ret {
   border-radius: 5px;
   float:left;  
 }
+.ffIndex {margin:5px 2% 1em 2% !important;}
 
 #drWrap {
   border:1px solid #d5d5d5;
