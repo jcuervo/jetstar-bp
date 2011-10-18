@@ -43,17 +43,26 @@ only screen and (min-device-pixel-ratio: 1.5) {
     font-family: Arial;
     margin: 0 auto;
   }
-  #crumb {
+  #bcrumb{
     background: url("crumb.jpg") no-repeat;
     width: 66px;
     height: 45px;
     position:absolute;
-    right:0px;
-    top:0px;
+    right: 0;
+    top:0;
   }
-  #crumb h3 {
+  #bcrumb h3{
     color:white;
     margin-left:20px;
+  }
+  #crumb {
+    position:absolute;
+    right:10px;
+    top:0px;
+   }
+
+  #crumb h3 {
+    color:white;
   }
   footer {
     width: 100%;
