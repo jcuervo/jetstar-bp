@@ -107,7 +107,7 @@
         <h4>Search by</h4>
         <ul class="submitList">
           <li class="halfw"><%= submit_tag "Find Flexible Date Flights", :id => "lowestFares"%></li>
-          <li class="halfw" style="text-align:right"><%= submit_tag "Find Exact Date Flights", :id => "exactDates"%></li>
+          <li class="halfw"><%= submit_tag "Find Exact Date Flights", :id => "exactDates"%></li>
         </ul>
       </div>
     <%- end -%>
@@ -132,8 +132,13 @@
                 <%- adate = parseDate(flight[:adt]) -%>
                 <li class="left">
                   <a href="#" class="borderBottomGray <%= 'topradius' if (i==1) %>">
-                    <span class="resultTitle floatLeft"><%= "#{flight[:da]}-#{flight[:aa]}" %></span>
+                    <span class="resultTitle floatLeft"><%= "#{flight[:da]}-#{flight[:aa]}" %></span>                    
                     <div class="searchDates floatRight">
+                      <div id="atd" class="floatleft days">
+                        ATD <%= rflight[:ddt][11..15] %>
+                        <br/>
+                        ATA <%= rflight[:adt][11..15] %>
+                      </div>
                       <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                       <div class="floatRight date"><%= ddate.strftime('%d') %></div>
                     </div>
@@ -151,6 +156,11 @@
                   <a href="#" class="borderBottomGray <%= 'bottomradius' if (i==session[:return_flights].size) %> returnGray <%= 'topradius' if (session[:flight].blank? && i.eql?(1))%>">
                     <span class="return resultTitle floatLeft"><%= "#{rflight[:da]}-#{rflight[:aa]}" %></span>
                     <div class="searchDates floatRight">
+                      <div id="atd" class="floatleft days">
+                        ATD <%= rflight[:ddt][11..15] %>
+                        <br/>
+                        ATA <%= rflight[:adt][11..15] %>
+                      </div>
                       <div class="floatleft days"><%= adate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                       <div class="floatRight date"><%= ddate.strftime('%d') %></div>
                     </div>
@@ -160,7 +170,7 @@
             <%- end -%>
           </ul>
         <%- else -%>
-          No search results yet.
+          No search result yet.          
         <% end %>
       </div>
   </div>

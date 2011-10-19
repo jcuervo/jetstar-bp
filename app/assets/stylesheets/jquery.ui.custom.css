@@ -63,7 +63,7 @@
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; }
 /*.ui-widget-content { background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; color: #222222; }*/
 .ui-widget-content a { color: #222222; }
-.ui-widget-header { text-shadow: 1px 1px #222222; color: #ffffff; font-weight: bold; background-color: #383838; }
+.ui-widget-header { text-shadow: 1px 1px #222222; color: #ffffff; font-weight: bold; background-color: #3a3a3a; }
 .ui-widget-header a { color: #222222; }
 
 /* Interaction states
@@ -433,11 +433,14 @@
 }
 
 table.ui-datepicker-calendar thead {
-  background-color: #f2f2f2 !important;
+  background-color: #f5f5f5 !important;
 }
 
 table.ui-datepicker-calendar thead tr th {
-  color: #666666 !important;
+  color: #626262 !important;
+  font-weight:normal;
+  text-transform:uppercase;
+  font-size:0.75em;
 }
 
 table.ui-datepicker-calendar tbody tr td {
@@ -454,7 +457,7 @@ table.ui-datepicker-calendar tbody tr td span
   height: inherit !important;
   line-height: 32px;
   font-weight: bold !important;
-  text-shadow: 1px 1px #efefef;
+  text-shadow: 1px 1px #eeeeee;
 }
 
 .ui-state-disabled span {

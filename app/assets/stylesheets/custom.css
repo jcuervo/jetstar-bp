@@ -11,7 +11,16 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-@media only screen and (max-width: 480px)  {
+
+/*@media only screen and (max-width: 480px) {
+  body {background: red;}
+}
+@media only screen and (max-width: 320px) {
+  body {background: green;}
+}*/
+
+@media only screen and (max-width: 480px) {
+
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -401,13 +410,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background: -moz-linear-gradient(top, #5B5B5B 0%, #5B5B5B 50%, #4B4B4B 100%);
   }
   .searchDates {
-    width:50px;
+    width:116px;
     margin-right:15px;
   }
   .days {
     font-size: 10px;
     color: white;
     float: left;
+    margin-right:5px;
+    text-transform:uppercase;
   }
   .date {
     font-size: 21px;
@@ -455,7 +466,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin:0 !important;
   }
 
+<<<<<<< HEAD
 }/*   end of media query */
+=======
+  #atd {margin-right:10px;}
+
+} /*   end of media query */
+>>>>>>> fffdd78ff68f8d163e82504dff6d1685c6703d13
+
 
 a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
   outline:0;
@@ -687,9 +705,13 @@ a#calLink {
 .left {float:left;}
 .right {float:right;}
 .ui-datepicker {
-  
-  margin:0 auto;
+  border:1px solid #f3f3f3;
+  padding:2px;
+  margin:0.25em auto;
+  border-radius:3px;
+  font-family: Arial, sans-serif !important;
 }
+
 .hidden {display:none;}
 .fullwidth {width:100%;}
 .halfw {width:50%;}
