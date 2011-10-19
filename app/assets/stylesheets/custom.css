@@ -362,9 +362,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   #recentResults {
     margin: 0;
-    padding: 10px 15px 10px 13px;
+    padding: 10px 0;
     list-style: none;
-    width: 90%;
+    width: 100%;
     float: left;
     background-color: #E7E7E7;
   }
@@ -372,15 +372,17 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background-color: #696969;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7C7C7C), to(#696969), color-stop(.5,#727272));
     background: -moz-linear-gradient(top, #7C7C7C 0%, #727272 50%, #696969 100%);
-    padding: 10px 15px 13px;
-    width: 90%;
-    height:20px;
+    padding: 10px 0 13px;
+    width: 98%;
+    height: 20px;
+    margin-left: 12px;
   }
   .resultTitle {
-    font-size:15px;
-    color:white;
-    background:url("icons2.png") no-repeat;
-    padding-left:30px;
+    font-size: 15px;
+    color: white;
+    background: url("icons2.png") no-repeat;
+    padding-left: 30px;
+    margin-left: 15px;
   }
   .return {
     background:url("icons2.png") 0 -18px no-repeat !important;
@@ -392,6 +394,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   .searchDates {
     width:50px;
+    margin-right:15px;
   }
   .days {
     font-size: 10px;
