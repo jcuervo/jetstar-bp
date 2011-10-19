@@ -18,7 +18,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   body {background: green;}
 }*/
 
-/*@media only screen and (max-width: 480px) {*/
+@media only screen and (max-width: 480px) {
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -407,13 +407,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background: -moz-linear-gradient(top, #5B5B5B 0%, #5B5B5B 50%, #4B4B4B 100%);
   }
   .searchDates {
-    width:50px;
+    width:116px;
     margin-right:15px;
   }
   .days {
     font-size: 10px;
     color: white;
     float: left;
+    margin-right:5px;
+    text-transform:uppercase;
   }
   .date {
     font-size: 21px;
@@ -461,8 +463,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin:0 !important;
   }
 
-/*}*/
-/*   end of media query */
+  #atd {margin-right:10px;}
+
+} /*   end of media query */
+
 
 a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
   outline:0;
