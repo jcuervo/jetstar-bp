@@ -12,26 +12,30 @@
       <li><a href="#">Multi-City</a></li>
     </ul>
     <div id="toFrom" class="left fullwidth">
-      <div class="halfw left">
+      <div id="fromWrap" class="left">
         <h4 class="reset tfhead">From</h4>
-        <a href="<%= search_flight_index_path(:q => 'from') %>" id="<%= (session[:origin].blank?)? "origin_airport" : "session_origin" %>">
-          <span class="fullwidth reset left" id="ffOrig">
-            <%- if session[:origin] -%>
-              <span id="origin_short"><%= session[:origin][-4..-2] %></span>
-              <span id="origin_city"><%= session[:origin][0..-6]%></span>
-            <%- else -%>
-              <span id="origin_short"></span>
-              <span id="origin_city">Choose your origin</span>
-            <%- end -%>
-          </span>
-        </a>
+        <div id="fromContent" class="left fullwidth">
+          <a href="<%= search_flight_index_path(:q => 'from') %>" id="<%= (session[:origin].blank?)? "origin_airport" : "session_origin" %>">
+            <span class="tfl"></span>
+            <span id="ffOrig">
+              <%- if session[:origin] -%>
+                <span id="origin_short"><%= session[:origin][-4..-2] %></span>
+                <span id="origin_city"><%= session[:origin][0..-6]%></span>
+              <%- else -%>
+                <span id="origin_short"></span>
+                <span id="origin_city">Choose your origin</span>
+              <%- end -%>
+            </span>
+          </a>
+        </div>
       </div>
-  
-      <div class="halfw right">
-        <div class="right">
-          <h4 class="reset tfhead tfto">To</h4>
+      <div id="ftSepa" class="left">&nbsp;</div>
+      <div id="toWrap" class="left">
+        <h4 class="reset tfhead tfto">To</h4>
+        <div id="toContent" class="left fullwidth">
           <a href="<%= search_flight_index_path(:q => 'to') %>" id="<%= (session[:dest].blank?)? "dest_airport" : "session_dest" %>">
-            <span class="fullwidth reset left" id="ffDest">
+            <span class="tfl"></span>
+            <span id="ffDest">
               <%- if session[:dest] -%>
                 <span id="dest_short"><%= session[:dest][-4..-2] %></span>
                 <span id="dest_city"><%= session[:dest][0..-6] %></span>
@@ -40,6 +44,7 @@
                 <span id="dest_city">Choose your destination</span>
               <%- end -%>
             </span>
+            <span class="tfr"></span>
           </a>
         </div>
       </div>

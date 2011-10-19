@@ -70,7 +70,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   #crumb {
     position:absolute;
-    right:10px;
+    right:5px;
     top:0px;
    }
 
@@ -498,35 +498,39 @@ h2#findFlights {
   margin:1em auto;
 }
 
-/* Find Flights Origin and Destination Styles */
-#toFrom a {
-  text-decoration:none;
-  color:#000;
-}
-#toFrom h4.tfhead {
-  margin:1em 0 0.25em 0;
-}
-#ffOrig, #ffDest {
-  height:51px;
-  width:138px;
+/* START - Find Flights Origin and Destination Styles */
+#fromWrap, #toWrap { width:45%}
+#ftSepa {width:10%}
+#toFrom a {text-decoration:none;color:#000;}
+#toFrom h4.tfhead {margin:1em 0 0.25em 0}
+
+#fromContent, #toContent {
+  background: transparent url("tfbg.png") repeat-x;
   display:block;
+  height:56px;
 }
 #ffOrig {
-  background:transparent url("fromTo.png") no-repeat;
-  padding-left:10px;
-  padding-top:5px;
+  background: transparent url("departEdge.png") top right no-repeat;
+  height:56px;
+  width:100%;
+  display:block;
 }
-#ffDest {
-  background:transparent url("fromTo.png") -148px 0 no-repeat;
-  width:128px;
-  height:51px;
-  padding-left:20px;
-  padding-top:5px;
+.tfl {
+  background:transparent url("tfl.png") repeat-x;
+  width:5px;
+  display:block;
+  float:left;
+  height:56px;
 }
-#toFrom h4.tfto {
-  margin:1em 0 0.25em 1em;
+.tfr {
+  background:transparent url("tfr.png") repeat-x;
+  width:5px;
+  display:block;
+  float:right;
+  height:56px;
 }
 span#origin_short, span#dest_short {
+  padding-top:0.2em;
   font-size:25px;
   font-weight:bold;
   display:block;
@@ -535,6 +539,7 @@ span#origin_short, span#dest_short {
 span#origin_city, span#dest_city {
   font-size:12px;
 }
+/* END - Find Flights Origin and Destination Styles */
 
 /* Passengers Styles */
 .tacenter {text-align:center;}
@@ -724,6 +729,7 @@ span.graytxt {
   font-size:40px;
   text-align:left;
   font-weight:bold;
+  text-shadow:1px 1px #eeeeee;
 }
 #calendar .cancelBtn {
   top:4px !important;
