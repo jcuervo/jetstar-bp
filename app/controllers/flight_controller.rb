@@ -31,10 +31,9 @@ class FlightController < ApplicationController
 
   def search
     @origins = findOriginAirports
-    if session[:origin].blank?
-      
-      session[:origin] = @origins.first[0]
-    end
+    #if session[:origin].blank?
+    #  session[:origin] = @origins.first[0]
+    #end
     @destination = findDestinationAirports
   end
   
@@ -54,12 +53,12 @@ class FlightController < ApplicationController
       end
     end if parsed_json["wrapper"]["results"]
 
-    begin
-      if session[:origin].blank?
-        session[:origin] = "#{airports.first[:a].split(";")[0] }(#{airports.first[:a].split(";")[1]})"
-      end
-    rescue
-    end
+#    begin
+#      if session[:origin].blank?
+#        session[:origin] = "#{airports.first[:a].split(";")[0] }(#{airports.first[:a].split(";")[1]})"
+#      end
+#    rescue
+#    end
 
     render :json => airports
   end
@@ -81,9 +80,7 @@ class FlightController < ApplicationController
   
   def findDestinationAirports
     airports = []
-    logger.info ("dfklhgjkldhfjkahfksjfhsfkjhslfkj")
-    logger.info session[:origin]
-    if session[:origin]
+    if !session[:origin].blank?
       o = session[:origin][-4..-2]
       url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/destination/#{o}")
       req = Net::HTTP::Get.new(url.path)
@@ -261,6 +258,11 @@ class FlightController < ApplicationController
     session[:return_flights] = @return_flights rescue nil
   end
   
+  
+  def reset
+    reset_session
+    redirect_to "/flight"
+  end
     #if flight.class == Hash
   #  ddt = flight["departureDateTime"].split('T')
   #  adt = flight["departureDateTime"].split('T')

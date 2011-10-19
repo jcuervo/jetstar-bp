@@ -2,7 +2,7 @@
   <div id="findFlights">
     <div id="calendar"><a href="/flight" class="cancelBtn">Back</a></div>
     <div id="midHeader"><h2>Schedules</h2></div>
-    <div id="crumb"><a href="/flight" class="doneBtn">Done</a></div>
+    <div id="crumb"><a href="javascript:void(0)" id="submitDate" class="doneBtn">Done</a></div>
   </div>
 <%- end -%>
 
@@ -39,8 +39,8 @@
             <div id="rpSource" class="hidden"><%= d.strftime("%m/%d/%Y") %></div>
           <%- else %>
             <div id="rpDate" class="halfi left"><span class="graytxt"><%= Date.today.strftime("%A")%></span><br/><%= Date.today.strftime("%b")%></div>
-            <div id="rpDay" class="halfi left"><%= Date.today.strftime("%d")%></div>
-            <div id="rpSource" class="hidden"><%= Date.today.strftime("%m/%d/%Y") %></div>
+            <div id="rpDay" class="halfi left"><%= (Date.today + 1).strftime("%d")%></div>
+            <div id="rpSource" class="hidden"><%= (Date.today + 1).strftime("%m/%d/%Y") %></div>
           <%- end %>
         </div>
       </div>

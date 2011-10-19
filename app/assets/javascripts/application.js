@@ -24,24 +24,27 @@ $(document).ready(function() {
 
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
+      minDate: 0,
       defaultDate: dp_source,
       onSelect: function(dateText, inst) {
-//        $("#departDetails").html(dateText);
-//        $("#dDate").val(dateText);
         $("#dpDay").text(dateText.split("/")[1]);
         $("#dpDate").html("<div class='dpWD'>" + getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
-        submitDate("depart", dateText);
+        
+        $("#dpSource").html(dateText);
+
+        
+        //submitDate("depart", dateText);
       }
     });
     $( "#datepickerR" ).datepicker({
       defaultDate: rp_source,
+      minDate: dp_source,
       onSelect: function(dateText, inst) {
-//        $("#returnDetails").html(dateText);
-//        $("#rData").val(dateText);
         $("#rpDay").text(dateText.split("/")[1]);
         $("#rpDate").html("<div class='dpWD'>" +  getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
-        submitDate("return", dateText);
+        $("#rpSource").html(dateText);
+        //submitDate("return", dateText);
       }
     });
   }
@@ -97,7 +100,10 @@ $(document).ready(function() {
       $("ul.ui-autocomplete").show();
     }
   });
-  
+  $("#submitDate").click(function(e){
+    e.preventDefault();
+    submitDate();
+  });
   
   // $("#clearSearch").click(function() {
   //    $(".searchField").val('').focus();
@@ -132,24 +138,22 @@ function findClosestAirport(lat, lng){
           $("#search_to_hidden").val($(this).html());
           $("#flightForm").submit();
         });
-      } else
-        alert('Unable to get nearby airports');
-    },
-    error: function(jqXHR, textStatus, errorThrown){
-      alert('Unable to get nearby airports');
-    }
+      } // else
+       //        alert('Unable to get nearby airports');
+    }// ,
+    //     error: function(jqXHR, textStatus, errorThrown){
+    //       alert('Unable to get nearby airports');
+    //     }
   });
 }
 
-function submitDate(dateType, d){
+function submitDate(){
   $.ajax({
     type: "POST",
     url: "/flight",
-    data: dateType + "=" + d,
-    success: function(data){
-    },
-    error: function(jqXHR, textStatus, errorThrown){
-      alert('Unable to set date.');
+    data: "depart=" + $("#dpSource").html() + "&return=" + $("#rpSource").html(),
+    complete: function(){
+      window.location = "/flight";
     }
   });
 }
