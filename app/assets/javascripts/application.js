@@ -14,8 +14,11 @@
 
 $(document).ready(function() {
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
-    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-    function hideURLbar(){
+  
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+ //  document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+ //  document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+  function hideURLbar(){
     window.scrollTo(0,1);
   }
   
