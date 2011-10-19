@@ -173,12 +173,22 @@ class FlightController < ApplicationController
                 then :aa
               when "arrivalDateTime"
                 then :adt
+              when "businessClassAvailable"
+                then :bc
+              when "currency"
+                then :c
               when "departureAirport"
                 then :da
               when "departureDateTime"
                 then :ddt
+              when "flightDesignator"
+                then :flight
+              when "numStops"
+                then :stop
+              when "price"
+                then :price
               end
-              tmp.store(str.to_sym, flight[1]) if str
+            tmp.store(str, flight[1])
           end
         end
         if !tmp.empty?
@@ -216,14 +226,24 @@ class FlightController < ApplicationController
                 then :aa
               when "arrivalDateTime"
                 then :adt
+              when "businessClassAvailable"
+                then :bc
+              when "currency"
+                then :c
               when "departureAirport"
                 then :da
               when "departureDateTime"
                 then :ddt
+              when "flightDesignator"
+                then :flight
+              when "numStops"
+                then :stop
+              when "price"
+                then :price
               end
               
               #@return_flights.store(str, flight[1])
-              tmp.store(str.to_sym, flight[1])  if str
+              tmp.store(str, flight[1])
           end
           if !tmp.empty?
             @return_flights = tmp 
