@@ -146,7 +146,7 @@ class FlightController < ApplicationController
     @flights = []
     @return_flights = []
     if session[:depart] && session[:origin] && session[:dest]
-
+      session[:adults] ||= 0
       o = session[:origin][-4..-2]
       d = session[:dest][-4..-2]
       date = session[:depart].split('/')
@@ -178,7 +178,7 @@ class FlightController < ApplicationController
               when "departureDateTime"
                 then :ddt
               end
-            tmp.store(str, flight[1])
+            tmp.store(str.to_sym, flight[1])
           end
         end
         if !tmp.empty?
@@ -223,7 +223,7 @@ class FlightController < ApplicationController
               end
               
               #@return_flights.store(str, flight[1])
-              tmp.store(str, flight[1])
+              tmp.store(str.to_sym, flight[1])
           end
           if !tmp.empty?
             @return_flights = tmp 
