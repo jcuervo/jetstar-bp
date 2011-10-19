@@ -13,6 +13,7 @@ class FlightController < ApplicationController
     
     
     if params[:commit]
+      
       session[:adults] = params[:adults]
       session[:child] = params[:child]
       session[:infants] = params[:infants]
@@ -145,7 +146,10 @@ class FlightController < ApplicationController
   def findFlights
     @flights = []
     @return_flights = []
-    if session[:depart] && session[:origin] && session[:dest]
+    session[:depart] ||= Date.today.strftime("%m/%d/%Y")
+    session[:return] ||= (Date.today + 1).strftime("%m/%d/%Y")
+    
+    if session[:origin] && session[:dest]
       session[:adults] ||= 0
       o = session[:origin][-4..-2]
       d = session[:dest][-4..-2]
@@ -193,7 +197,6 @@ class FlightController < ApplicationController
         end
         if !tmp.empty?
           @flights = tmp 
-          logger.info @flights
         end
       end 
       #end
@@ -251,14 +254,18 @@ class FlightController < ApplicationController
         end 
         if !tmp.empty?
           @return_flights = tmp 
-          logger.info @return_flights
         end
 
       end
 
     end
+
     session[:flight] = @flights #rescue nil
     session[:return_flights] = @return_flights #rescue nil
+    logger.info "@%^%^%$^%^%$^$%^$%^$%^$%^$^"
+    logger.info session[:flight]
+    logger.info "@%^%^%$^%^%$^$%^$%^$%^$%^$^"
+    logger.info session[:return_flights]
   end
   
   
