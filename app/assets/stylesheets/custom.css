@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {*/
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -443,7 +443,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin:0 !important;
   }
 
-} /*   end of media query */
+/* }   end of media query */
 
 a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
   outline:0;
