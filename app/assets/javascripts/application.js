@@ -22,7 +22,11 @@ $(document).ready(function() {
     window.scrollTo(0,100);
   }
 
-  
+   $(window).bind('orientationchange', function(){
+        setOrientation();
+    });
+    setOrientation();
+
   var dp_source = $("#dpSource").html()
   var rp_source = $("#rpSource").html()
 
@@ -191,4 +195,17 @@ function getWeekDay(day){
     case 6:  return "Saturday";
   }
 }
+
+
+// Change the device orientation
+function setOrientation() {
+    if (window.orientation == 0){
+        $('#container').css('width','320px');
+    }
+    else
+    {
+        $('#container').css('width','480px');
+    }
+}
+
 
