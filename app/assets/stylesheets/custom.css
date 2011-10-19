@@ -749,7 +749,7 @@ span.graytxt {
 }
 
 /* Flight Search Area */
-/*@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 350px) {
   .searchField {
     width: 170px;
   }
@@ -763,7 +763,7 @@ span.graytxt {
   #dpDate, #rpDate {
     width: 105px;
   }
-*/}
+}
 
 #flightForm {
   float: left;
