@@ -29,6 +29,8 @@
     var centerLongitude = 144.98;
     var origin_airports = ['<%= @origins.join("\', \'") if @origins %>'];
     var destination_airports = ['<%= @destination.join("\', \'") if @destination %>'];
+  
+
   </script>
 </head>
   <body>
@@ -55,7 +57,7 @@
         </div>
       </footer>
     </div>
-  
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <%= javascript_include_tag "application"%>
     <%= javascript_include_tag "jquery.iphonepicker"%>

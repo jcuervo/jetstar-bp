@@ -1,4 +1,4 @@
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 800px){
 
 }/*/mediaquery*/
 
@@ -11,11 +11,21 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
+
+/*@media only screen and (max-width: 480px) {
+  body {background: red;}
+}
+@media only screen and (max-width: 320px) {
+  body {background: green;}
+}*/
+
 @media only screen and (max-width: 480px) {
+
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
   }
+  header div{position:relative}
   #back {
     position:absolute;
     z-index:10;
@@ -63,7 +73,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   #crumb {
     position:absolute;
-    right:10px;
+    right:5px;
     top:0px;
    }
 
@@ -461,6 +471,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 } /*   end of media query */
 
+
 a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
   outline:0;
   -webkit-tap-highlight-color: rgba(0,0,0,0);  
@@ -491,35 +502,39 @@ h2#findFlights {
   margin:1em auto;
 }
 
-/* Find Flights Origin and Destination Styles */
-#toFrom a {
-  text-decoration:none;
-  color:#000;
-}
-#toFrom h4.tfhead {
-  margin:1em 0 0.25em 0;
-}
-#ffOrig, #ffDest {
-  height:51px;
-  width:138px;
+/* START - Find Flights Origin and Destination Styles */
+#fromWrap, #toWrap { width:45%}
+#ftSepa {width:10%}
+#toFrom a {text-decoration:none;color:#000;}
+#toFrom h4.tfhead {margin:1em 0 0.25em 0}
+
+#fromContent, #toContent {
+  background: transparent url("tfbg.png") repeat-x;
   display:block;
+  height:56px;
 }
 #ffOrig {
-  background:transparent url("fromTo.png") no-repeat;
-  padding-left:10px;
-  padding-top:5px;
+  background: transparent url("departEdge.png") top right no-repeat;
+  height:56px;
+  width:100%;
+  display:block;
 }
-#ffDest {
-  background:transparent url("fromTo.png") -148px 0 no-repeat;
-  width:128px;
-  height:51px;
-  padding-left:20px;
-  padding-top:5px;
+.tfl {
+  background:transparent url("tfl.png") repeat-x;
+  width:5px;
+  display:block;
+  float:left;
+  height:56px;
+  margin-right:5px;
 }
-#toFrom h4.tfto {
-  margin:1em 0 0.25em 1em;
+.tfr {
+  background:transparent url("tfr.png") repeat-x;
+  width:5px;
+  display:block;
+  height:56px;
 }
 span#origin_short, span#dest_short {
+  padding-top:0.2em;
   font-size:25px;
   font-weight:bold;
   display:block;
@@ -528,6 +543,7 @@ span#origin_short, span#dest_short {
 span#origin_city, span#dest_city {
   font-size:12px;
 }
+/* END - Find Flights Origin and Destination Styles */
 
 /* Passengers Styles */
 .tacenter {text-align:center;}
@@ -691,9 +707,13 @@ a#calLink {
 .left {float:left;}
 .right {float:right;}
 .ui-datepicker {
-  
-  margin:0 auto;
+  border:1px solid #f3f3f3;
+  padding:2px;
+  margin:0.25em auto;
+  border-radius:3px;
+  font-family: Arial, sans-serif !important;
 }
+
 .hidden {display:none;}
 .fullwidth {width:100%;}
 .halfw {width:50%;}
@@ -713,6 +733,7 @@ span.graytxt {
   font-size:40px;
   text-align:left;
   font-weight:bold;
+  text-shadow:1px 1px #eeeeee;
 }
 #calendar .cancelBtn {
   top:4px !important;
@@ -797,3 +818,4 @@ span.graytxt {
   text-decoration: none !important;
   color: #bebebe !important;
 }
+
