@@ -10,14 +10,13 @@
 //= require plugins
 //= require script
 //= require helper
-
-
 $(document).ready(function() {
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
-    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-    function hideURLbar(){
-    window.scrollTo(0,1);
-  }
+
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  function hideURLbar(){
+    window.scrollTo(0,100);
+  }  
   
   var dp_source = $("#dpSource").html()
   var rp_source = $("#rpSource").html()
