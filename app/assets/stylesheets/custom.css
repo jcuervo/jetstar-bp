@@ -369,13 +369,20 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background-color: #E7E7E7;
   }
   #recentResults li {
+    width:100%;
+    padding:0;
+    margin:0;
+  }
+  #recentResults li a {
     background-color: #696969;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7C7C7C), to(#696969), color-stop(.5,#727272));
     background: -moz-linear-gradient(top, #7C7C7C 0%, #727272 50%, #696969 100%);
     padding: 10px 0 13px;
-    width: 98%;
+    width: 95%;
     height: 20px;
-    margin-left: 12px;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
   }
   .resultTitle {
     font-size: 15px;
