@@ -302,10 +302,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
     text-decoration:none;
   }
   #searchFieldGroup {
-    padding-top:6px;
+    padding-top:5px;
     display:block;
     margin-left:5px;
   }
+    #searchFieldGroup strong {
+      display: inline-block;
+      width: 33px;
+      text-align: right;
+    }
   ul.ui-autocomplete {
     top:118px;
     width: 96%;
