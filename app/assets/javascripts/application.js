@@ -10,17 +10,16 @@
 //= require plugins
 //= require script
 //= require helper
-
-
 $(document).ready(function() {
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
-  
+  $('#uipv_ul_adults li,#uipv_ul_child li,#uipv_ul_infants li').bind('touchmove',function(e){
+    e.preventDefault();
+   });
   addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
- //  document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
- //  document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
   function hideURLbar(){
     window.scrollTo(0,1);
-  }
+  }  
+
   
   var dp_source = $("#dpSource").html()
   var rp_source = $("#rpSource").html()

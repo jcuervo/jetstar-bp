@@ -447,6 +447,8 @@ var ITEM_OFFSET = parseInt(37);
 
 		// toggles the drag mode of the target
 		toggleThumbs: function (eventData, dragging) {
+ //       document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+ //      document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
 			if (eventData.thumbs) {
 				if (dragging) {
 					if (eventData.thumbs.vertical) {
@@ -467,6 +469,7 @@ var ITEM_OFFSET = parseInt(37);
 					o.scrollToIndex(eventData, index);
 				}
 			}
+      // document.ontouchmove = function(e){ e.preventDefault(); }
 		},
 
 		scrollToIndex: function(eventData, index, isInit) {
