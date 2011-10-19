@@ -173,26 +173,16 @@ class FlightController < ApplicationController
                 then :aa
               when "arrivalDateTime"
                 then :adt
-              when "businessClassAvailable"
-                then :bc
-              when "currency"
-                then :c
               when "departureAirport"
                 then :da
               when "departureDateTime"
                 then :ddt
-              when "flightDesignator"
-                then :flight
-              when "numStops"
-                then :stop
-              when "price"
-                then :price
               end
             tmp.store(str, flight[1])
           end
         end
         if !tmp.empty?
-          @flights << tmp 
+          @flights = tmp 
         end
       end 
       #end
@@ -226,27 +216,17 @@ class FlightController < ApplicationController
                 then :aa
               when "arrivalDateTime"
                 then :adt
-              when "businessClassAvailable"
-                then :bc
-              when "currency"
-                then :c
               when "departureAirport"
                 then :da
               when "departureDateTime"
                 then :ddt
-              when "flightDesignator"
-                then :flight
-              when "numStops"
-                then :stop
-              when "price"
-                then :price
               end
               
               #@return_flights.store(str, flight[1])
               tmp.store(str, flight[1])
           end
           if !tmp.empty?
-            @return_flights << tmp 
+            @return_flights = tmp 
           end
         #end
           #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
