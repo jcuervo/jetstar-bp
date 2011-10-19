@@ -196,7 +196,7 @@ class FlightController < ApplicationController
           end
         end
         if !tmp.empty?
-          @flights = tmp 
+          @flights << tmp 
         end
       end 
       #end
@@ -253,7 +253,7 @@ class FlightController < ApplicationController
           #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
         end 
         if !tmp.empty?
-          @return_flights = tmp 
+          @return_flights << tmp 
         end
 
       end
