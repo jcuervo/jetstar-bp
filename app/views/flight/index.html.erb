@@ -135,9 +135,9 @@
                     <span class="resultTitle floatLeft"><%= "#{flight[:da]}-#{flight[:aa]}" %></span>                    
                     <div class="searchDates floatRight">
                       <div id="atd" class="floatleft days">
-                        ATD <%= rflight[:ddt][11..15] %>
+                        ATD <%= flight[:ddt][11..15] %>
                         <br/>
-                        ATA <%= rflight[:adt][11..15] %>
+                        ATA <%= flight[:adt][11..15] %>
                       </div>
                       <div class="floatleft days"><%= ddate.strftime('%a').upcase %><br/><%= ddate.strftime('%b').upcase %></div>
                       <div class="floatRight date"><%= ddate.strftime('%d') %></div>
