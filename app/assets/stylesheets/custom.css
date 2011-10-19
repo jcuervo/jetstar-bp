@@ -768,3 +768,8 @@ span.graytxt {
       outline:0;
       -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
     }*/
+
+.normalText {
+  text-decoration: none !important;
+  color: #bebebe !important;
+}
