@@ -11,7 +11,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {*/
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -329,8 +329,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #searchesHeader {
     background-color: #E7E7E7;
     float: left;
-    width: 90%;
-    padding: 5px 14px;
+    width: 100%;
+    padding: 5px 0;
     margin-bottom: 3px;
   }
   #searchesHeader h3 {
@@ -341,13 +341,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background:url("clockIcon.jpg") no-repeat;
     width:16px;
     height:16px;
-    margin-right:5px;
+    margin:1px 5px 0 15px;
   }
   #downIcon {
     background:url("downIcon.jpg") no-repeat 0 4px;
     width:17px;
     height:15px;
     float:right;
+    margin-right:15px;
   }
 
   #recentSearches {
