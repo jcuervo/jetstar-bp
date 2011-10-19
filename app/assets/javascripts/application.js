@@ -13,19 +13,25 @@
 $(document).ready(function() {
   
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
-  $('#uipv_ul_adults li,#uipv_ul_child li,#uipv_ul_infants li').bind('touchmove',function(e){
-    e.preventDefault();
-   });
-  // addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
   window.addEventListener('load', function() {
     setTimeout(scrollTo, 0, 0, 1);
     }, false);
-  
-  // function hideURLbar(){
-  //   window.scrollTo(0,1);
-  // }  
 
-  
+  $('#uipv_ul_adults li,#uipv_ul_child li,#uipv_ul_infants li').bind('touchmove',function(e){
+    e.preventDefault();
+  });
+
+  //function hideURLbar(){
+  //  window.scrollTo(0,100);
+  //}
+
+   $(window).bind('orientationchange', function(){
+        setOrientation();
+    });
+    setOrientation();
+
   var dp_source = $("#dpSource").html()
   var rp_source = $("#rpSource").html()
 
@@ -198,6 +204,18 @@ function getWeekDay(day){
     case 5:  return "Friday";
     case 6:  return "Saturday";
   }
+}
+
+
+// Change the device orientation
+function setOrientation() {
+    if (window.orientation == 0){
+        $('#container').css('width','320px');
+    }
+    else
+    {
+        $('#container').css('width','480px');
+    }
 }
 
 
