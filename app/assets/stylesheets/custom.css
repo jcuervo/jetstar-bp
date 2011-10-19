@@ -466,13 +466,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin:0 !important;
   }
 
-<<<<<<< HEAD
-}/*   end of media query */
-=======
   #atd {margin-right:10px;}
 
 } /*   end of media query */
->>>>>>> fffdd78ff68f8d163e82504dff6d1685c6703d13
 
 
 a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
