@@ -34,8 +34,8 @@
         <h4 class="reset tfhead tfto">To</h4>
         <div id="toContent" class="left fullwidth">
           <a href="<%= search_flight_index_path(:q => 'to') %>" id="<%= (session[:dest].blank?)? "dest_airport" : "session_dest" %>">
-            <span class="tfl"></span>
-            <span id="ffDest">
+            <span class="tfl left"></span>
+            <span id="ffDest" class="left">
               <%- if session[:dest] -%>
                 <span id="dest_short"><%= session[:dest][-4..-2] %></span>
                 <span id="dest_city"><%= session[:dest][0..-6] %></span>
@@ -44,7 +44,7 @@
                 <span id="dest_city">Choose your destination</span>
               <%- end -%>
             </span>
-            <span class="tfr"></span>
+            <span class="tfr right"></span>
           </a>
         </div>
       </div>

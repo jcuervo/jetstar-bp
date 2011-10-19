@@ -528,12 +528,12 @@ h2#findFlights {
   display:block;
   float:left;
   height:56px;
+  margin-right:5px;
 }
 .tfr {
   background:transparent url("tfr.png") repeat-x;
   width:5px;
   display:block;
-  float:right;
   height:56px;
 }
 span#origin_short, span#dest_short {
