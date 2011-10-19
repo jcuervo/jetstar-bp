@@ -15,6 +15,9 @@
 $(document).ready(function() {
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
     addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    $('#uipv_ul_adults li,#uipv_ul_child li,#uipv_ul_infants li').bind('touchmove',function(e){
+    e.preventDefault();
+    });
     function hideURLbar(){
     window.scrollTo(0,1);
   }
@@ -187,5 +190,4 @@ function getWeekDay(day){
     case 6:  return "Saturday";
   }
 }
-
 
