@@ -188,7 +188,7 @@ class FlightController < ApplicationController
               when "price"
                 then :price
               end
-            tmp.store(str, flight[1])
+            tmp.store(str, flight[1]) if str
           end
         end
         if !tmp.empty?
@@ -244,7 +244,7 @@ class FlightController < ApplicationController
               end
               
               #@return_flights.store(str, flight[1])
-              tmp.store(str, flight[1])
+              tmp.store(str, flight[1]) if str
           end
         #end
           #@return_flights << {:aa => flight["arrivalAirport"], :adt => flight["arrivalDateTime"], :bc => flight["businessClassAvailable"], :c => flight["currency"], :da => flight["departureAirport"], :ddt => flight["departureDateTime"], :flight => flight["flightDesignator"], :stop => flight["numStops"], :price => flight["price"]}
@@ -257,8 +257,8 @@ class FlightController < ApplicationController
       end
 
     end
-    session[:flight] = @flights rescue nil
-    session[:return_flights] = @return_flights rescue nil
+    session[:flight] = @flights #rescue nil
+    session[:return_flights] = @return_flights #rescue nil
   end
   
   
