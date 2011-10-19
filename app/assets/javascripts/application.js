@@ -14,7 +14,7 @@ $(document).ready(function() {
   
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
 
-  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  // addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
   window.addEventListener('load', function() {
     setTimeout(scrollTo, 0, 0, 1);
     }, false);
@@ -23,12 +23,13 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  //function hideURLbar(){
+  // function hideURLbar(){
   //  window.scrollTo(0,100);
-  //}
+  // }
 
    $(window).bind('orientationchange', function(){
         setOrientation();
+        setTimeout(scrollTo, 0, 0, 1);
     });
     setOrientation();
 
@@ -45,11 +46,7 @@ $(document).ready(function() {
         $("#dpDay").text(dateText.split("/")[1]);
         $("#dpDate").html("<div class='dpWD'>" + getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
-        
         $("#dpSource").html(dateText);
-
-        
-        //submitDate("depart", dateText);
       }
     });
     $( "#datepickerR" ).datepicker({
@@ -61,7 +58,6 @@ $(document).ready(function() {
         $("#rpDay").text(dateText.split("/")[1]);
         $("#rpDate").html("<div class='dpWD'>" +  getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#rpSource").html(dateText);
-        //submitDate("return", dateText);
       }
     });
   }
@@ -71,12 +67,22 @@ $(document).ready(function() {
     $("#datepickerR").toggleClass("hidden");
     $(this).toggleClass("tapable");
     $("#dd").toggleClass("tapable");
+    
+    if ($("#originToDest").length) {
+      $("#destToOrgin").toggleClass("hidden");
+      $("#originToDest").toggleClass("hidden");
+    }
   });
   $("#dd").click (function (){
     $("#datepickerD").toggleClass("hidden");
     $("#datepickerR").toggleClass("hidden");
     $(this).toggleClass("tapable");
     $("#rd").toggleClass("tapable");
+    
+    if ($("#originToDest").length) {
+      $("#destToOrgin").toggleClass("hidden");
+      $("#originToDest").toggleClass("hidden");
+    }
   });
     
   $('#search_from').autocomplete({

@@ -1,7 +1,40 @@
 <%- content_for :header do -%>
   <div id="findFlights">
     <div id="calendar"><a href="/flight" class="cancelBtn">Back</a></div>
-    <div id="midHeader"><h2>Schedules</h2></div>
+    <div id="midHeader">
+      <h2 id="tfthead">
+        <%- if session[:origin] || session[:dest] -%>
+          <span id="originToDest">
+            <%- if session[:origin] -%>
+              <%= session[:origin][-4..-2] %>
+            <%- else -%>
+              <%= "Origin "%>
+            <%- end -%>
+            to
+            <%- if session[:dest] -%>
+              <%= session[:dest][-4..-2] %>
+            <%- else -%>
+              <%= " Destination"%>
+            <%- end -%>
+          </span>
+          <span id="destToOrgin" class="hidden">
+            <%- if session[:dest] -%>
+              <%= session[:dest][-4..-2] %>
+            <%- else -%>
+              <%= "Destination "%>
+            <%- end -%>
+            to
+            <%- if session[:origin] -%>
+              <%= session[:origin][-4..-2] %>
+            <%- else -%>
+              <%= " Origin"%>
+            <%- end -%>
+          </span>
+        <%- else -%>
+          Schedules
+        <%- end -%>
+      </h2>
+    </div>
     <div id="crumb"><a href="javascript:void(0)" id="submitDate" class="doneBtn">Done</a></div>
   </div>
 <%- end -%>
