@@ -11,7 +11,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 }
 
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {
+  body {background: red;}
+}
+@media only screen and (max-width: 320px) {
+  body {background: green;}
+}*/
+
+/*@media only screen and (max-width: 480px) {*/
   header {
     background: transparent url("headBG.jpg") repeat-x;
     height:56px;
@@ -454,7 +461,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin:0 !important;
   }
 
-} /*   end of media query */
+/*}*/
+/*   end of media query */
 
 a, input[type='button'], input[type='submit'], #uipv_main_adults, #uipv_main_child, #uipv_main_infants {
   outline:0;
@@ -686,9 +694,13 @@ a#calLink {
 .left {float:left;}
 .right {float:right;}
 .ui-datepicker {
-  
-  margin:0 auto;
+  border:1px solid #f3f3f3;
+  padding:2px;
+  margin:0.25em auto;
+  border-radius:3px;
+  font-family: Arial, sans-serif !important;
 }
+
 .hidden {display:none;}
 .fullwidth {width:100%;}
 .halfw {width:50%;}
@@ -733,7 +745,7 @@ span.graytxt {
 }
 
 /* Flight Search Area */
-@media only screen and (max-width: 350px) {
+/*@media only screen and (max-width: 350px) {
   .searchField {
     width: 170px;
   }
@@ -747,7 +759,7 @@ span.graytxt {
   #dpDate, #rpDate {
     width: 105px;
   }
-}
+*/}
 
 #flightForm {
   float: left;

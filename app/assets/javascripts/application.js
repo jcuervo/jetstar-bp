@@ -11,14 +11,19 @@
 //= require script
 //= require helper
 $(document).ready(function() {
+  
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
   $('#uipv_ul_adults li,#uipv_ul_child li,#uipv_ul_infants li').bind('touchmove',function(e){
     e.preventDefault();
    });
-  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-  function hideURLbar(){
-    window.scrollTo(0,1);
-  }  
+  // addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  window.addEventListener('load', function() {
+    setTimeout(scrollTo, 0, 0, 1);
+    }, false);
+  
+  // function hideURLbar(){
+  //   window.scrollTo(0,1);
+  // }  
 
   
   var dp_source = $("#dpSource").html()
@@ -27,6 +32,8 @@ $(document).ready(function() {
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
       minDate: 0,
+      dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      firstDay: 1,
       defaultDate: dp_source,
       onSelect: function(dateText, inst) {
         $("#dpDay").text(dateText.split("/")[1]);
@@ -41,6 +48,8 @@ $(document).ready(function() {
     });
     $( "#datepickerR" ).datepicker({
       defaultDate: rp_source,
+      dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      firstDay: 1,
       minDate: dp_source,
       onSelect: function(dateText, inst) {
         $("#rpDay").text(dateText.split("/")[1]);
@@ -120,6 +129,7 @@ $(document).ready(function() {
   //     }
   //   });
 });
+
 
 function findClosestAirport(lat, lng){
   $.ajax({
