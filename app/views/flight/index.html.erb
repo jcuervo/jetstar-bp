@@ -73,7 +73,7 @@
                   <div id="rpDay" class="halfi left"><%= d.strftime("%d")%></div>
                 <%- else %>
                   <div id="rpDate" class="halfi left"><span class="graytxt"><%= Date.today.strftime("%A")%></span><br/><%= Date.today.strftime("%b")%></div>
-                  <div id="rpDay" class="halfi left"><%= Date.today.strftime("%d")%></div>
+                  <div id="rpDay" class="halfi left"><%= (Date.today + 1).strftime("%d")%></div>
                 <%- end %>
               </div>
             </div>
