@@ -19,7 +19,7 @@
 </div> -->
 
 <div id="searchPage" class="contentWrap left">
-  <div id="geolocation">
+  <div id="geolocation" class="left">
     <div id="geoLocWrap" class="left fullwidth">
       <span class="boxLeft left"></span>
       <span id="geolocationTxt" class="left">
@@ -31,9 +31,8 @@
     </div>
   </div>
   <%- if session[:origin].blank? %>
-    <!--div id="airportLstTxt">Airports nearest to your current location</div-->
-    <!--div id="airportLst" class="grayBg searchResults"></div-->
+    <div id="airportLst" class="searchResults left fullwidth">Search airports via City or Airport Code</div>
   <%- else -%>
-    <div id="airportLst" class="grayBg searchResults">Search airports via City or Airport Code</div>
+    <div id="airportLst" class="searchResults left fullwidth"></div>
   <%- end -%>
 </div>

@@ -298,10 +298,17 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin:0;
     padding:0;
   }
-  .searchResults, #searchResultUl li, ul.ui-autocomplete li {
+  #searchResultUl li, ul.ui-autocomplete li {
     margin-bottom:2px;
     font-size:14px;
     padding:15px 18px;
+  }
+  .searchResults {
+    width:90%;
+    margin:0 auto;
+    padding:10px 0;
+    text-align:center;
+    background-color:#c4c4c4;
   }
   #searchResultUl {
     padding:0;
@@ -552,9 +559,7 @@ h2#findFlights {
   text-indent:-9999px;
   font-size:18px;
 }
-#searchResults {
-  margin:1em auto;
-}
+
 
 /* START - Find Flights Origin and Destination Styles */
 #fromWrap, #toWrap { width:45%}
