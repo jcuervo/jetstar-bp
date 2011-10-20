@@ -20,20 +20,20 @@
 
 <div id="searchPage" class="contentWrap left">
   <div id="geolocation">
-    <span class="boxLeft left"></span>
-    <span id="geolocationTxt" class="left">
-      <span id="plane"></span>
-      <span id="geolocationHeader">Show nearest departure airports</span>
-      <span id="pen"></span>
-    </span>
-    </span>
-    <span class="boxRight right"></span>
+    <div id="geoLocWrap" class="left fullwidth">
+      <span class="boxLeft left"></span>
+      <span id="geolocationTxt" class="left">
+        <span id="plane" class="left"></span>
+        <span id="geolocationHeader">Show nearest departure airports</span>
+        <span id="pen" class="right"></span>
+      </span>
+      <span class="boxRight right"></span>
+    </div>
   </div>
   <%- if session[:origin].blank? %>
     <!--div id="airportLstTxt">Airports nearest to your current location</div-->
     <!--div id="airportLst" class="grayBg searchResults"></div-->
   <%- else -%>
-  <div id="airportLstTxt">Search airports via City or Airport Code</div>
-    <div id="airportLst" class="grayBg searchResults"></div>
+    <div id="airportLst" class="grayBg searchResults">Search airports via City or Airport Code</div>
   <%- end -%>
 </div>

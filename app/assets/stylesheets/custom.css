@@ -476,11 +476,16 @@ only screen and (min-device-pixel-ratio: 1.5) {
     width:100%;
     margin-bottom:10px;
     display:block;
-    margin-top:-24px;
+    margin-top:-22px;
+    
+  }
+  #geoLocWrap {
+    background:url("searchGeoBg.png") repeat-x;
+    height:41px;
   }
   .boxLeft {
     background:url("searchGeoLft.png") no-repeat;
-    width:5px;
+    width:4px;
     height:41px;
   }
   .boxRight {
@@ -489,22 +494,22 @@ only screen and (min-device-pixel-ratio: 1.5) {
     height:41px;
   }
   #geolocationTxt {
-    background:url("searchGeoBg.png") repeat-x;
     height:29px;
     display:block;    
-    width:98%;
+    width:95%;
     padding-top:12px;
     text-align:center;
   }
   #geolocationHeader {
-    font-size:14px;
-    font-weight:bold;
+    font-size:13px;
+    font-weight:normal;
     font-family:Arial;
-    width:82%;
+    width:100%;
+    margin:0 -20px;
   }
-  #geolocationTxt span {
+/*  #geolocationTxt span {
     float:left;
-  }
+  }*/
   #plane {
     background:url("icons.png") no-repeat;
     width:18px;
