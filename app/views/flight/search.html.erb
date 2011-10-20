@@ -21,9 +21,10 @@
 
 <div id="searchPage" class="contentWrap left">
   <%- if session[:origin].blank? %>
-    <div id="airportLst" class="grayBg searchResults">Airports nearest to your current location</div>
-    <ul id="searchResultUl"></ul>
+    <div id="airportLstTxt">Airports nearest to your current location</div>
+    <div id="airportLst" class="grayBg searchResults"></div>
   <%- else -%>
-    <div id="airportLst" class="grayBg searchResults">Search airports via City or Airport Code</div>
+  <div id="airportLstTxt">Search airports via City or Airport Code</div>
+    <div id="airportLst" class="grayBg searchResults"></div>
   <%- end -%>
 </div>

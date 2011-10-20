@@ -87,7 +87,7 @@ $(document).ready(function() {
     
   $('#search_from').autocomplete({
     source: origin_airports,
-    minLength: 3,
+    minLength: 1,
     select:function(event, ui){
       $("#search_from_hidden").val(ui.item.value);
       $("#flightForm").submit();
@@ -97,9 +97,11 @@ $(document).ready(function() {
       $("#flightForm").submit();
     },
     open: function(event, ui) {
+      $("#airportLstTxt").hide();
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     },
     close:function(event,ui){
+      $("#airportLstTxt").show();
       $("ul.ui-autocomplete").show();
     }
   });
@@ -107,7 +109,7 @@ $(document).ready(function() {
   
   $('#search_to').autocomplete({
     source: destination_airports,
-    minLength: 3,
+    minLength: 1,
     select:function(event, ui){
       $("#search_to_hidden").val(ui.item.value);
       $("#flightForm").submit();
@@ -117,9 +119,11 @@ $(document).ready(function() {
       $("#flightForm").submit();
     },
     open: function(event, ui) {
+      $("#airportLstTxt").hide();
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     },
     close:function(event,ui){
+      $("#airportLstTxt").show();
       $("ul.ui-autocomplete").show();
     }
   });
