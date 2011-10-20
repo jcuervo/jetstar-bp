@@ -171,13 +171,13 @@ function findClosestAirport(lat, lng){
     url: "/flight/findClosestAirports?lat="+ lat + "&lng=" + lng, 
     success: function(data){
       if(data.length == 1){
-        str = "<ul>";
+        str = "<div class='left fullWidth'><ul class='ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all' role='listbox' aria-activedescendant='ui-active-menuitem'>";
         for(i=0;i<data.length;i++){
-          str += "<li class='lightGrayBg bold borderBottom'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0]  + "</a></li>"
+          str += "<li class='lightGrayBg bold borderBottom ui-menu-item'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0]  + "</a></li>"
 
         }
         console.log(str);
-        $("#geolocation").append(str + "</ul>");
+        $("#geolocation").append(str + "</ul></div>");
         $("#origin_short").text(data[0].a.split(";")[1]);
         $("#origin_city").text(data[0].a.split(";")[0]);
         $(".selectClosestAirport").click(function(e){
