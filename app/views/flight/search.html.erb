@@ -1,14 +1,13 @@
 <%- content_for :header do -%>
-  <div id="findFlights">
-      
-        <span id="searchFieldGroup">
-          <strong><%= "#{(params[:q] == "from")? "From" : "To" }" %></strong>
-          <%= text_field_tag params[:q], "", :id => "search_#{params[:q]}", :class => "searchField", :placeholder => "Type a city or Airport Code" %>
-          <span id="clearSearch"><span class="hidden">Clear Search</span></span>
-        </span>
-      <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
-        <%= hidden_field_tag params[:q], "", :id => "search_#{params[:q]}_hidden" %>
-      <%- end -%>
+  <div id="findFlights">      
+    <span id="searchFieldGroup">
+      <strong><%= "#{(params[:q] == "from")? "From" : "To" }" %></strong>
+      <%= text_field_tag params[:q], "", :id => "search_#{params[:q]}", :class => "searchField", :placeholder => "Type a city or Airport Code" %>
+      <span id="clearSearch"><span class="hidden">Clear Search</span></span>
+    </span>
+    <%= form_tag(flight_index_path, :method => :post, :id => "flightForm") do %>
+      <%= hidden_field_tag params[:q], "", :id => "search_#{params[:q]}_hidden" %>
+    <%- end -%>
     <a href="/flight" class="doneBtn">Done</a>
   </div>
 <%- end -%>
@@ -20,9 +19,19 @@
 </div> -->
 
 <div id="searchPage" class="contentWrap left">
+  <div id="geolocation">
+    <span class="boxLeft left"></span>
+    <span id="geolocationTxt" class="left">
+      <span id="plane"></span>
+      <span id="geolocationHeader">Show nearest departure airports</span>
+      <span id="pen"></span>
+    </span>
+    </span>
+    <span class="boxRight right"></span>
+  </div>
   <%- if session[:origin].blank? %>
-    <div id="airportLstTxt">Airports nearest to your current location</div>
-    <div id="airportLst" class="grayBg searchResults"></div>
+    <!--div id="airportLstTxt">Airports nearest to your current location</div-->
+    <!--div id="airportLst" class="grayBg searchResults"></div-->
   <%- else -%>
   <div id="airportLstTxt">Search airports via City or Airport Code</div>
     <div id="airportLst" class="grayBg searchResults"></div>
