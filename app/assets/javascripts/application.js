@@ -99,6 +99,7 @@ $(document).ready(function() {
     open: function(event, ui) {
       $("#geolocation").hide();
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
+      $("#searchHeader").hide();
     },
     close:function(event,ui){
       $("#airportLstTxt").show();
@@ -135,9 +136,12 @@ $(document).ready(function() {
   $("#clearSearch").click(function(){
     $(".searchField").val("");
     $("#geolocation").slideDown();
+    $(".searchResults").css("margin-top","0");
+    $("#searchHeader").show();
   });
   $(".searchField").focus(function(){
     $("#geolocation").slideUp();
+    $(".searchResults").css("margin-top","-21px");
   });
   
   // $("#clearSearch").click(function() {
