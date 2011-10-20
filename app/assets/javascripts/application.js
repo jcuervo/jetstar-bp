@@ -190,9 +190,7 @@ function findClosestAirport(lat, lng){
           str = "<ul>";
           for(i=0;i<data.length;i++){
             str += "<li class='lightGrayBg bold borderBottom'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0] + " (" + data[i].a.split(";")[1] +")" + "</a></li>"
-
           }
-          console.log(str);
           $("#geolocation").append(str + "</ul>");
           $("#origin_short").text(data[0].a.split(";")[1]);
           $("#origin_city").text(data[0].a.split(";")[0]);
