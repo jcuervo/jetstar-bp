@@ -143,6 +143,12 @@ $(document).ready(function() {
     $("#geolocation").slideUp();
     $(".searchResults").css("margin-top","-21px");
   });
+  $(".searchField").blur(function(){
+    if($(".searchField").val() == ""){
+      $("#geolocation").slideDown();
+      $(".searchResults").css("margin-top","0");
+    }
+  });
   
   // $("#clearSearch").click(function() {
   //    $(".searchField").val('').focus();
@@ -164,12 +170,14 @@ function findClosestAirport(lat, lng){
     type: "GET",
     url: "/flight/findClosestAirports?lat="+ lat + "&lng=" + lng, 
     success: function(data){
-      if(data.length > 1){
-        str = "";
+      if(data.length == 1){
+        str = "<div class='left fullWidth'><ul class='ui-autocomplete2 ui-menu ui-widget ui-widget-content ui-corner-all' role='listbox' aria-activedescendant='ui-active-menuitem'>";
         for(i=0;i<data.length;i++){
-          str += "<li class='lightGrayBg bold borderBottom'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0] + " (" + data[i].a.split(";")[1] +")" + "</a></li>"
+          str += "<li class='lightGrayBg bold borderBottom ui-menu-item'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0]  + "</a></li>"
+
         }
-        $("#searchResultUl").append(str);
+        console.log(str);
+        $("#geolocation").append(str + "</ul></div>");
         $("#origin_short").text(data[0].a.split(";")[1]);
         $("#origin_city").text(data[0].a.split(";")[0]);
         $(".selectClosestAirport").click(function(e){
@@ -178,7 +186,23 @@ function findClosestAirport(lat, lng){
           $("#search_to_hidden").val($(this).html());
           $("#flightForm").submit();
         });
-      } // else
+      } else if(data.length > 1){
+          str = "<ul>";
+          for(i=0;i<data.length;i++){
+            str += "<li class='lightGrayBg bold borderBottom'><a href='javascript:void(0)' class='selectClosestAirport'>" + data[i].a.split(";")[0] + " (" + data[i].a.split(";")[1] +")" + "</a></li>"
+          }
+          $("#geolocation").append(str + "</ul>");
+          $("#origin_short").text(data[0].a.split(";")[1]);
+          $("#origin_city").text(data[0].a.split(";")[0]);
+          $(".selectClosestAirport").click(function(e){
+            e.preventDefault();
+            $("#search_from_hidden").val($(this).html());
+            $("#search_to_hidden").val($(this).html());
+            $("#flightForm").submit();
+          });
+        }
+      
+       // else
        //        alert('Unable to get nearby airports');
     }// ,
     //     error: function(jqXHR, textStatus, errorThrown){
