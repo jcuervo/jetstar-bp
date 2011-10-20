@@ -16,6 +16,10 @@ end
 gem "rake", "0.8.7"
 gem 'jquery-rails'
 
+group :development do
+  gem 'sqlite3'
+  # gem 'ruby-mysql'
+end
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
