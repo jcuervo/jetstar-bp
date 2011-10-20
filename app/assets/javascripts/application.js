@@ -97,7 +97,7 @@ $(document).ready(function() {
       $("#flightForm").submit();
     },
     open: function(event, ui) {
-      $("#airportLstTxt").hide();
+      $("#geolocation").hide();
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     },
     close:function(event,ui){
@@ -119,7 +119,7 @@ $(document).ready(function() {
       $("#flightForm").submit();
     },
     open: function(event, ui) {
-      $("#airportLstTxt").hide();
+      $("#geolocation").hide();
       $('ul.ui-autocomplete').removeAttr('style').hide().appendTo('#airportLst').show();
     },
     close:function(event,ui){
@@ -130,6 +130,14 @@ $(document).ready(function() {
   $("#submitDate").click(function(e){
     e.preventDefault();
     submitDate();
+  });
+  
+  $("#clearSearch").click(function(){
+    $(".searchField").val("");
+    $("#geolocation").slideDown();
+  });
+  $(".searchField").focus(function(){
+    $("#geolocation").slideUp();
   });
   
   // $("#clearSearch").click(function() {
