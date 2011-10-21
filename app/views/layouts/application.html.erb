@@ -68,13 +68,17 @@
           navigator.geolocation.getCurrentPosition(function(position) {
             centerLatitude = position.coords.latitude;
             centerLongitude = position.coords.longitude;
-            // // remove me...
-            // centerLatitude = -33.870721;
-            // centerLongitude = 151.204814;
-            // findClosestAirport(centerLatitude, centerLongitude);
+            <%- if Rails.env != "production"-%>
+            // remove me...
+            centerLatitude = -37.77;
+            centerLongitude = 144.98;
+            //centerLatitude = -33.870721;
+            //centerLongitude = 151.204814;
+            <%- end -%>
+            findClosestAirport(centerLatitude, centerLongitude);
           });
         else {
-          // findClosestAirport(centerLatitude, centerLongitude);
+          findClosestAirport(centerLatitude, centerLongitude);
           // alert('Unable to get nearby airports');
         }
       });

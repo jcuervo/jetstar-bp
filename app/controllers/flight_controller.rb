@@ -45,14 +45,25 @@ class FlightController < ApplicationController
       http.request(req)
     }
     airports = []
+    tmp = {}
+    name = ""
+    iataCode = ""
     parsed_json = ActiveSupport::JSON.decode(res.body)
     parsed_json["wrapper"]["results"].each do |airport|
       if airport.class == Hash
-        airports << {:a => "#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]};#{airport["iataCode"]}"}
+        airports << {:a => "#{airport["iataCode"]}; #{(airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]}"}
       else
-        airports <<  {:a => airport[1]} if airport[0] == "iataCode"
+        str = case(airport[0])
+          when "name"
+            then name = airport[1]
+          when "iataCode"
+            then iataCode = airport[1]
+          end
       end
-    end if parsed_json["wrapper"]["results"]
+    end  if parsed_json["wrapper"]["results"]
+    if !name.blank? && !iataCode.blank?
+      airports << {:a => "#{iataCode};#{ (name.index("("))?  name[0..name.index("(")-1] : name};"}
+    end
 
 #    begin
 #      if session[:origin].blank?
@@ -81,18 +92,21 @@ class FlightController < ApplicationController
   
   def findDestinationAirports
     airports = []
+    o = ""
     if !session[:origin].blank?
       o = session[:origin][-4..-2]
-      url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/destination/#{o}")
-      req = Net::HTTP::Get.new(url.path)
-      res = Net::HTTP.start(url.host, url.port) {|http|
-        http.request(req)
-      }
-      parsed_json = ActiveSupport::JSON.decode(res.body)
-      parsed_json["wrapper"]["results"].each do |airport|
-        airports << ["#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]} (#{airport["iataCode"]})"]
-      end if parsed_json["wrapper"]["results"]
+    else
+      o = "VIZ"
     end
+    url = URI.parse("http://110.232.117.57:8080/JetstarWebServices/services/airports/destination/#{o}")
+    req = Net::HTTP::Get.new(url.path)
+    res = Net::HTTP.start(url.host, url.port) do |http|
+      http.request(req)
+    end
+    parsed_json = ActiveSupport::JSON.decode(res.body)
+    parsed_json["wrapper"]["results"].each do |airport|
+      airports << ["#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]} (#{airport["iataCode"]})"]
+    end if parsed_json["wrapper"]["results"]
     
     airports
   end
