@@ -517,6 +517,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
     height:19px;
     margin-top:-2px;
   }
+  #geolocret {
+    width:100%;
+  }
 }
 
 /*----------------------------------------------------------------------------------------------- 
