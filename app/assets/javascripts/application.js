@@ -10,6 +10,9 @@
 //= require plugins
 //= require script
 //= require helper
+var dp_source = $("#dpSource").html();
+var rp_source = $("#rpSource").html();
+
 $(document).ready(function() {
   
   $('#adults,#child,#infants').iPhonePicker({ width: '80px', imgRoot: 'images/' });
@@ -33,9 +36,6 @@ $(document).ready(function() {
     });
     setOrientation();
 
-  var dp_source = $("#dpSource").html()
-  var rp_source = $("#rpSource").html()
-
   if ($("#datepickerD").length){
     $( "#datepickerD" ).datepicker({
       minDate: 0,
@@ -48,9 +48,13 @@ $(document).ready(function() {
         $("#dpDate").html("<div class='dpWD'>" + getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#datepickerR").datepicker("option","minDate",$.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText, $( "#datepickerD" ).data( "datepicker" )) );
         $("#dpSource").html(dateText);
+        dp_source = dateText;
       }
     });
-    $( "#datepickerR" ).datepicker({
+  }
+  
+  if ($("#datepickerR").length) {
+    $( "#datepickerR").datepicker({
       defaultDate: rp_source,
       dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       firstDay: 1,
@@ -60,6 +64,7 @@ $(document).ready(function() {
         $("#rpDay").text(dateText.split("/")[1]);
         $("#rpDate").html("<div class='dpWD'>" +  getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
         $("#rpSource").html(dateText);
+        rp_source = dateText;
       }
     });
   }
@@ -67,6 +72,7 @@ $(document).ready(function() {
   $("#rd").click (function (){
     $("#datepickerD").toggleClass("hidden");
     $("#datepickerR").toggleClass("hidden");
+    $("#datepickerR").datepicker( "refresh" );
     $(this).toggleClass("tapable");
     $("#dd").toggleClass("tapable");
     
@@ -78,6 +84,7 @@ $(document).ready(function() {
   $("#dd").click (function (){
     $("#datepickerD").toggleClass("hidden");
     $("#datepickerR").toggleClass("hidden");
+    $("#datepickerD").datepicker( "refresh" );
     $(this).toggleClass("tapable");
     $("#rd").toggleClass("tapable");
     
@@ -161,7 +168,8 @@ $(document).ready(function() {
 });
 
 function tagDepart(targetDate) {
-  if (Date.parse($("#dpSource").text()) == Date.parse(targetDate)){
+  if (Date.parse(dp_source) == Date.parse(targetDate)){
+    console.log("MATCH FOUND Departure" + dp_source);
     return [true, 'dDate'];
   } else {
     return [true, ''];
@@ -169,7 +177,8 @@ function tagDepart(targetDate) {
 }
 
 function tagReturn(targetDate) {
-  if (Date.parse($("#rpSource").text()) == Date.parse(targetDate)){
+  if (Date.parse(rp_source) == Date.parse(targetDate)){
+    console.log("MATCH FOUND Return" + rp_source);
     return [true, 'dDate'];
   } else {
     return [true, ''];
