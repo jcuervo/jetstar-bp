@@ -79,7 +79,7 @@ class FlightController < ApplicationController
 #    rescue
 #    end
 
-    render :json => airports
+    render :json => airports.sort_by { |k, v| v }
   end
   
   def findOriginAirports
@@ -94,7 +94,7 @@ class FlightController < ApplicationController
       airports << ["#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]} (#{airport["iataCode"]})"]
     end if parsed_json["wrapper"]["results"]
     
-    airports
+    airports.sort
   end
   
   def findDestinationAirports
@@ -115,7 +115,7 @@ class FlightController < ApplicationController
       airports << ["#{ (airport["name"].index("("))?  airport["name"][0..airport["name"].index("(")-1] : airport["name"]} (#{airport["iataCode"]})"]
     end if parsed_json["wrapper"]["results"]
     
-    airports
+    airports.sort
   end
 =begin
   def findFlightsOld
