@@ -891,4 +891,8 @@ span.graytxt {
 .width99 {width:99%;}
 
 
-
+.dDate a {
+  background: -moz-linear-gradient(center bottom , #D94615 21%, #FF5015 77%) !important;
+  color: #fff !important;
+  text-shadow: none !important;
+}

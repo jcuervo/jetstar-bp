@@ -42,6 +42,7 @@ $(document).ready(function() {
       dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       firstDay: 1,
       defaultDate: dp_source,
+      beforeShowDay: tagReturn,
       onSelect: function(dateText, inst) {
         $("#dpDay").text(dateText.split("/")[1]);
         $("#dpDate").html("<div class='dpWD'>" + getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
@@ -54,6 +55,7 @@ $(document).ready(function() {
       dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       firstDay: 1,
       minDate: dp_source,
+      beforeShowDay: tagDepart,
       onSelect: function(dateText, inst) {
         $("#rpDay").text(dateText.split("/")[1]);
         $("#rpDate").html("<div class='dpWD'>" +  getWeekDay(dateText) + "</div><div class='dpMN'>" + getMonthName(dateText) + "</div>");
@@ -156,20 +158,23 @@ $(document).ready(function() {
     findClosestAirport(centerLatitude, centerLongitude);
   });
   
-  // $("#clearSearch").click(function() {
-  //    $(".searchField").val('').focus();
-  //  });
-  // $(".searchField").click(function() {
-  //     if($(this).val() == "Type name or city") {
-  //       $(this).val('');
-  //     }
-  //   }).blur(function() {
-  //     if($(this).val() == "") {
-  //       $(this).val("Type name or city");
-  //     }
-  //   });
 });
 
+function tagDepart(targetDate) {
+  if (Date.parse($("#dpSource").text()) == Date.parse(targetDate)){
+    return [true, 'dDate'];
+  } else {
+    return [true, ''];
+  }
+}
+
+function tagReturn(targetDate) {
+  if (Date.parse($("#rpSource").text()) == Date.parse(targetDate)){
+    return [true, 'dDate'];
+  } else {
+    return [true, ''];
+  }
+}
 
 function findClosestAirport(lat, lng){
   $.ajax({

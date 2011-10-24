@@ -1,6 +1,13 @@
 require 'net/http'
 class FlightController < ApplicationController
 
+  def index
+    if session[:depart].blank? && session[:return].blank?
+      session[:depart] = Time.zone.now.strftime("%m/%d/%Y")
+      session[:return] = (Time.zone.now + 1.day).strftime("%m/%d/%Y")
+    end
+  end
+
   def create
     if params[:from] && !params[:from].blank?
       session[:origin] = params[:from] 
